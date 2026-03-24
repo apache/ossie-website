@@ -1,0 +1,215 @@
+/*
+ * home.css — Styles for the OSI landing page (overrides/home.html).
+ *
+ * Layout is handled by Bootstrap 5 grid, card, and utility classes.
+ * This file contains ONLY section-specific visuals that Bootstrap
+ * cannot express: backgrounds, gradients, hover effects, accent
+ * borders, and custom component details.
+ *
+ * Global design tokens and Bootstrap overrides live in global.css.
+ */
+
+
+/* ==========================================================================
+   Hero Section
+   ========================================================================== */
+
+.osi-hero {
+  background: linear-gradient(135deg, var(--osi-dark-blue) 0%, var(--osi-navy) 100%);
+  color: var(--osi-white);
+}
+
+.osi-hero__subtitle {
+  font-size: var(--osi-font-lead);
+  opacity: 0.95;
+  line-height: 1.7;
+}
+
+
+/* ==========================================================================
+   About Section
+   ========================================================================== */
+
+.osi-feature-card {
+  background-color: var(--osi-light-gray) !important;
+  border-radius: 12px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.osi-feature-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+}
+
+
+/* ==========================================================================
+   Why OSI Section
+   ========================================================================== */
+
+.osi-why {
+  background-color: var(--osi-ice-blue);
+}
+
+.osi-why__card {
+  background-color: var(--osi-white) !important;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.osi-why__list {
+  padding-left: var(--osi-spacing-md);
+  list-style: disc;
+}
+
+.osi-why__list li {
+  margin-bottom: var(--osi-spacing-xs);
+  color: var(--osi-dark-gray);
+  font-size: var(--osi-font-body);
+}
+
+
+/* ==========================================================================
+   Members Section (Logo Wall)
+   ========================================================================== */
+
+.osi-member-card {
+  border: 2px solid var(--osi-light-gray) !important;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  min-height: 120px;
+}
+
+.osi-member-card__logo {
+  max-width: 120px;
+  max-height: 60px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  transition: all 0.3s ease;
+}
+
+.osi-member-card:hover {
+  border-color: var(--osi-primary-blue) !important;
+  background-color: var(--osi-ice-blue) !important;
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(41, 181, 232, 0.15);
+}
+
+.osi-member-card:hover .osi-member-card__logo {
+  transform: scale(1.1);
+}
+
+.osi-member-card__name {
+  font-size: var(--osi-font-body);
+  font-weight: 500;
+}
+
+
+/* ==========================================================================
+   Specification Section
+   ========================================================================== */
+
+.osi-specification {
+  background-color: var(--osi-light-gray);
+}
+
+.osi-spec-card {
+  background-color: var(--osi-white) !important;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+}
+
+.osi-spec-list li {
+  padding: var(--osi-spacing-xs) 0;
+  color: var(--osi-dark-gray);
+  border-bottom: 1px solid var(--osi-light-gray);
+  font-size: var(--osi-font-body);
+}
+
+.osi-spec-list li:last-child {
+  border-bottom: none;
+}
+
+
+/* ==========================================================================
+   Updates Section
+   ========================================================================== */
+
+.osi-update-card {
+  background-color: var(--osi-light-gray) !important;
+  border-radius: 12px;
+  border-left: 4px solid var(--osi-primary-blue) !important;
+  transition: all 0.3s ease;
+}
+
+.osi-update-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  border-left-color: var(--osi-light-blue) !important;
+}
+
+.osi-update-card__tag {
+  font-size: var(--osi-font-body);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: var(--osi-spacing-xs);
+}
+
+.osi-update-card p {
+  line-height: 1.6;
+  font-size: var(--osi-font-body);
+}
+
+.osi-update-card__link {
+  color: var(--osi-primary-blue);
+  font-weight: 600;
+  font-size: var(--osi-font-body);
+  text-decoration: none;
+  transition: all 0.3s ease;
+  display: inline-block;
+}
+
+.osi-update-card__link:hover {
+  color: var(--osi-light-blue);
+  transform: translateX(4px);
+}
+
+
+/* ==========================================================================
+   Get Involved Section
+   ========================================================================== */
+
+.osi-get-involved {
+  background: linear-gradient(135deg, var(--osi-primary-blue) 0%, var(--osi-light-blue) 100%);
+  color: var(--osi-white);
+}
+
+.osi-involvement-card {
+  background-color: rgba(255, 255, 255, 0.95) !important;
+  border-radius: 12px;
+}
+
+.osi-involvement-card p {
+  font-size: var(--osi-font-body);
+}
+
+.osi-involvement-card a {
+  color: var(--osi-primary-blue);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.osi-involvement-card a:hover {
+  color: var(--osi-light-blue);
+}
+
+.osi-get-involved__join a {
+  color: var(--osi-white);
+  text-decoration: underline;
+  font-weight: 600;
+}
+
+.osi-get-involved__join a:hover {
+  color: var(--osi-navy);
+}

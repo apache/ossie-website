@@ -1,0 +1,271 @@
+{#
+  home.html — Custom landing page template for the OSI website.
+
+  This template extends Material for MkDocs' main.html and overrides the
+  "block tabs" region to inject the full landing page. This is the same
+  pattern used by the Apache Iceberg project.
+
+  ALL TEXT CONTENT is read from data/home.yml via the mkdocs-macros-plugin.
+  Variables are accessed directly (e.g. hero.title). To change any text on
+  this page, edit data/home.yml — not this file.
+
+  Layout uses Bootstrap 5 grid, card, and utility classes. Global design
+  tokens and OSI color overrides live in global.css (loaded site-wide via
+  mkdocs.yml). Page-specific styles come from home.css, loaded by this
+  template.
+#}
+{% extends "main.html" %}
+
+<!-- Override the tabs block to inject the landing page content -->
+{% block tabs %}
+  {{ super() }}
+
+  <link rel="stylesheet" href="{{ 'assets/stylesheets/home.css' | url }}">
+
+  <!-- Inline style: hide default MkDocs content/sidebar on the home page -->
+  <style>
+    .md-content { display: none; }
+    @media screen and (min-width: 60em)   { .md-sidebar--secondary { display: none; } }
+    @media screen and (min-width: 76.25em) { .md-sidebar--primary   { display: none; } }
+  </style>
+
+
+  <!-- ===================================================================
+       HERO SECTION
+       Large banner with headline, subtitle, and call-to-action buttons.
+       Data source: hero
+       =================================================================== -->
+  <section id="home" class="osi-hero py-5">
+    <div class="container">
+      <div class="text-center mx-auto" style="max-width:900px">
+        <h1 class="osi-heading-xl text-white">{{ hero.title }}</h1>
+        <p class="osi-hero__subtitle">{{ hero.subtitle }}</p>
+        <div class="d-flex justify-content-center flex-wrap gap-2">
+          {% for btn in hero.buttons %}
+            <a href="{{ btn.link }}"
+               class="btn {% if btn.style == 'primary' %}btn-primary{% else %}btn-outline-light{% endif %} btn-lg">
+              {{ btn.text }}
+            </a>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ===================================================================
+       ABOUT SECTION
+       Introductory paragraph + four feature cards in a responsive grid.
+       Data source: about
+       =================================================================== -->
+  <section id="about" class="py-5">
+    <div class="container">
+      <h2 class="osi-heading-lg text-center mb-5 osi-text-dark-blue">{{ about.heading }}</h2>
+      <p class="osi-text-dark-gray osi-lead text-center mx-auto mb-5" style="max-width:800px">{{ about.description }}</p>
+      <div class="row g-4">
+        {% for feature in about.features %}
+          <div class="col-md-6 col-lg-3">
+            <div class="card osi-feature-card h-100 text-center border-0">
+              <div class="card-body">
+                <div class="fs-1 mb-3">{{ feature.icon }}</div>
+                <h3 class="osi-heading-md osi-text-dark-blue">{{ feature.title }}</h3>
+                <p class="osi-text-dark-gray small">{{ feature.description }}</p>
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ===================================================================
+       WHY OSI SECTION
+       Two-column layout: challenges on the left, solutions on the right.
+       Data source: why_osi
+       =================================================================== -->
+  <section id="why-osi" class="osi-why py-5">
+    <div class="container">
+      <h2 class="osi-heading-lg text-center mb-5 osi-text-dark-blue">{{ why_osi.heading }}</h2>
+      <div class="row g-4">
+        <!-- Challenge column -->
+        <div class="col-md-6">
+          <div class="card osi-why__card h-100 border-0">
+            <div class="card-body">
+              <h3 class="osi-heading-md osi-text-dark-blue">{{ why_osi.challenge.heading }}</h3>
+              <ul class="osi-why__list mt-3">
+                {% for item in why_osi.challenge.entries %}
+                  <li><strong>{{ item.label }}:</strong> {{ item.text }}</li>
+                {% endfor %}
+              </ul>
+            </div>
+          </div>
+        </div>
+        <!-- Solution column -->
+        <div class="col-md-6">
+          <div class="card osi-why__card h-100 border-0">
+            <div class="card-body">
+              <h3 class="osi-heading-md osi-text-dark-blue">{{ why_osi.solution.heading }}</h3>
+              <ul class="osi-why__list mt-3">
+                {% for item in why_osi.solution.entries %}
+                  <li><strong>{{ item.label }}:</strong> {{ item.text }}</li>
+                {% endfor %}
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ===================================================================
+       MEMBERS SECTION (LOGO WALL)
+       Responsive grid of member company logos. To add a new member:
+         1. Place the logo file in docs/assets/images/logos/
+         2. Add a name + logo entry in data/home.yml under members.list
+       Data source: members
+       =================================================================== -->
+  <section id="members" class="py-5">
+    <div class="container">
+      <h2 class="osi-heading-lg text-center mb-4 osi-text-dark-blue">{{ members.heading }}</h2>
+      <p class="text-center osi-text-gray osi-lead mb-5">{{ members.subtitle }}</p>
+      <div class="row g-4">
+        {% for member in members.list %}
+          <div class="col-6 col-md-4 col-lg-3">
+            <div class="card osi-member-card h-100">
+              <div class="card-body d-flex flex-column align-items-center justify-content-center">
+                <img src="assets/images/logos/{{ member.logo }}"
+                     alt="{{ member.name }}"
+                     loading="lazy"
+                     class="osi-member-card__logo">
+                <span class="osi-member-card__name osi-text-dark-gray mt-2">{{ member.name }}</span>
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ===================================================================
+       SPECIFICATION SECTION
+       Two cards (core classes + working groups) and a GitHub repo link.
+       Data source: specification
+       =================================================================== -->
+  <section id="specification" class="osi-specification py-5">
+    <div class="container">
+      <h2 class="osi-heading-lg text-center mb-5 osi-text-dark-blue">{{ specification.heading }}</h2>
+      <div class="row g-4 mb-5">
+        <!-- Core Classes card -->
+        <div class="col-md-6">
+          <div class="card osi-spec-card h-100 border-0">
+            <div class="card-body">
+              <h3 class="osi-heading-md osi-text-dark-blue">{{ specification.core_classes.heading }}</h3>
+              <ul class="list-unstyled osi-spec-list">
+                {% for item in specification.core_classes.entries %}
+                  <li><strong>{{ item.label }}:</strong> {{ item.text }}</li>
+                {% endfor %}
+              </ul>
+            </div>
+          </div>
+        </div>
+        <!-- Working Groups card -->
+        <div class="col-md-6">
+          <div class="card osi-spec-card h-100 border-0">
+            <div class="card-body">
+              <h3 class="osi-heading-md osi-text-dark-blue">{{ specification.working_groups.heading }}</h3>
+              <ul class="list-unstyled osi-spec-list">
+                {% for item in specification.working_groups.entries %}
+                  <li>{{ item }}</li>
+                {% endfor %}
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="d-flex justify-content-center flex-wrap gap-2 mt-5">
+        <a href="{{ specification.repo_url }}"
+           target="_blank"
+           class="btn btn-primary btn-lg">
+          <svg width="20" height="20" viewBox="0 0 16 16" fill="currentColor">
+            <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/>
+          </svg>
+          {{ specification.repo_text }}
+        </a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ===================================================================
+       UPDATES SECTION
+       News/announcement cards with links to external blog posts.
+       Data source: updates
+       =================================================================== -->
+  <section id="updates" class="py-5">
+    <div class="container">
+      <h2 class="osi-heading-lg text-center mb-5 osi-text-dark-blue">{{ updates.heading }}</h2>
+      <div class="row g-4">
+        {% for update in updates.entries %}
+          <div class="col-md-6">
+            <div class="card osi-update-card h-100 border-0">
+              <div class="card-body">
+                <div class="osi-update-card__tag osi-text-primary">{{ update.tag }}</div>
+                <h3 class="osi-heading-sm osi-text-dark-blue">{{ update.title }}</h3>
+                <p class="osi-text-dark-gray">{{ update.description }}</p>
+                <a href="{{ update.link }}" target="_blank" class="osi-update-card__link">
+                  Read More &rarr;
+                </a>
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ===================================================================
+       GET INVOLVED SECTION
+       Contribution cards and working group registration link.
+       Data source: get_involved
+       =================================================================== -->
+  <section id="get-involved" class="osi-get-involved py-5">
+    <div class="container">
+      <h2 class="osi-heading-lg text-center mb-5 text-white">{{ get_involved.heading }}</h2>
+      <div class="text-center mb-5">
+        <h3 class="osi-heading-md osi-text-dark-blue">{{ get_involved.intro.heading }}</h3>
+        <p class="osi-lead">{{ get_involved.intro.description }}</p>
+      </div>
+      <div class="row g-4 mb-5">
+        {% for action in get_involved.actions %}
+          <div class="col-md-6 col-lg-3">
+            <div class="card osi-involvement-card h-100 border-0">
+              <div class="card-body text-center">
+                <p class="osi-text-dark-gray">{{ action.text }}</p>
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+      <div class="text-center mb-5 osi-get-involved__join">
+        <h3 class="osi-heading-md osi-text-dark-blue">{{ get_involved.join.heading }}</h3>
+        <p class="osi-lead">
+          {{ get_involved.join.description }}
+          <a href="{{ get_involved.join.link }}" target="_blank">
+            {{ get_involved.join.link_text }}
+          </a>
+          to influence the evolution of the OSI specification.
+        </p>
+      </div>
+    </div>
+  </section>
+
+{% endblock %}
+
+<!-- Render the default page content (hidden by CSS above on the home page) -->
+{% block content %}
+  {{ super() }}
+{% endblock %}

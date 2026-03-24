@@ -1,0 +1,137 @@
+/*
+ * global.css — Shared design tokens, typography, colors, and components
+ * used across all pages on the OSI website.
+ *
+ * Loaded before page-specific stylesheets (e.g. home.css) so that tokens
+ * and utility classes are available everywhere.
+ */
+
+/* ==========================================================================
+   CSS Custom Properties (Design Tokens)
+   ========================================================================== */
+:root {
+  --osi-primary-blue: #29B5E8;
+  --osi-dark-blue: #043464;
+  --osi-navy: #0E1C3D;
+  --osi-light-blue: #56C4EF;
+  --osi-ice-blue: #E8F7FC;
+  --osi-white: #FFFFFF;
+  --osi-light-gray: #F5F7FA;
+  --osi-gray: #6B7280;
+  --osi-dark-gray: #374151;
+  --osi-text-dark: #111827;
+
+  --osi-spacing-xs: 0.4rem;
+  --osi-spacing-sm: 0.8rem;
+  --osi-spacing-md: 1.6rem;
+  --osi-spacing-lg: 3.2rem;
+  --osi-spacing-xl: 4.8rem;
+
+  --osi-font-body: 0.7rem;
+  --osi-font-lead: 1rem;
+
+  --osi-font-heading-sm: 1.1rem;
+  --osi-font-heading-md: 1.3rem;
+  --osi-font-heading-lg: 2.1rem;
+  --osi-font-heading-xl: 2.35rem;
+
+  --bs-link-color: var(--osi-primary-blue);
+  --bs-link-hover-color: var(--osi-light-blue);
+  --bs-link-decoration: none;
+}
+
+
+/* ==========================================================================
+   Typography
+   ========================================================================== */
+
+.osi-heading-sm {
+  font-size: var(--osi-font-heading-sm);
+  font-weight: 600;
+  margin-bottom: var(--osi-spacing-sm);
+  line-height: 1.4;
+}
+
+.osi-heading-md {
+  font-size: var(--osi-font-heading-md);
+  font-weight: 600;
+  margin-bottom: var(--osi-spacing-sm);
+}
+
+.osi-heading-lg {
+  font-size: var(--osi-font-heading-lg);
+  font-weight: 700;
+}
+
+.osi-heading-xl {
+  font-size: var(--osi-font-heading-xl);
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+
+/* ==========================================================================
+   Text Colors
+   ========================================================================== */
+
+.osi-text-dark-blue { color: var(--osi-dark-blue); }
+.osi-text-dark-gray { color: var(--osi-dark-gray); }
+.osi-text-gray      { color: var(--osi-gray); }
+.osi-text-primary   { color: var(--osi-primary-blue); }
+
+.osi-lead { font-size: var(--osi-font-lead); }
+
+
+/* ==========================================================================
+   Search Box Override
+   ========================================================================== */
+
+.md-search__input {
+  font-size: var(--osi-font-body);
+}
+
+
+/* ==========================================================================
+   Bootstrap Button Overrides (OSI brand colors)
+   ========================================================================== */
+
+.btn-primary {
+  --bs-btn-bg: var(--osi-primary-blue);
+  --bs-btn-border-color: var(--osi-primary-blue);
+  --bs-btn-hover-bg: var(--osi-light-blue);
+  --bs-btn-hover-border-color: var(--osi-light-blue);
+  --bs-btn-active-bg: var(--osi-dark-blue);
+  --bs-btn-active-border-color: var(--osi-dark-blue);
+  font-weight: 600;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(41, 181, 232, 0.3);
+}
+
+.btn-outline-light:hover {
+  color: var(--osi-dark-blue);
+}
+
+.btn svg {
+  vertical-align: middle;
+  margin-right: 0.5rem;
+}
+
+
+/* ==========================================================================
+   Responsive Breakpoints (Global)
+   ========================================================================== */
+
+@media (max-width: 768px) {
+  .osi-heading-xl {
+    font-size: 2rem;
+  }
+
+  .osi-heading-lg {
+    font-size: 1.75rem;
+  }
+}
+
+

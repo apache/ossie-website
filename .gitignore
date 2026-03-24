@@ -1,2 +1,11 @@
+# MkDocs build output
+site/
+
+# Python bytecode
+__pycache__/
+
+# macOS filesystem artifacts
 .DS_Store
-.cursor
+
+# Cursor IDE settings
+.cursor/
