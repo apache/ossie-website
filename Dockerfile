@@ -11,7 +11,9 @@ FROM squidfunk/mkdocs-material
 
 # Install the macros plugin, which enables reading YAML data from mkdocs.yml
 # in templates via {{ config.extra.* }} variables.
-RUN pip install --no-cache-dir mkdocs-macros-plugin
+RUN pip install --no-cache-dir \
+    mkdocs-macros-plugin \
+    "mkdocs-include-markdown-plugin[cache]"
 
 # MkDocs dev server port
 EXPOSE 8000

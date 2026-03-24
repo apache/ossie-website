@@ -55,12 +55,20 @@ theme:
 
 # ---------------------------------------------------------------------------
 # Plugins
-# search:  Built-in full-text search
-# blog:    Blog with posts, categories, archive by year
-# macros:  Enables {{ config.extra.* }} access in templates and markdown
+# search:            Built-in full-text search
+# include-markdown:  Includes remote/local markdown at build time
+# blog:              Blog with posts, categories, archive by year
+# macros:            Enables {{ config.extra.* }} access in templates and markdown
+#
+# NOTE: include-markdown must come before macros so its directives are
+# processed first. Custom tags ({! / !}) avoid conflicts with macros' {% %}.
 # ---------------------------------------------------------------------------
 plugins:
   - search
+  - include-markdown:
+      opening_tag: "{!"
+      closing_tag: "!}"
+      cache: 600
   - blog:
       blog_dir: blog
       blog_toc: true
@@ -95,6 +103,7 @@ markdown_extensions:
   - toc:
       permalink: true
   - footnotes
+  - def_list
 
 # ---------------------------------------------------------------------------
 # Hooks
@@ -103,6 +112,7 @@ markdown_extensions:
 # ---------------------------------------------------------------------------
 hooks:
   - hooks/load_data.py
+  - hooks/fetch_spec.py
 
 # ---------------------------------------------------------------------------
 # Navigation
@@ -122,6 +132,7 @@ nav:
   - Home: index.md
   - Spec:
     - Nightly: spec/nightly/index.md
+    - Definitions: spec/nightly/definitions.md
   - Community: community.md
   - GitHub: https://github.com/open-semantic-interchange/OSI
   - Blog: blog/

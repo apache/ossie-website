@@ -24,7 +24,7 @@ The site will be available at `http://localhost:8000`.
 Requires Python 3.9+.
 
 ```bash
-pip install mkdocs-material mkdocs-macros-plugin
+pip install mkdocs-material mkdocs-macros-plugin "mkdocs-include-markdown-plugin[cache]"
 mkdocs serve
 ```
 
@@ -45,17 +45,22 @@ Output goes to the `site/` directory (gitignored).
 ```
 osi-website/
 ├── mkdocs.yml                          # Site config: theme, nav, plugins, extensions
-├── Dockerfile                          # Docker dev environment (Material + macros plugin)
+├── Dockerfile                          # Docker dev environment (Material + plugins)
 ├── data/
 │   └── home.yml                        # Landing page content (text, members, updates)
 ├── hooks/
-│   └── load_data.py                    # MkDocs hook: injects data/*.yml into Jinja2 context
+│   ├── load_data.py                    # MkDocs hook: injects data/*.yml into Jinja2 context
+│   └── fetch_spec.py                   # MkDocs hook: downloads spec.yaml, generates definitions.md
 ├── overrides/                          # MkDocs template overrides (custom_dir)
 │   ├── home.html                       # Landing page template (extends main.html)
 │   └── content.html                    # Standard content page template (extends main.html)
 └── docs/                               # MkDocs content root
     ├── index.md                        # Home page (uses home.html template)
     ├── community.md                    # Community page (uses content.html template)
+    ├── spec/
+    │   └── nightly/
+    │       ├── index.md                # Spec page (pulls spec.md from GitHub at build time)
+    │       └── definitions.md          # Generated at build time from spec.yaml (gitignored)
     ├── blog/                           # Blog (managed by blog plugin)
     │   ├── .authors.yml                # Author definitions (name, description)
     │   └── posts/                      # Individual blog posts go here
@@ -121,6 +126,30 @@ Landing page content lives in `data/home.yml`, **not** in `mkdocs.yml`. A custom
 MkDocs hook (`hooks/load_data.py`) loads all YAML files from `data/` and injects
 them as global Jinja2 template variables. This means `home.html` can reference
 variables like `{{ hero.title }}` and `{{ members.list }}` directly.
+
+### Specification Pages (Remote Fetch)
+
+The spec pages pull content from the
+[OSI GitHub repo](https://github.com/open-semantic-interchange/OSI/tree/main/core-spec)
+at build time — nothing is stored locally.
+
+| Page | Source | Mechanism |
+|---|---|---|
+| `spec/nightly/index.md` | `core-spec/spec.md` | `mkdocs-include-markdown-plugin` fetches the remote markdown and inlines it |
+| `spec/nightly/definitions.md` | `core-spec/spec.yaml` | `hooks/fetch_spec.py` downloads the YAML, parses it, and generates a definition list |
+
+`definitions.md` is **gitignored** because it is regenerated on every build.
+
+The `include-markdown` plugin uses custom delimiters (`{!` / `!}`) instead of the
+default `{% %}` to avoid conflicts with the `macros` plugin. When writing
+include directives in markdown files, use:
+
+```markdown
+{! include-markdown "https://example.com/file.md" !}
+```
+
+The plugin caches HTTP responses for 600 seconds during development to avoid
+re-fetching on every save.
 
 ---
 
@@ -207,7 +236,9 @@ The `nav:` section in `mkdocs.yml` controls the header tabs and sidebar menus:
 ```yaml
 nav:
   - Home: index.md
-  - Spec: spec.md
+  - Spec:
+    - Nightly: spec/nightly/index.md
+    - Definitions: spec/nightly/definitions.md
   - Community: community.md
   - GitHub: https://github.com/open-semantic-interchange/OSI
   - Blog: blog/
@@ -341,6 +372,7 @@ MkDocs. Key things to be aware of:
 - [Material for MkDocs — Blog plugin](https://squidfunk.github.io/mkdocs-material/plugins/blog/)
 - [Material for MkDocs — Customization](https://squidfunk.github.io/mkdocs-material/customization/)
 - [Bootstrap 5.3 documentation](https://getbootstrap.com/docs/5.3/)
+- [mkdocs-include-markdown-plugin](https://github.com/mondeja/mkdocs-include-markdown-plugin)
 
 ## License
 
