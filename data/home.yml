@@ -5,7 +5,7 @@
 # page, edit these values — no HTML knowledge required. The template at
 # overrides/home.html reads these values and renders them.
 #
-# Loaded by mkdocs-macros-plugin via the include_yaml option in mkdocs.yml.
+# Loaded by hooks/load_data.py which injects these values as Jinja2 globals.
 # =============================================================================
 
 # --- Hero Section ------------------------------------------------------------

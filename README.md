@@ -4,18 +4,7 @@ Official website for the [Open Semantic Interchange (OSI)](https://github.com/op
 
 ## Quick Start
 
-### Option 1: Local Python install
-
-Requires Python 3.9+. Using [pyenv](https://github.com/pyenv/pyenv) for virtual environment management is recommended.
-
-```bash
-pip install mkdocs-material mkdocs-macros-plugin
-mkdocs serve
-```
-
-The site will be available at `http://localhost:8000` with live-reload.
-
-### Option 2: Docker (no Python required)
+### Option 1: Docker (recommended)
 
 Build the image once, then run:
 
@@ -24,100 +13,162 @@ docker build -t osi-website .
 docker run --rm -it -p 8000:8000 -v ${PWD}:/docs osi-website
 ```
 
-Or use the base image directly (without the macros plugin pre-installed):
+The site will be available at `http://localhost:8000`.
+
+> **Note:** Docker Desktop for Mac does not reliably propagate filesystem events
+> into the container, so live-reload may not work. Restart the container to pick
+> up changes, or use Option 2 for a native dev experience.
+
+### Option 2: Local Python install
+
+Requires Python 3.9+.
 
 ```bash
-docker run --rm -it -p 8000:8000 -v ${PWD}:/docs squidfunk/mkdocs-material
+pip install mkdocs-material mkdocs-macros-plugin
+mkdocs serve
 ```
+
+The site will be available at `http://localhost:8000` with live-reload.
 
 ### Building for production
 
 ```bash
-mkdocs build
+mkdocs build          # or: docker run --rm -v ${PWD}:/docs osi-website build
 ```
 
 Output goes to the `site/` directory (gitignored).
 
 ---
 
-## How This Site Works
-
-This site follows the same architecture as [Apache Iceberg's website](https://github.com/apache/iceberg/tree/main/site): MkDocs with Material for MkDocs, a custom landing page template, and Bootstrap grid for layout.
-
-### Directory Structure
+## Project Structure
 
 ```
 osi-website/
-├── mkdocs.yml                          # Site config + all landing page content
-├── Dockerfile                          # Docker dev environment
-├── overrides/
-│   └── home.html                       # Landing page template (Jinja2)
+├── mkdocs.yml                          # Site config: theme, nav, plugins, extensions
+├── Dockerfile                          # Docker dev environment (Material + macros plugin)
+├── data/
+│   └── home.yml                        # Landing page content (text, members, updates)
+├── hooks/
+│   └── load_data.py                    # MkDocs hook: injects data/*.yml into Jinja2 context
+├── overrides/                          # MkDocs template overrides (custom_dir)
+│   ├── home.html                       # Landing page template (extends main.html)
+│   └── content.html                    # Standard content page template (extends main.html)
 └── docs/                               # MkDocs content root
-    ├── index.md                        # Home page (triggers home.html)
-    ├── spec.md                         # Specification page (create as needed)
-    ├── community.md                    # Community page (create as needed)
+    ├── index.md                        # Home page (uses home.html template)
+    ├── community.md                    # Community page (uses content.html template)
     ├── blog/                           # Blog (managed by blog plugin)
     │   └── posts/                      # Individual blog posts go here
     └── assets/
         ├── images/
         │   ├── logo-horizontal.png     # Site logo (header)
         │   ├── favicon.png             # Browser tab icon
-        │   └── logos/                  # Member company logos
+        │   └── logos/                  # Member company logos (PNG/SVG)
         ├── stylesheets/
-        │   ├── home.css                # Landing page styles
-        │   └── bootstrap-grid.css      # Responsive grid (landing page)
+        │   ├── bootstrap.min.css       # Bootstrap 5.3 (full framework)
+        │   ├── global.css              # OSI design tokens, typography, color utilities
+        │   └── home.css                # Landing page styles (backgrounds, hover effects)
         └── javascripts/
             └── home.js                 # Scroll animations (landing page)
 ```
 
 ---
 
+## Architecture
+
+### Templates
+
+Both templates extend Material for MkDocs' `main.html`, which provides the site
+header (logo, navigation tabs, search), footer (social links, copyright), and
+all base functionality.
+
+| Template | Purpose | Used by |
+|---|---|---|
+| `home.html` | Custom landing page with hero, cards, and sections. Overrides the `tabs` block to inject landing page content and hides the default MkDocs content area. | `docs/index.md` |
+| `content.html` | Standard content page. Inherits Material's default layout with sidebars, TOC, and content area — no block overrides needed. | `docs/community.md` and any future content pages |
+
+Assign a template to a page via front matter:
+
+```yaml
+---
+template: content.html
+---
+```
+
+### CSS Architecture
+
+Stylesheets load in this order (configured in `mkdocs.yml` and templates):
+
+1. **`bootstrap.min.css`** — Full Bootstrap 5.3 framework (loaded site-wide)
+2. **`global.css`** — OSI design tokens, typography classes, color utilities, Bootstrap overrides (loaded site-wide)
+3. **`home.css`** — Landing page visuals: section backgrounds, hover effects, accent borders (loaded only by `home.html`)
+
+#### Design Tokens
+
+All shared values are defined as CSS custom properties in `global.css`:
+
+| Category | Examples |
+|---|---|
+| Colors | `--osi-primary-blue`, `--osi-dark-blue`, `--osi-navy`, `--osi-light-blue`, `--osi-ice-blue` |
+| Spacing | `--osi-spacing-xs` through `--osi-spacing-xl` |
+| Typography | `--osi-font-body`, `--osi-font-lead`, `--osi-font-heading-sm` through `--osi-font-heading-xl` |
+
+Utility classes: `.osi-heading-sm` / `-md` / `-lg` / `-xl`, `.osi-text-dark-blue` / `-dark-gray` / `-gray` / `-primary`, `.osi-lead`.
+
+### Data Loading
+
+Landing page content lives in `data/home.yml`, **not** in `mkdocs.yml`. A custom
+MkDocs hook (`hooks/load_data.py`) loads all YAML files from `data/` and injects
+them as global Jinja2 template variables. This means `home.html` can reference
+variables like `{{ hero.title }}` and `{{ members.list }}` directly.
+
+---
+
 ## Editing the Landing Page
 
-**You do not need to edit HTML to change landing page content.** All text, members, updates, and other content is stored as YAML key-value pairs in `mkdocs.yml` under the `extra:` section. The template (`overrides/home.html`) reads these values and renders them automatically.
+**You do not need to edit HTML to change landing page content.** All text,
+members, updates, and other content is stored in `data/home.yml`. The template
+reads these values and renders them automatically.
 
 ### Changing text
 
-Open `mkdocs.yml` and find the section you want to edit under `extra:`. For example, to change the hero banner headline:
+Open `data/home.yml` and find the section you want to edit. For example, to
+change the hero banner headline:
 
 ```yaml
-extra:
-  hero:
-    title: "Your new headline here"
-    subtitle: "Your new subtitle here"
+hero:
+  title: "Your new headline here"
+  subtitle: "Your new subtitle here"
 ```
 
-### Adding a new working group member
+### Adding a working group member
 
 1. Place the logo file (PNG or SVG) in `docs/assets/images/logos/`
-2. Add an entry to the `extra.members.list` array in `mkdocs.yml`:
+2. Add an entry to the `members.list` array in `data/home.yml`:
 
 ```yaml
-  members:
-    list:
-      # ... existing members ...
-      - name: "New Company"
-        logo: "new-company-logo.png"
+members:
+  list:
+    # ... existing members ...
+    - name: "New Company"
+      logo: "new-company-logo.png"
 ```
-
-The logo will automatically appear in the grid on the landing page.
 
 ### Adding a news update
 
-Add an entry to `extra.updates.items` in `mkdocs.yml`:
+Add an entry to `updates.entries` in `data/home.yml`:
 
 ```yaml
-  updates:
-    items:
-      - tag: "News"
-        title: "Your update title"
-        description: "A brief summary of the update."
-        link: "https://example.com/blog-post"
+updates:
+  entries:
+    - tag: "News"
+      title: "Your update title"
+      description: "A brief summary of the update."
+      link: "https://example.com/blog-post"
 ```
 
 ### Changing colors
 
-Edit the CSS custom properties at the top of `docs/assets/stylesheets/home.css`:
+Edit the CSS custom properties in `docs/assets/stylesheets/global.css`:
 
 ```css
 :root {
@@ -129,102 +180,60 @@ Edit the CSS custom properties at the top of `docs/assets/stylesheets/home.css`:
 
 ---
 
-## Adding Documentation Pages
+## Adding Content Pages
 
 ### Creating a new page
 
-1. Create a `.md` file in the `docs/` directory (or a subdirectory)
-2. Add it to the `nav:` section in `mkdocs.yml`
+1. Create a `.md` file in `docs/`
+2. Add front matter pointing to the `content.html` template:
+
+```yaml
+---
+template: content.html
+title: Page Title
+---
+```
+
+3. Add it to the `nav:` section in `mkdocs.yml`
+
+The page will automatically get the site header, footer, navigation sidebar,
+table of contents, and all global styles.
 
 ### Navigation structure
 
-The `nav:` section in `mkdocs.yml` controls the site's navigation tabs and sidebar menus. Nesting is unlimited:
+The `nav:` section in `mkdocs.yml` controls the header tabs and sidebar menus:
 
 ```yaml
 nav:
   - Home: index.md
-  - Docs:
-    - Getting Started:
-      - Installation: docs/getting-started/installation.md
-      - Configuration:
-        - Basic Setup: docs/getting-started/config-basic.md
-        - Advanced: docs/getting-started/config-advanced.md
-    - API Reference:
-      - Overview: docs/api/overview.md
-      - Endpoints: docs/api/endpoints.md
+  - Spec: spec.md
   - Community: community.md
+  - GitHub: https://github.com/open-semantic-interchange/OSI
   - Blog: blog/
 ```
 
-Each top-level item becomes a tab in the header. Nested items appear in the left sidebar when that tab is active.
+Each top-level item becomes a tab in the header. Nested items appear in the left
+sidebar when that tab is active.
 
-### Page metadata (frontmatter)
-
-Each `.md` file can include YAML frontmatter at the top:
+### Page metadata (front matter)
 
 ```yaml
 ---
-title: Page Title              # Browser tab title; overrides the first # heading
-description: A brief summary   # Used by search engines and social media previews
+template: content.html        # Which template to use
+title: Page Title              # Browser tab title
+description: A brief summary   # Search engines and social previews
 hide:
-  - navigation                 # Hide the left sidebar on this page
-  - toc                        # Hide the right table-of-contents sidebar
+  - navigation                 # Hide the left sidebar
+  - toc                        # Hide the table of contents sidebar
 ---
 ```
-
-### Code blocks
-
-Use fenced code blocks with a language identifier for syntax highlighting:
-
-````markdown
-```python
-def hello():
-    print("Hello, OSI!")
-```
-
-```sql
-SELECT * FROM metrics WHERE org = 'OSI';
-```
-````
-
-Material for MkDocs automatically adds a copy button to code blocks.
-
-### Tabbed code blocks
-
-Show the same example in multiple languages using tabs:
-
-````markdown
-=== "Python"
-
-    ```python
-    import osi
-    model = osi.load("model.yaml")
-    ```
-
-=== "Java"
-
-    ```java
-    OsiModel model = Osi.load("model.yaml");
-    ```
-````
-
-### Admonitions (callout boxes)
-
-```markdown
-!!! note "Important"
-    This is a callout box that draws attention to key information.
-
-!!! warning
-    This highlights a potential issue.
-```
-
-See the full list of admonition types in the [Material for MkDocs docs](https://squidfunk.github.io/mkdocs-material/reference/admonitions/).
 
 ---
 
 ## Writing Blog Posts
 
-Blog posts live in `docs/blog/posts/`. Each post is a `.md` file with required frontmatter:
+Blog posts live in `docs/blog/posts/`. Each post is a `.md` file with required
+front matter:
 
 ```yaml
 ---
@@ -240,12 +249,26 @@ categories:
 Your post content here in Markdown...
 ```
 
-The blog plugin automatically generates:
-- A blog index page listing recent posts
-- Archive pages organized by year
-- Category pages
-
+The blog plugin automatically generates index, archive, and category pages.
 Posts appear at `/blog/` on the site.
+
+---
+
+## Bootstrap and Material for MkDocs
+
+This site loads the full Bootstrap 5.3 CSS framework alongside Material for
+MkDocs. Key things to be aware of:
+
+- **Bootstrap loads globally** — its reboot and utility classes affect all pages,
+  not just the landing page.
+- **Material for MkDocs scopes its styles** — content typography is inside
+  `.md-typeset`, so Bootstrap's reboot generally doesn't conflict with doc/blog
+  pages.
+- **Button classes** — Bootstrap's `.btn`, `.btn-primary` etc. are used instead
+  of custom button styles. OSI brand colors are applied via `--bs-btn-bg` and
+  related CSS custom properties in `global.css`.
+- **Link styles** — `--bs-link-color` and `--bs-link-decoration` are overridden
+  in `global.css` to match the OSI palette and prevent unwanted underlines.
 
 ---
 
@@ -255,8 +278,8 @@ Posts appear at `/blog/` on the site.
 - [Material for MkDocs documentation](https://squidfunk.github.io/mkdocs-material/)
 - [Material for MkDocs — Setting up navigation](https://squidfunk.github.io/mkdocs-material/setup/setting-up-navigation/)
 - [Material for MkDocs — Blog plugin](https://squidfunk.github.io/mkdocs-material/plugins/blog/)
-- [Material for MkDocs — Code blocks](https://squidfunk.github.io/mkdocs-material/reference/code-blocks/)
-- [Apache Iceberg site (reference implementation)](https://github.com/apache/iceberg/tree/main/site)
+- [Material for MkDocs — Customization](https://squidfunk.github.io/mkdocs-material/customization/)
+- [Bootstrap 5.3 documentation](https://getbootstrap.com/docs/5.3/)
 
 ## License
 
