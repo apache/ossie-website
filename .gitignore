@@ -7,8 +7,5 @@ __pycache__/
 # macOS filesystem artifacts
 .DS_Store
 
-# Generated at build time by hooks/fetch_spec.py
-docs/spec/nightly/definitions.md
-
 # Cursor IDE settings
 .cursor/

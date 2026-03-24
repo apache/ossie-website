@@ -50,7 +50,7 @@ osi-website/
 │   └── home.yml                        # Landing page content (text, members, updates)
 ├── hooks/
 │   ├── load_data.py                    # MkDocs hook: injects data/*.yml into Jinja2 context
-│   └── fetch_spec.py                   # MkDocs hook: downloads spec.yaml, generates definitions.md
+│   └── fetch_spec.py                   # MkDocs hook: downloads spec.yaml, serves definitions as virtual page
 ├── overrides/                          # MkDocs template overrides (custom_dir)
 │   ├── home.html                       # Landing page template (extends main.html)
 │   └── content.html                    # Standard content page template (extends main.html)
@@ -59,8 +59,7 @@ osi-website/
     ├── community.md                    # Community page (uses content.html template)
     ├── spec/
     │   └── nightly/
-    │       ├── index.md                # Spec page (pulls spec.md from GitHub at build time)
-    │       └── definitions.md          # Generated at build time from spec.yaml (gitignored)
+    │       └── index.md                # Spec page (pulls spec.md from GitHub at build time)
     ├── blog/                           # Blog (managed by blog plugin)
     │   ├── .authors.yml                # Author definitions (name, description)
     │   └── posts/                      # Individual blog posts go here
@@ -136,9 +135,12 @@ at build time — nothing is stored locally.
 | Page | Source | Mechanism |
 |---|---|---|
 | `spec/nightly/index.md` | `core-spec/spec.md` | `mkdocs-include-markdown-plugin` fetches the remote markdown and inlines it |
-| `spec/nightly/definitions.md` | `core-spec/spec.yaml` | `hooks/fetch_spec.py` downloads the YAML, parses it, and generates a definition list |
+| `spec/nightly/definitions.md` | `core-spec/spec.yaml` | `hooks/fetch_spec.py` downloads the YAML, parses it, and serves a virtual page (no file on disk) |
 
-`definitions.md` is **gitignored** because it is regenerated on every build.
+The definitions page is a **virtual file** — it exists only in memory during the
+build. The hook uses MkDocs' `on_files` event to inject a `File` object and
+`on_page_read_source` to supply its markdown content. Nothing is written to the
+`docs/` directory.
 
 The `include-markdown` plugin uses custom delimiters (`{!` / `!}`) instead of the
 default `{% %}` to avoid conflicts with the `macros` plugin. When writing

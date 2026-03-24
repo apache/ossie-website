@@ -1,19 +1,23 @@
 """
 MkDocs hook that downloads the OSI spec.yaml from GitHub and generates
-docs/spec/nightly/definitions.md as a markdown definition list.
+a virtual definitions page as a markdown definition list.
 
-Runs on the on_pre_build event so the generated file is available when
-MkDocs scans the docs directory.
+Uses on_files to inject a virtual File into the build and
+on_page_read_source to supply its content — no file is written to disk.
 """
 
-import os
 import re
 import urllib.request
+from datetime import datetime, timezone
+
+from mkdocs.structure.files import File
 
 SPEC_YAML_URL = (
     "https://raw.githubusercontent.com/"
     "open-semantic-interchange/OSI/main/core-spec/spec.yaml"
 )
+
+DEFINITIONS_SRC_PATH = "spec/nightly/definitions.md"
 
 SCHEMA_SECTIONS = {
     "semantic_model": "Semantic Model",
@@ -25,18 +29,23 @@ SCHEMA_SECTIONS = {
 
 ENUM_KEYS = {"dialects", "vendors"}
 
-FRONT_MATTER = """\
----
-template: content.html
-title: Definitions (Nightly)
----
+_definitions_markdown = None
 
-# OSI Schema Definitions — Nightly
 
-Field-level reference generated from
-[`spec.yaml`](https://github.com/open-semantic-interchange/OSI/blob/main/core-spec/spec.yaml).
-
-"""
+def _make_front_matter():
+    now = datetime.now(timezone.utc)
+    date_str = now.strftime("%-d %B %Y")
+    time_str = now.strftime("%H:%M UTC")
+    return (
+        "---\n"
+        "template: content.html\n"
+        "title: Definitions (Nightly)\n"
+        "---\n\n"
+        "# OSI Schema Definitions — Nightly\n\n"
+        "Field-level reference generated from\n"
+        "[`spec.yaml`](https://github.com/open-semantic-interchange/OSI/"
+        f"blob/main/core-spec/spec.yaml) on {date_str} at {time_str}.\n\n"
+    )
 
 
 def _download(url):
@@ -154,7 +163,7 @@ def _parse_fields(lines):
 
 def _render_markdown(sections):
     """Produce the full definitions page as a markdown string."""
-    parts = [FRONT_MATTER]
+    parts = [_make_front_matter()]
 
     for key, description, field_lines in sections:
         title = SCHEMA_SECTIONS.get(key, key)
@@ -173,15 +182,26 @@ def _render_markdown(sections):
     return "".join(parts)
 
 
-def on_pre_build(config):
-    docs_dir = config["docs_dir"]
-    out_dir = os.path.join(docs_dir, "spec", "nightly")
-    os.makedirs(out_dir, exist_ok=True)
+def on_files(files, config):
+    """Inject a virtual File for the definitions page."""
+    global _definitions_markdown
 
     raw_yaml = _download(SPEC_YAML_URL)
     sections = _parse_sections(raw_yaml)
-    markdown = _render_markdown(sections)
+    _definitions_markdown = _render_markdown(sections)
 
-    out_path = os.path.join(out_dir, "definitions.md")
-    with open(out_path, "w") as f:
-        f.write(markdown)
+    definitions_file = File(
+        path=DEFINITIONS_SRC_PATH,
+        src_dir=config["docs_dir"],
+        dest_dir=config["site_dir"],
+        use_directory_urls=config["use_directory_urls"],
+    )
+    files.append(definitions_file)
+    return files
+
+
+def on_page_read_source(page, config):
+    """Supply generated markdown for the virtual definitions page."""
+    if page.file.src_path == DEFINITIONS_SRC_PATH:
+        return _definitions_markdown
+    return None
