@@ -92,6 +92,23 @@
 
 
 /* ==========================================================================
+   Header Tab Link Colors
+   ========================================================================== */
+
+.md-tabs__link,
+.md-tabs__link:visited {
+  color: var(--osi-white);
+  text-decoration: none;
+}
+
+.md-tabs__link:hover,
+.md-tabs__link:active {
+  color: var(--osi-light-blue);
+  text-decoration: none;
+}
+
+
+/* ==========================================================================
    Bootstrap Button Overrides (OSI brand colors)
    ========================================================================== */
 
