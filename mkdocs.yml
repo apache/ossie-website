@@ -120,7 +120,8 @@ hooks:
 # ---------------------------------------------------------------------------
 nav:
   - Home: index.md
-  - Spec: spec.md
+  - Spec:
+    - Nightly: spec/nightly/index.md
   - Community: community.md
   - GitHub: https://github.com/open-semantic-interchange/OSI
   - Blog: blog/
