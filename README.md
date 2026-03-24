@@ -57,6 +57,7 @@ osi-website/
     ├── index.md                        # Home page (uses home.html template)
     ├── community.md                    # Community page (uses content.html template)
     ├── blog/                           # Blog (managed by blog plugin)
+    │   ├── .authors.yml                # Author definitions (name, description)
     │   └── posts/                      # Individual blog posts go here
     └── assets/
         ├── images/
@@ -232,25 +233,85 @@ hide:
 
 ## Writing Blog Posts
 
-Blog posts live in `docs/blog/posts/`. Each post is a `.md` file with required
-front matter:
+Blog posts are powered by the Material for MkDocs
+[blog plugin](https://squidfunk.github.io/mkdocs-material/plugins/blog/), which
+automatically generates the index, archive, and category pages. Posts appear at
+`/blog/` on the site.
+
+### Creating a post
+
+1. Create a new `.md` file in `docs/blog/posts/` (the filename becomes the URL
+   slug unless overridden)
+2. Add the required front matter (see below)
+3. Write your content in Markdown
+
+### Front matter
+
+Every post **must** include `date` and `authors`. Other fields are optional but
+recommended:
 
 ```yaml
 ---
-date: 2025-06-15
+date: 2025-06-15                # Publication date (YYYY-MM-DD)
 authors:
-  - name: Jane Smith
+  - ghost                       # One or more author IDs from .authors.yml
 categories:
-  - Announcements
+  - Announcements               # Groups the post in a category page
+tags:
+  - osi                         # Freeform tags
+  - open-source
+description: >-                 # Used in social previews and search results
+  A short summary of the post.
+draft: true                     # Set to true to hide the post from production
 ---
-
-# Blog Post Title
-
-Your post content here in Markdown...
 ```
 
-The blog plugin automatically generates index, archive, and category pages.
-Posts appear at `/blog/` on the site.
+### Adding an excerpt
+
+Place an `<!-- more -->` separator in your post. Everything above it becomes the
+excerpt shown on the blog index page. If omitted, the full post body is shown.
+
+```markdown
+# Post Title
+
+This introductory paragraph appears on the blog index as the excerpt.
+
+<!-- more -->
+
+The rest of the post only appears on the full post page.
+```
+
+### Managing authors
+
+Authors are defined in `docs/blog/.authors.yml`. Each entry has an ID (used in
+post front matter) and a display name:
+
+```yaml
+authors:
+  jsmith:
+    name: Jane Smith
+    description: OSI Working Group Lead
+    avatar: https://example.com/jsmith.png
+```
+
+The `avatar` field is **required** by the blog plugin — the build will fail
+without it. Use a URL to a headshot or a placeholder image.
+
+To add a new author, add an entry to this file and then reference the ID in your
+post's `authors` list. See the Material for MkDocs
+[authors documentation](https://squidfunk.github.io/mkdocs-material/plugins/blog/#authors)
+for additional fields and links to social profiles.
+
+### Blog plugin configuration
+
+The blog plugin is configured in `mkdocs.yml` under `plugins`. Current settings:
+
+| Setting | Value | Effect |
+|---|---|---|
+| `blog_dir` | `blog` | Posts live under `docs/blog/` |
+| `blog_toc` | `true` | Post titles appear in the TOC on the index page |
+| `post_date_format` | `long` | Dates render as e.g. "June 15, 2025" |
+| `post_url_format` | `{slug}` | Post URLs are `/blog/<slug>/` (no date prefix) |
 
 ---
 
