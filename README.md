@@ -53,7 +53,9 @@ osi-website/
 │   └── fetch_spec.py                   # MkDocs hook: downloads spec.yaml, serves definitions as virtual page
 ├── overrides/                          # MkDocs template overrides (custom_dir)
 │   ├── home.html                       # Landing page template (extends main.html)
-│   └── content.html                    # Standard content page template (extends main.html)
+│   ├── content.html                    # Standard content page template (extends main.html)
+│   └── partials/
+│       └── header.html                 # Custom single-bar header (replaces Material default)
 └── docs/                               # MkDocs content root
     ├── index.md                        # Home page (uses home.html template)
     ├── community.md                    # Community page (uses content.html template)
@@ -65,7 +67,7 @@ osi-website/
     │   └── posts/                      # Individual blog posts go here
     └── assets/
         ├── images/
-        │   ├── logo-horizontal.png     # Site logo (header)
+        │   ├── osi-logos/              # OSI brand logos (SVG)
         │   ├── favicon.png             # Browser tab icon
         │   └── logos/                  # Member company logos (PNG/SVG)
         ├── stylesheets/
@@ -83,8 +85,8 @@ osi-website/
 ### Templates
 
 Both templates extend Material for MkDocs' `main.html`, which provides the site
-header (logo, navigation tabs, search), footer (social links, copyright), and
-all base functionality.
+footer (social links, copyright) and all base functionality. The header is
+provided by a custom partial (see below).
 
 | Template | Purpose | Used by |
 |---|---|---|
@@ -117,7 +119,35 @@ All shared values are defined as CSS custom properties in `global.css`:
 | Spacing | `--osi-spacing-xs` through `--osi-spacing-xl` |
 | Typography | `--osi-font-body`, `--osi-font-lead`, `--osi-font-heading-sm` through `--osi-font-heading-xl` |
 
-Utility classes: `.osi-heading-sm` / `-md` / `-lg` / `-xl`, `.osi-text-dark-blue` / `-dark-gray` / `-gray` / `-primary`, `.osi-lead`.
+Utility classes: `.osi-text-dark-blue` / `-dark-gray` / `-gray` / `-primary`.
+
+### Custom Header
+
+The site uses a custom header partial (`overrides/partials/header.html`) that
+replaces Material for MkDocs' default two-bar layout (header + tabs) with a
+single bar:
+
+```
+| Logo       Home   Spec   Community   GitHub   Blog       (search) |
+```
+
+Key details:
+
+- **`navigation.tabs` is kept in `mkdocs.yml`** but the rendered `.md-tabs` bar
+  is hidden with `display: none`. This preserves Material's sidebar scoping
+  (subpage sidebars only show children of the active top-level section).
+- **`navigation.tabs.sticky` is removed** — it's unnecessary since we own the
+  header template entirely.
+- The header uses a **frosted-glass effect** (`backdrop-filter: blur(10px)` with
+  semi-transparent white background) and a drop shadow.
+- Nav links and search icon use **dark-blue** text to contrast with the
+  translucent white background.
+- On mobile (below Material's `76.25em` breakpoint), the nav links hide and a
+  hamburger icon appears, opening Material's built-in drawer/sidebar.
+- **Search** is preserved by including `partials/search.html` inside the same
+  `<header>` element, which keeps Material's CSS toggle mechanism working.
+- Since this fully replaces `header.html`, **upstream Material updates to the
+  header will not be inherited automatically**.
 
 ### Data Loading
 
@@ -246,8 +276,8 @@ nav:
   - Blog: blog/
 ```
 
-Each top-level item becomes a tab in the header. Nested items appear in the left
-sidebar when that tab is active.
+Each top-level item becomes a nav link in the header. Nested items appear in the
+left sidebar when that section is active.
 
 ### Page metadata (front matter)
 
