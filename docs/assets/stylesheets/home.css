@@ -20,9 +20,8 @@
 }
 
 .osi-hero__subtitle {
-  font-size: var(--osi-font-lead);
   opacity: 0.95;
-  line-height: 1.7;
+  line-height: 1.4;
 }
 
 
@@ -64,7 +63,7 @@
 .osi-why__list li {
   margin-bottom: var(--osi-spacing-xs);
   color: var(--osi-dark-gray);
-  font-size: var(--osi-font-body);
+  font-size: var(--osi-font-caption);
 }
 
 
@@ -100,8 +99,7 @@
 }
 
 .osi-member-card__name {
-  font-size: var(--osi-font-body);
-  font-weight: 500;
+  font-size: var(--osi-font-caption);
 }
 
 
@@ -123,7 +121,7 @@
   padding: var(--osi-spacing-xs) 0;
   color: var(--osi-dark-gray);
   border-bottom: 1px solid var(--osi-light-gray);
-  font-size: var(--osi-font-body);
+  font-size: var(--osi-font-caption);
 }
 
 .osi-spec-list li:last-child {
@@ -148,23 +146,15 @@
   border-left-color: var(--osi-light-blue) !important;
 }
 
-.osi-update-card__tag {
-  font-size: var(--osi-font-body);
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  margin-bottom: var(--osi-spacing-xs);
-}
-
 .osi-update-card p {
   line-height: 1.6;
-  font-size: var(--osi-font-body);
+  font-size: var(--osi-font-caption);
 }
 
 .osi-update-card__link {
   color: var(--osi-primary-blue);
   font-weight: 600;
-  font-size: var(--osi-font-body);
+  font-size: var(--osi-font-caption);
   text-decoration: none;
   transition: all 0.3s ease;
   display: inline-block;
@@ -191,7 +181,7 @@
 }
 
 .osi-involvement-card p {
-  font-size: var(--osi-font-body);
+  font-size: var(--osi-font-caption);
 }
 
 .osi-involvement-card a {
@@ -204,12 +194,3 @@
   color: var(--osi-light-blue);
 }
 
-.osi-get-involved__join a {
-  color: var(--osi-white);
-  text-decoration: underline;
-  font-weight: 600;
-}
-
-.osi-get-involved__join a:hover {
-  color: var(--osi-navy);
-}

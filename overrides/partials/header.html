@@ -1,0 +1,44 @@
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+
+    <!-- Left: logo + mobile hamburger -->
+    <div class="md-header__left">
+      <label class="md-header__button md-icon md-header__hamburger" for="__drawer">
+        {% set icon = config.theme.icon.menu or "material/menu" %}
+        {% include ".icons/" ~ icon ~ ".svg" %}
+      </label>
+      <a href="{{ config.site_url | url }}" class="md-header__button md-logo" aria-label="Home">
+        {% include "partials/logo.html" %}
+      </a>
+    </div>
+
+    <!-- Center: nav links (desktop only) -->
+    <div class="md-header__center">
+      <ul class="md-header__nav">
+        {% for nav_item in nav.items %}
+          {% set url = nav_item.url | url if not nav_item.children else nav_item.children | first | attr("url") | url %}
+          <li class="md-header__nav-item{% if nav_item.active %} md-header__nav-item--active{% endif %}">
+            <a href="{{ url }}" class="md-header__nav-link">
+              {{ nav_item.title }}
+            </a>
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
+
+    <!-- Right: search -->
+    <div class="md-header__right">
+      {% if "material/search" in config.plugins %}
+        {% set search = config.plugins["material/search"] | attr("config") %}
+        {% if search.enabled %}
+          <label class="md-header__button md-icon" for="__search">
+            {% set icon = config.theme.icon.search or "material/magnify" %}
+            {% include ".icons/" ~ icon ~ ".svg" %}
+          </label>
+          {% include "partials/search.html" %}
+        {% endif %}
+      {% endif %}
+    </div>
+
+  </nav>
+</header>

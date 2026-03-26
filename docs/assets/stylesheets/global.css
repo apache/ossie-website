@@ -27,13 +27,22 @@
   --osi-spacing-lg: 3.2rem;
   --osi-spacing-xl: 4.8rem;
 
-  --osi-font-body: 0.7rem;
-  --osi-font-lead: 1rem;
+  /* Bootstrap body overrides */
+  --bs-body-font-family: Helvetica, Arial, sans-serif;
+  --bs-body-font-weight: 500;
+  --bs-body-line-height: 1.2;
 
-  --osi-font-heading-sm: 1.1rem;
-  --osi-font-heading-md: 1.3rem;
-  --osi-font-heading-lg: 2.1rem;
-  --osi-font-heading-xl: 2.35rem;
+  /* Font scale — component tokens */
+  --osi-font-small:      0.79rem;
+  --osi-font-caption:    0.889rem;
+  --osi-font-body:       1rem;
+  --osi-font-lead:       1.125rem;
+
+  /* Heading tokens (aligned with Material for MkDocs) */
+  --osi-font-heading-sm: 0.8rem;    /* h4: 16px */
+  --osi-font-heading-md: 1.0rem;    /* h3: 20px */
+  --osi-font-heading-lg: 1.25rem;   /* h2: 25px */
+  --osi-font-heading-xl: 1.6rem;    /* h1: 32px */
 
   --bs-link-color: var(--osi-primary-blue);
   --bs-link-hover-color: var(--osi-light-blue);
@@ -42,32 +51,62 @@
 
 
 /* ==========================================================================
-   Typography
+   Heading Overrides (Material for MkDocs sizes + our font choices)
    ========================================================================== */
 
-.osi-heading-sm {
-  font-size: var(--osi-font-heading-sm);
-  font-weight: 600;
-  margin-bottom: var(--osi-spacing-sm);
-  line-height: 1.4;
-}
-
-.osi-heading-md {
-  font-size: var(--osi-font-heading-md);
-  font-weight: 600;
-  margin-bottom: var(--osi-spacing-sm);
-}
-
-.osi-heading-lg {
-  font-size: var(--osi-font-heading-lg);
-  font-weight: 700;
-}
-
-.osi-heading-xl {
+h1, .h1, .md-typeset h1 {
   font-size: var(--osi-font-heading-xl);
-  font-weight: 700;
-  line-height: 1.2;
+  font-weight: 300;
+  font-family: 'Work Sans', sans-serif;
+  line-height: 1.4;
+  letter-spacing: -0.01em;
+  margin: 0 0 0.625em;
 }
+
+h2, .h2, .md-typeset h2 {
+  font-size: var(--osi-font-heading-lg);
+  font-weight: 300;
+  font-family: 'Work Sans', sans-serif;
+  line-height: 1.4;
+  letter-spacing: -0.01em;
+  margin: 0.64em 0 0.4em;
+}
+
+h3, .h3, .md-typeset h3 {
+  font-size: var(--osi-font-heading-md);
+  font-weight: 300;
+  font-family: 'Work Sans', sans-serif;
+  line-height: 1.4;
+  letter-spacing: -0.01em;
+  margin: 0.8em 0 0.4em;
+}
+
+h4, .h4, .md-typeset h4 {
+  font-size: var(--osi-font-heading-sm);
+  font-weight: 300;
+  font-family: 'Work Sans', sans-serif;
+  line-height: 1.2;
+  margin: 1em 0;
+}
+
+h5, .h5, .md-typeset h5 {
+  font-size: 0.64rem;
+  font-weight: 300;
+  font-family: 'Work Sans', sans-serif;
+  line-height: 1.2;
+  margin: 1.25em 0;
+}
+
+h6, .h6, .md-typeset h6 {
+  font-size: 0.512rem;
+  font-weight: 300;
+  font-family: 'Work Sans', sans-serif;
+  line-height: 1.2;
+  margin: 1.25em 0;
+}
+
+.lead { font-size: var(--osi-font-lead); }
+
 
 
 /* ==========================================================================
@@ -79,7 +118,6 @@
 .osi-text-gray      { color: var(--osi-gray); }
 .osi-text-primary   { color: var(--osi-primary-blue); }
 
-.osi-lead { font-size: var(--osi-font-lead); }
 
 
 /* ==========================================================================
@@ -87,24 +125,99 @@
    ========================================================================== */
 
 .md-search__input {
-  font-size: var(--osi-font-body);
+  font-size: 0.7rem;
 }
 
 
 /* ==========================================================================
-   Header Tab Link Colors
+   Custom Header: single-bar layout (logo | nav links | search)
    ========================================================================== */
 
-.md-tabs__link,
-.md-tabs__link:visited {
-  color: var(--osi-white);
-  text-decoration: none;
+/* Frosted-glass header with drop shadow */
+.md-header {
+  background-color: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 0 .2rem rgba(0, 0, 0, .1), 0 .2rem .4rem rgba(0, 0, 0, .2);
 }
 
-.md-tabs__link:hover,
-.md-tabs__link:active {
-  color: var(--osi-light-blue);
+/* Search icon inherits dark color to match frosted header */
+.md-header .md-header__button {
+  color: var(--osi-dark-blue);
+}
+
+/* Hide Material's separate tabs bar (sidebar scoping kept via navigation.tabs) */
+.md-tabs {
+  display: none;
+}
+
+/* Three-zone flex layout */
+.md-header__inner {
+  display: flex;
+  align-items: center;
+}
+
+.md-header__left {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.md-header__center {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.md-header__right {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+/* Nav link list */
+.md-header__nav {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 1.5rem;
+}
+
+.md-header__nav-link {
+  color: var(--osi-dark-blue);
   text-decoration: none;
+  font-size: 0.7rem;
+  font-weight: 500;
+  font-family: 'Work Sans', sans-serif;
+  padding: 0.5rem 0;
+  transition: color 0.15s;
+}
+
+.md-header__nav-link:hover {
+  color: var(--osi-light-blue);
+}
+
+.md-header__nav-link:active {
+  color: var(--osi-light-blue);
+}
+
+.md-header__nav-item--active .md-header__nav-link {
+  color: var(--osi-primary-blue);
+}
+
+/* Hide center nav on mobile — the drawer handles navigation */
+@media (max-width: 76.1875em) {
+  .md-header__center {
+    display: none;
+  }
+}
+
+/* Hide hamburger on desktop */
+@media (min-width: 76.25em) {
+  .md-header__hamburger {
+    display: none;
+  }
 }
 
 
@@ -142,12 +255,12 @@
    ========================================================================== */
 
 @media (max-width: 768px) {
-  .osi-heading-xl {
-    font-size: 2rem;
+  h1, .h1 {
+    font-size: var(--osi-font-heading-lg);
   }
 
-  .osi-heading-lg {
-    font-size: 1.75rem;
+  h2, .h2 {
+    font-size: var(--osi-font-heading-md);
   }
 }
 

@@ -38,8 +38,8 @@
   <section id="home" class="osi-hero py-5">
     <div class="container">
       <div class="text-center mx-auto" style="max-width:900px">
-        <h1 class="osi-heading-xl text-white">{{ hero.title }}</h1>
-        <p class="osi-hero__subtitle">{{ hero.subtitle }}</p>
+        <h1 class="text-white">{{ hero.title }}</h1>
+        <p class="osi-hero__subtitle lead">{{ hero.subtitle }}</p>
         <div class="d-flex justify-content-center flex-wrap gap-2">
           {% for btn in hero.buttons %}
             <a href="{{ btn.link }}"
@@ -60,15 +60,15 @@
        =================================================================== -->
   <section id="about" class="py-5">
     <div class="container">
-      <h2 class="osi-heading-lg text-center mb-5 osi-text-dark-blue">{{ about.heading }}</h2>
-      <p class="osi-text-dark-gray osi-lead text-center mx-auto mb-5" style="max-width:800px">{{ about.description }}</p>
+      <h2 class="text-center mb-5 osi-text-dark-blue">{{ about.heading }}</h2>
+      <p class="osi-text-dark-gray lead text-center mx-auto mb-5" style="max-width:800px">{{ about.description }}</p>
       <div class="row g-4">
         {% for feature in about.features %}
           <div class="col-md-6 col-lg-3">
             <div class="card osi-feature-card h-100 text-center border-0">
               <div class="card-body">
                 <div class="fs-1 mb-3">{{ feature.icon }}</div>
-                <h3 class="osi-heading-md osi-text-dark-blue">{{ feature.title }}</h3>
+                <h3 class="osi-text-dark-blue">{{ feature.title }}</h3>
                 <p class="osi-text-dark-gray small">{{ feature.description }}</p>
               </div>
             </div>
@@ -86,13 +86,13 @@
        =================================================================== -->
   <section id="why-osi" class="osi-why py-5">
     <div class="container">
-      <h2 class="osi-heading-lg text-center mb-5 osi-text-dark-blue">{{ why_osi.heading }}</h2>
+      <h2 class="text-center mb-5 osi-text-dark-blue">{{ why_osi.heading }}</h2>
       <div class="row g-4">
         <!-- Challenge column -->
         <div class="col-md-6">
           <div class="card osi-why__card h-100 border-0">
             <div class="card-body">
-              <h3 class="osi-heading-md osi-text-dark-blue">{{ why_osi.challenge.heading }}</h3>
+              <h3 class="osi-text-dark-blue">{{ why_osi.challenge.heading }}</h3>
               <ul class="osi-why__list mt-3">
                 {% for item in why_osi.challenge.entries %}
                   <li><strong>{{ item.label }}:</strong> {{ item.text }}</li>
@@ -105,7 +105,7 @@
         <div class="col-md-6">
           <div class="card osi-why__card h-100 border-0">
             <div class="card-body">
-              <h3 class="osi-heading-md osi-text-dark-blue">{{ why_osi.solution.heading }}</h3>
+              <h3 class="osi-text-dark-blue">{{ why_osi.solution.heading }}</h3>
               <ul class="osi-why__list mt-3">
                 {% for item in why_osi.solution.entries %}
                   <li><strong>{{ item.label }}:</strong> {{ item.text }}</li>
@@ -128,8 +128,8 @@
        =================================================================== -->
   <section id="members" class="py-5">
     <div class="container">
-      <h2 class="osi-heading-lg text-center mb-4 osi-text-dark-blue">{{ members.heading }}</h2>
-      <p class="text-center osi-text-gray osi-lead mb-5">{{ members.subtitle }}</p>
+      <h2 class="text-center mb-4 osi-text-dark-blue">{{ members.heading }}</h2>
+      <p class="text-center osi-text-gray lead mb-5">{{ members.subtitle }}</p>
       <div class="row g-4">
         {% for member in members.list %}
           <div class="col-6 col-md-4 col-lg-3">
@@ -156,13 +156,13 @@
        =================================================================== -->
   <section id="specification" class="osi-specification py-5">
     <div class="container">
-      <h2 class="osi-heading-lg text-center mb-5 osi-text-dark-blue">{{ specification.heading }}</h2>
+      <h2 class="text-center mb-5 osi-text-dark-blue">{{ specification.heading }}</h2>
       <div class="row g-4 mb-5">
         <!-- Core Classes card -->
         <div class="col-md-6">
           <div class="card osi-spec-card h-100 border-0">
             <div class="card-body">
-              <h3 class="osi-heading-md osi-text-dark-blue">{{ specification.core_classes.heading }}</h3>
+              <h3 class="osi-text-dark-blue">{{ specification.core_classes.heading }}</h3>
               <ul class="list-unstyled osi-spec-list">
                 {% for item in specification.core_classes.entries %}
                   <li><strong>{{ item.label }}:</strong> {{ item.text }}</li>
@@ -175,7 +175,7 @@
         <div class="col-md-6">
           <div class="card osi-spec-card h-100 border-0">
             <div class="card-body">
-              <h3 class="osi-heading-md osi-text-dark-blue">{{ specification.working_groups.heading }}</h3>
+              <h3 class="osi-text-dark-blue">{{ specification.working_groups.heading }}</h3>
               <ul class="list-unstyled osi-spec-list">
                 {% for item in specification.working_groups.entries %}
                   <li>{{ item }}</li>
@@ -206,14 +206,14 @@
        =================================================================== -->
   <section id="updates" class="py-5">
     <div class="container">
-      <h2 class="osi-heading-lg text-center mb-5 osi-text-dark-blue">{{ updates.heading }}</h2>
+      <h2 class="text-center mb-5 osi-text-dark-blue">{{ updates.heading }}</h2>
       <div class="row g-4">
         {% for update in updates.entries %}
           <div class="col-md-6">
             <div class="card osi-update-card h-100 border-0">
               <div class="card-body">
-                <div class="osi-update-card__tag osi-text-primary">{{ update.tag }}</div>
-                <h3 class="osi-heading-sm osi-text-dark-blue">{{ update.title }}</h3>
+                <h3>{{ update.tag }}</h3>
+                <h4 class="osi-text-dark-blue">{{ update.title }}</h4>
                 <p class="osi-text-dark-gray">{{ update.description }}</p>
                 <a href="{{ update.link }}" target="_blank" class="osi-update-card__link">
                   Read More &rarr;
@@ -234,10 +234,10 @@
        =================================================================== -->
   <section id="get-involved" class="osi-get-involved py-5">
     <div class="container">
-      <h2 class="osi-heading-lg text-center mb-5 text-white">{{ get_involved.heading }}</h2>
+      <h2 class="text-center mb-5 text-white">{{ get_involved.heading }}</h2>
       <div class="text-center mb-5">
-        <h3 class="osi-heading-md osi-text-dark-blue">{{ get_involved.intro.heading }}</h3>
-        <p class="osi-lead">{{ get_involved.intro.description }}</p>
+        <h3>{{ get_involved.intro.heading }}</h3>
+        <p class="lead">{{ get_involved.intro.description }}</p>
       </div>
       <div class="row g-4 mb-5">
         {% for action in get_involved.actions %}
@@ -250,9 +250,9 @@
           </div>
         {% endfor %}
       </div>
-      <div class="text-center mb-5 osi-get-involved__join">
-        <h3 class="osi-heading-md osi-text-dark-blue">{{ get_involved.join.heading }}</h3>
-        <p class="osi-lead">
+      <div class="text-center mb-5">
+        <h3>{{ get_involved.join.heading }}</h3>
+        <p class="lead">
           {{ get_involved.join.description }}
           <a href="{{ get_involved.join.link }}" target="_blank">
             {{ get_involved.join.link_text }}

@@ -29,16 +29,15 @@ copyright: "&copy; 2025 Open Semantic Interchange (OSI) Initiative"
 theme:
   name: material
   custom_dir: overrides
-  logo: assets/images/logo-horizontal.png
+  logo: assets/images/osi-logos/logo-full-horizontal.svg
   favicon: assets/images/favicon.png
   font:
-    text: Inter
+    text: Work Sans
   palette:
     scheme: default
   features:
-    # Navigation: tabs along the top, sticky on scroll, breadcrumb path
+    # Navigation: tabs for sidebar scoping, breadcrumb path
     - navigation.tabs
-    - navigation.tabs.sticky
     - navigation.path
     - navigation.sections
     - navigation.top
