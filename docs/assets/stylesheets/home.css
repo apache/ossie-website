@@ -151,6 +151,16 @@
   font-size: var(--osi-font-caption);
 }
 
+.osi-update-card__title {
+  color: var(--osi-dark-blue);
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+
+.osi-update-card__title:hover {
+  color: var(--osi-primary-blue);
+}
+
 .osi-update-card__link {
   color: var(--osi-primary-blue);
   font-weight: 600;
@@ -163,6 +173,28 @@
 .osi-update-card__link:hover {
   color: var(--osi-light-blue);
   transform: translateX(4px);
+}
+
+.osi-update-card--all {
+  background-color: var(--osi-ice-blue) !important;
+  border-left: 4px solid var(--osi-primary-blue) !important;
+}
+
+.osi-update-card--all:hover {
+  background-color: var(--osi-light-gray) !important;
+  border-left-color: var(--osi-light-blue) !important;
+}
+
+.osi-update-card__all-label {
+  color: var(--osi-primary-blue);
+  font-family: Arial, sans-serif;
+  font-size: var(--osi-font-lead);
+  font-weight: 600;
+  transition: color 0.15s ease;
+}
+
+.osi-update-card--all:hover .osi-update-card__all-label {
+  color: var(--osi-light-blue);
 }
 
 

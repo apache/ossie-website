@@ -156,6 +156,12 @@ MkDocs hook (`hooks/load_data.py`) loads all YAML files from `data/` and injects
 them as global Jinja2 template variables. This means `home.html` can reference
 variables like `{{ hero.title }}` and `{{ members.list }}` directly.
 
+The same hook also scans `docs/blog/posts/` for blog post front matter, sorts by
+date (newest first), and injects the top 4 as `latest_posts`. The homepage
+"Latest Updates" section renders these cards automatically — both internal posts
+and external posts (identified by an `external_url` front matter field) appear
+here and on the `/blog/` index.
+
 ### Specification Pages (Remote Fetch)
 
 The spec pages pull content from the
@@ -213,19 +219,6 @@ members:
     # ... existing members ...
     - name: "New Company"
       logo: "new-company-logo.png"
-```
-
-### Adding a news update
-
-Add an entry to `updates.entries` in `data/home.yml`:
-
-```yaml
-updates:
-  entries:
-    - tag: "News"
-      title: "Your update title"
-      description: "A brief summary of the update."
-      link: "https://example.com/blog-post"
 ```
 
 ### Changing colors
@@ -337,6 +330,38 @@ description: >-                 # Used in social previews and search results
 draft: true                     # Set to true to hide the post from production
 ---
 ```
+
+### External blog posts
+
+Posts published on partner websites (e.g. Snowflake, Databricks) can be
+represented as thin markdown files. Add an `external_url` field to the front
+matter — this signals to the homepage and blog index that the post links out
+to an external site:
+
+```yaml
+---
+date: 2025-03-12
+authors:
+  - snowflake
+categories:
+  - Announcements
+description: >-
+  A brief summary of the external article.
+external_url: https://www.snowflake.com/en/blog/example-post/
+---
+
+# Post Title
+
+Brief summary of the article.
+
+<!-- more -->
+
+Read the full post on [Snowflake's blog](https://www.snowflake.com/en/blog/example-post/).
+```
+
+External posts appear in the blog index and homepage "Latest Updates" cards with
+an external link icon beside the title. The "Continue reading" link on the blog
+index points to the external URL.
 
 ### Adding an excerpt
 

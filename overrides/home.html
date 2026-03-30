@@ -201,27 +201,52 @@
 
   <!-- ===================================================================
        UPDATES SECTION
-       News/announcement cards with links to external blog posts.
-       Data source: updates
+       Latest blog post cards (internal + external).
+       Data source: latest_posts (injected by hooks/load_data.py)
        =================================================================== -->
   <section id="updates" class="py-5">
     <div class="container">
-      <h2 class="text-center mb-5 osi-text-dark-blue">{{ updates.heading }}</h2>
+      <h2 class="text-center mb-5 osi-text-dark-blue">Latest Updates</h2>
       <div class="row g-4">
-        {% for update in updates.entries %}
+        {% for post in latest_posts %}
           <div class="col-md-6">
             <div class="card osi-update-card h-100 border-0">
               <div class="card-body">
-                <h3>{{ update.tag }}</h3>
-                <h4 class="osi-text-dark-blue">{{ update.title }}</h4>
-                <p class="osi-text-dark-gray">{{ update.description }}</p>
-                <a href="{{ update.link }}" target="_blank" class="osi-update-card__link">
-                  Read More &rarr;
-                </a>
+                {% if post.external_url %}
+                  <h4>
+                    <a href="{{ post.external_url }}" target="_blank" rel="noopener" class="osi-update-card__title">
+                      {{ post.title }}
+                      {% include "partials/external-link-icon.html" %}
+                    </a>
+                  </h4>
+                {% else %}
+                  <h4>
+                    <a href="{{ ('blog/' ~ post.slug ~ '/') | url }}" class="osi-update-card__title">
+                      {{ post.title }}
+                    </a>
+                  </h4>
+                {% endif %}
+                <p class="osi-text-dark-gray">{{ post.description }}</p>
+                {% if post.external_url %}
+                  <a href="{{ post.external_url }}" target="_blank" class="osi-update-card__link">
+                    Read More &rarr;
+                  </a>
+                {% else %}
+                  <a href="{{ ('blog/' ~ post.slug ~ '/') | url }}" class="osi-update-card__link">
+                    Read More &rarr;
+                  </a>
+                {% endif %}
               </div>
             </div>
           </div>
         {% endfor %}
+          <div class="col-md-6">
+            <a href="{{ 'blog/' | url }}" class="card osi-update-card osi-update-card--all h-100 border-0 text-decoration-none">
+              <div class="card-body d-flex align-items-center justify-content-center">
+                <span class="osi-update-card__all-label">Read All Posts &rsaquo;</span>
+              </div>
+            </a>
+          </div>
       </div>
     </div>
   </section>

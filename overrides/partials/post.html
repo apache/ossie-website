@@ -1,0 +1,62 @@
+<article class="md-post md-post--excerpt{% if post.meta and post.meta.external_url %} md-post--external{% endif %}">
+  <header class="md-post__header">
+    <div class="md-post__meta md-meta">
+      <ul class="md-meta__list">
+        <li class="md-meta__item">
+          <time datetime="{{ post.config.date.created }}">
+            {{- post.config.date.created | date -}}
+          </time>
+        </li>
+        {% if post.categories %}
+          <li class="md-meta__item">
+            {{ lang.t("blog.categories.in") }}
+            {% for category in post.categories %}
+              <a href="{{ category.url | url }}" class="md-meta__link">
+                {{- category.title -}}
+              </a>
+              {%- if loop.revindex > 1 %}, {% endif -%}
+            {% endfor -%}
+          </li>
+        {% endif %}
+        {% if post.config.readtime %}
+          {% set time = post.config.readtime %}
+          <li class="md-meta__item">
+            {% if time == 1 %}
+              {{ lang.t("readtime.one") }}
+            {% else %}
+              {{ lang.t("readtime.other") | replace("#", time) }}
+            {% endif %}
+          </li>
+        {% endif %}
+        {% if post.config.pin %}
+          <span class="md-pin"></span>
+        {% endif %}
+      </ul>
+      {% if post.config.draft %}
+        <span class="md-draft">
+          {{ lang.t("blog.draft") }}
+        </span>
+      {% endif %}
+    </div>
+  </header>
+  <div class="md-post__content md-typeset">
+    {{ post.content }}
+    {% if post.meta and post.meta.external_url %}
+      <nav class="md-post__action">
+        <a href="{{ post.meta.external_url }}" target="_blank" rel="noopener">
+          {{ lang.t("blog.continue") }}
+          {% include "partials/external-link-icon.html" %}
+        </a>
+      </nav>
+    {% elif post.more %}
+      <nav class="md-post__action">
+        <a href="{{ post.url | url }}">
+          {{ lang.t("blog.continue") }}
+        </a>
+      </nav>
+    {% endif %}
+    {% if post.config.pin %}
+      <hr>
+    {% endif %}
+  </div>
+</article>

@@ -225,25 +225,6 @@ specification:
       - "Ontology representation"
       - "Model converters and developer tools"
 
-# --- Updates Section ---------------------------------------------------------
-# News/announcement cards on the landing page.
-updates:
-  heading: "Latest Updates"
-  entries:
-    - tag: "Announcement"
-      title: "Open Semantic Interchange: A New AI Standard"
-      description: >-
-        Introducing OSI, a collaborative initiative to create a
-        vendor-agnostic standard for semantic model exchange across AI
-        and BI platforms.
-      link: "https://www.snowflake.com/en/blog/open-semantic-interchange-ai-standard/"
-    - tag: "Expansion"
-      title: "OSI Initiative Grows with New Partners"
-      description: >-
-        Major industry leaders, including JPMC and Collibra, have joined
-        the working group to advance semantic data standards.
-      link: "https://www.snowflake.com/en/blog/osi-initiative-expands-partners/"
-
 # --- Get Involved Section ----------------------------------------------------
 # Call-to-action cards and the working group registration link.
 get_involved:
