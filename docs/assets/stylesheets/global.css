@@ -189,13 +189,22 @@ h6, .h6, .md-typeset h6 {
   text-decoration: none;
   font-size: 0.7rem;
   font-weight: 500;
-  font-family: 'Work Sans', sans-serif;
+  font-family: Arial, sans-serif;
   padding: 0.5rem 0;
   transition: color 0.15s;
 }
 
 .md-header__nav-link:hover {
   color: var(--osi-light-blue);
+}
+
+.md-header__external-icon {
+  width: 0.65em;
+  height: 0.65em;
+  margin-left: 0.25em;
+  vertical-align: baseline;
+  position: relative;
+  top: -0.05em;
 }
 
 .md-header__nav-link:active {
