@@ -24,6 +24,11 @@
   line-height: 1.4;
 }
 
+.osi-btn-icon {
+  vertical-align: -0.15em;
+  margin-right: 0.35em;
+}
+
 
 /* ==========================================================================
    About Section
@@ -40,31 +45,6 @@
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
 }
 
-
-/* ==========================================================================
-   Why OSI Section
-   ========================================================================== */
-
-.osi-why {
-  background-color: var(--osi-ice-blue);
-}
-
-.osi-why__card {
-  background-color: var(--osi-white) !important;
-  border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-}
-
-.osi-why__list {
-  padding-left: var(--osi-spacing-md);
-  list-style: disc;
-}
-
-.osi-why__list li {
-  margin-bottom: var(--osi-spacing-xs);
-  color: var(--osi-dark-gray);
-  font-size: var(--osi-font-caption);
-}
 
 
 /* ==========================================================================
@@ -102,31 +82,6 @@
   font-size: var(--osi-font-caption);
 }
 
-
-/* ==========================================================================
-   Specification Section
-   ========================================================================== */
-
-.osi-specification {
-  background-color: var(--osi-light-gray);
-}
-
-.osi-spec-card {
-  background-color: var(--osi-white) !important;
-  border-radius: 12px;
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
-}
-
-.osi-spec-list li {
-  padding: var(--osi-spacing-xs) 0;
-  color: var(--osi-dark-gray);
-  border-bottom: 1px solid var(--osi-light-gray);
-  font-size: var(--osi-font-caption);
-}
-
-.osi-spec-list li:last-child {
-  border-bottom: none;
-}
 
 
 /* ==========================================================================

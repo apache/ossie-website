@@ -11,17 +11,19 @@
 # --- Hero Section ------------------------------------------------------------
 # The large banner at the top of the landing page.
 hero:
-  title: "The Universal Standard for Semantic Model Exchange"
+  title: "Open Semantic Interchange"
   subtitle: >-
-    An open semantic model specification enabling semantic metadata
-    interchange across analytics, AI, and BI platforms, providing a
-    vendor-neutral single source of truth for your semantic data.
+    The Open Semantic Interchange is an industry-wide specification effort
+    to standardize how we exchange semantic metadata across analytics, AI
+    and BI platforms, providing a vendor neutral, single source of truth
+    for semantic data.
   buttons:
     - text: "View Specification"
-      link: "#specification"
+      link: "https://github.com/open-semantic-interchange/OSI/blob/main/core-spec/spec.md"
       style: primary
+      icon: github
     - text: "Get Involved"
-      link: "#get-involved"
+      link: "community/"
       style: secondary
 
 # --- About Section -----------------------------------------------------------
@@ -54,33 +56,6 @@ about:
         Reduce engineering debt and accelerate innovation by using a
         unified, governed semantic foundation.
 
-# --- Why OSI Section ---------------------------------------------------------
-# Two-column layout: challenge on the left, solution on the right.
-# Each item has a bold label and description text.
-why_osi:
-  heading: "Why OSI?"
-  challenge:
-    heading: "The Challenge (Semantic Fragmentation)"
-    entries:
-      - label: "Metric Drift"
-        text: "Inconsistent KPIs across different dashboards."
-      - label: "Manual Translation"
-        text: "Costly, error-prone reconciliation efforts."
-      - label: "Hallucinations"
-        text: "Unreliable AI grounding from conflicting data logic."
-      - label: "Integration Debt"
-        text: "Complex N-to-N custom integrations between proprietary tools."
-  solution:
-    heading: "The Solution"
-    entries:
-      - label: "Single Source of Truth"
-        text: "Unified semantic and metric definitions."
-      - label: "Native Interoperability"
-        text: "Direct exchange between platforms and AI agents."
-      - label: "Trusted AI Grounding"
-        text: "Agents reasoning accurately based on business logic."
-      - label: "Reduced TCO"
-        text: "Lower costs through automated model exchange."
 
 # --- Members Section ---------------------------------------------------------
 # Logo wall of working group members. To add a new member:
@@ -182,48 +157,6 @@ members:
     - name: "ThoughtSpot"
       logo: "thoughtspot-logo.png"
 
-# --- Specification Section ---------------------------------------------------
-# Two cards: core classes and working groups.
-specification:
-  heading: "Specification"
-  repo_url: "https://github.com/open-semantic-interchange/OSI"
-  repo_text: "View OSI Repository"
-  core_classes:
-    heading: "Core Classes"
-    entries:
-      - label: "Semantic Model"
-        text: >-
-          The top-level container that represents a complete semantic model,
-          including datasets, relationships, and metrics.
-      - label: "Data Sets"
-        text: >-
-          Logical datasets represent business entities or concepts (fact and
-          dimension tables). They contain fields and define the structure of
-          the data.
-      - label: "Fields"
-        text: >-
-          Row-level attributes that can be used for grouping, filtering,
-          and in metric expressions.
-      - label: "Measures"
-        text: >-
-          Quantitative measures defined on business data, representing key
-          calculations like sums, averages, ratios, etc. Metrics are defined
-          at the semantic model level and can span multiple datasets.
-      - label: "Dimensions"
-        text: "Categorical attributes (Where, When, Who)."
-      - label: "Relationships"
-        text: >-
-          Relationships define how logical datasets are connected through
-          foreign key constraints. They support both simple and composite
-          keys.
-  working_groups:
-    heading: "Current Working Groups"
-    entries:
-      - "Advanced Metrics & Expression Language"
-      - "Composability"
-      - "Catalog Integration"
-      - "Ontology representation"
-      - "Model converters and developer tools"
 
 # --- Get Involved Section ----------------------------------------------------
 # Call-to-action cards and the working group registration link.

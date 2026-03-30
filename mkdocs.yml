@@ -19,7 +19,9 @@ site_description: >-
   The Open Semantic Interchange (OSI) is a collaborative, open-source effort
   dedicated to standardizing semantic model exchange across analytics, AI,
   and BI platforms.
-copyright: "&copy; 2025 Open Semantic Interchange (OSI) Initiative"
+copyright: >-
+  Copyright 2026 The Open Semantic Interchange authors.<br>
+  Licensed under the Apache License, Version 2.0. Documentation distributed under CC BY 4.0.
 
 # ---------------------------------------------------------------------------
 # Theme configuration
@@ -129,9 +131,10 @@ hooks:
 # ---------------------------------------------------------------------------
 nav:
   - Home: index.md
-  - Blog: blog/
+  - About: about.md
   - Spec: https://github.com/open-semantic-interchange/OSI/blob/main/core-spec/spec.md
   - Community: community.md
+  - Blog: blog/
   - GitHub: https://github.com/open-semantic-interchange/OSI
 
 # ---------------------------------------------------------------------------
