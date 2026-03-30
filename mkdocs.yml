@@ -129,12 +129,13 @@ hooks:
 # ---------------------------------------------------------------------------
 nav:
   - Home: index.md
+  - Blog: blog/
   - Spec:
     - Nightly: spec/nightly/index.md
     - Definitions: spec/nightly/definitions.md
   - Community: community.md
-  - GitHub: https://github.com/open-semantic-interchange/OSI
   - Blog: blog/
+  - GitHub: https://github.com/open-semantic-interchange/OSI
 
 # ---------------------------------------------------------------------------
 # Extra CSS and JavaScript
