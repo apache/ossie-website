@@ -37,6 +37,8 @@ theme:
     text: Work Sans
   palette:
     scheme: default
+    primary: custom
+    accent: custom
   features:
     # Navigation: tabs for sidebar scoping, breadcrumb path
     - navigation.tabs

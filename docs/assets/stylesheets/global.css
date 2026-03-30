@@ -19,6 +19,7 @@
   --osi-light-gray: #F5F7FA;
   --osi-gray: #6B7280;
   --osi-dark-gray: #374151;
+  --osi-accent-green: #07A77F;
   --osi-text-dark: #111827;
 
   --osi-spacing-xs: 0.4rem;
@@ -44,9 +45,46 @@
   --osi-font-heading-lg: 1.25rem;   /* h2: 25px */
   --osi-font-heading-xl: 1.6rem;    /* h1: 32px */
 
-  --bs-link-color: var(--osi-primary-blue);
+  --bs-link-color: var(--osi-dark-blue);
+  --bs-link-color-rgb: 4, 52, 100;
   --bs-link-hover-color: var(--osi-light-blue);
   --bs-link-decoration: none;
+}
+
+
+/* ==========================================================================
+   Material for MkDocs — Custom Palette
+   Maps our brand colors into Material's palette system via the
+   data-md-color-primary="custom" and data-md-color-accent="custom"
+   attributes set on <body> by mkdocs.yml.
+   ========================================================================== */
+
+[data-md-color-primary=custom] {
+  --md-primary-fg-color:        #29B5E8;
+  --md-primary-fg-color--light: #56C4EF;
+  --md-primary-fg-color--dark:  #043464;
+  --md-primary-bg-color:        #fff;
+  --md-primary-bg-color--light: rgba(255, 255, 255, 0.7);
+  --md-typeset-a-color:         #043464;
+}
+
+[data-md-color-accent=custom] {
+  --md-accent-fg-color:              #56C4EF;
+  --md-accent-fg-color--transparent: rgba(86, 196, 239, 0.1);
+}
+
+
+/* ==========================================================================
+   Global Link Styles — strip underlines site-wide.
+   Colors are handled by Material's palette system above.
+   ========================================================================== */
+
+a {
+  text-decoration: none;
+}
+
+.md-typeset a {
+  text-decoration: none;
 }
 
 
@@ -186,7 +224,6 @@ h6, .h6, .md-typeset h6 {
 
 .md-header__nav-link {
   color: var(--osi-dark-blue);
-  text-decoration: none;
   font-size: 0.7rem;
   font-weight: 500;
   font-family: Arial, sans-serif;

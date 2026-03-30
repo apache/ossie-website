@@ -29,6 +29,24 @@
   margin-right: 0.35em;
 }
 
+.osi-hero .btn-outline-light {
+  --bs-btn-color: var(--osi-white);
+  --bs-btn-bg: var(--osi-accent-green);
+  --bs-btn-border-color: var(--osi-accent-green);
+  --bs-btn-hover-color: var(--osi-white);
+  --bs-btn-hover-bg: #059669;
+  --bs-btn-hover-border-color: #059669;
+  --bs-btn-active-bg: #047857;
+  --bs-btn-active-border-color: #047857;
+  font-weight: 600;
+}
+
+.osi-hero .btn-outline-light:hover {
+  color: var(--osi-white);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(7, 167, 127, 0.35);
+}
+
 
 /* ==========================================================================
    About Section
@@ -108,7 +126,6 @@
 
 .osi-update-card__title {
   color: var(--osi-dark-blue);
-  text-decoration: none;
   transition: color 0.15s ease;
 }
 
@@ -120,7 +137,6 @@
   color: var(--osi-primary-blue);
   font-weight: 600;
   font-size: var(--osi-font-caption);
-  text-decoration: none;
   transition: all 0.3s ease;
   display: inline-block;
 }
@@ -158,7 +174,7 @@
    ========================================================================== */
 
 .osi-get-involved {
-  background: linear-gradient(135deg, var(--osi-primary-blue) 0%, var(--osi-light-blue) 100%);
+  background: linear-gradient(135deg, var(--osi-primary-blue) 0%, var(--osi-accent-green) 100%);
   color: var(--osi-white);
 }
 
@@ -171,13 +187,25 @@
   font-size: var(--osi-font-caption);
 }
 
-.osi-involvement-card a {
-  color: var(--osi-primary-blue);
+.osi-get-involved a {
+  color: var(--osi-white);
   font-weight: 600;
-  text-decoration: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+  transition: border-color 0.15s ease;
 }
 
-.osi-involvement-card a:hover {
-  color: var(--osi-light-blue);
+.osi-get-involved a:hover {
+  color: var(--osi-white);
+  border-bottom-color: var(--osi-white);
+}
+
+.osi-get-involved .osi-involvement-card a {
+  color: var(--osi-accent-green);
+  font-weight: 600;
+  border-bottom: none;
+}
+
+.osi-get-involved .osi-involvement-card a:hover {
+  color: #059669;
 }
 
