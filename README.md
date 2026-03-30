@@ -54,10 +54,14 @@ osi-website/
 ├── overrides/                          # MkDocs template overrides (custom_dir)
 │   ├── home.html                       # Landing page template (extends main.html)
 │   ├── content.html                    # Standard content page template (extends main.html)
+│   ├── blog-post.html                  # Blog post template (removes author avatars)
 │   └── partials/
-│       └── header.html                 # Custom single-bar header (replaces Material default)
+│       ├── header.html                 # Custom single-bar header (replaces Material default)
+│       ├── post.html                   # Blog index post excerpt (external link support)
+│       └── external-link-icon.html     # Reusable external-link SVG icon partial
 └── docs/                               # MkDocs content root
     ├── index.md                        # Home page (uses home.html template)
+    ├── about.md                        # About page (Why OSI, Core Classes)
     ├── community.md                    # Community page (uses content.html template)
     ├── spec/
     │   └── nightly/
@@ -91,7 +95,8 @@ provided by a custom partial (see below).
 | Template | Purpose | Used by |
 |---|---|---|
 | `home.html` | Custom landing page with hero, cards, and sections. Overrides the `tabs` block to inject landing page content and hides the default MkDocs content area. | `docs/index.md` |
-| `content.html` | Standard content page. Inherits Material's default layout with sidebars, TOC, and content area — no block overrides needed. | `docs/community.md` and any future content pages |
+| `content.html` | Standard content page. Inherits Material's default layout with sidebars, TOC, and content area — no block overrides needed. | `docs/about.md`, `docs/community.md` and any future content pages |
+| `blog-post.html` | Blog post page. Identical to Material's built-in template but with author avatar/profile section removed. | Individual blog post pages |
 
 Assign a template to a page via front matter:
 
@@ -115,11 +120,52 @@ All shared values are defined as CSS custom properties in `global.css`:
 
 | Category | Examples |
 |---|---|
-| Colors | `--osi-primary-blue`, `--osi-dark-blue`, `--osi-navy`, `--osi-light-blue`, `--osi-ice-blue` |
+| Colors | `--osi-primary-blue`, `--osi-dark-blue`, `--osi-navy`, `--osi-light-blue`, `--osi-ice-blue`, `--osi-accent-green` |
 | Spacing | `--osi-spacing-xs` through `--osi-spacing-xl` |
 | Typography | `--osi-font-body`, `--osi-font-lead`, `--osi-font-heading-sm` through `--osi-font-heading-xl` |
 
 Utility classes: `.osi-text-dark-blue` / `-dark-gray` / `-gray` / `-primary`.
+
+#### Material for MkDocs Custom Palette
+
+Material for MkDocs applies its primary and accent colors via `data-md-color-primary`
+and `data-md-color-accent` attributes on `<body>`. If no custom palette is
+configured, it defaults to indigo — which would override any `:root` CSS variable
+overrides because attribute selectors on `body` beat `:root` (on `html`) in the
+cascade.
+
+To use our brand colors correctly, `mkdocs.yml` sets:
+
+```yaml
+palette:
+  scheme: default
+  primary: custom
+  accent: custom
+```
+
+This causes Material to render `data-md-color-primary="custom"` on `<body>`,
+which doesn't match any built-in palette rules. Our colors are then defined in
+`global.css` under matching attribute selectors:
+
+```css
+[data-md-color-primary=custom] {
+  --md-primary-fg-color:        #29B5E8;
+  --md-primary-fg-color--light: #56C4EF;
+  --md-primary-fg-color--dark:  #043464;
+  --md-typeset-a-color:         #043464;
+  /* ... */
+}
+
+[data-md-color-accent=custom] {
+  --md-accent-fg-color:              #56C4EF;
+  --md-accent-fg-color--transparent: rgba(86, 196, 239, 0.1);
+}
+```
+
+> **Important:** Do not try to override `--md-primary-fg-color` or
+> `--md-typeset-a-color` in `:root` — Material's built-in `[data-md-color-primary]`
+> attribute selectors on `<body>` will always win. Use the `[data-md-color-primary=custom]`
+> selector instead.
 
 ### Custom Header
 
@@ -128,7 +174,7 @@ replaces Material for MkDocs' default two-bar layout (header + tabs) with a
 single bar:
 
 ```
-| Logo       Home   Spec   Community   GitHub   Blog       (search) |
+| Logo     Home  About  Spec  Community  Blog  GitHub     (search) |
 ```
 
 Key details:
@@ -157,7 +203,7 @@ them as global Jinja2 template variables. This means `home.html` can reference
 variables like `{{ hero.title }}` and `{{ members.list }}` directly.
 
 The same hook also scans `docs/blog/posts/` for blog post front matter, sorts by
-date (newest first), and injects the top 4 as `latest_posts`. The homepage
+date (newest first), and injects the top 3 as `latest_posts`. The homepage
 "Latest Updates" section renders these cards automatically — both internal posts
 and external posts (identified by an `external_url` front matter field) appear
 here and on the `/blog/` index.
@@ -223,15 +269,21 @@ members:
 
 ### Changing colors
 
-Edit the CSS custom properties in `docs/assets/stylesheets/global.css`:
+OSI design tokens live in `:root` in `docs/assets/stylesheets/global.css`:
 
 ```css
 :root {
   --osi-primary-blue: #29B5E8;
   --osi-dark-blue: #043464;
+  --osi-accent-green: #07A77F;
   /* ... etc ... */
 }
 ```
+
+If you change a color that is also mapped into Material's palette (primary blue,
+light blue, dark blue), update the corresponding values in the
+`[data-md-color-primary=custom]` and `[data-md-color-accent=custom]` blocks in
+the same file. See the "Material for MkDocs Custom Palette" section above.
 
 ---
 
@@ -261,12 +313,11 @@ The `nav:` section in `mkdocs.yml` controls the header tabs and sidebar menus:
 ```yaml
 nav:
   - Home: index.md
-  - Spec:
-    - Nightly: spec/nightly/index.md
-    - Definitions: spec/nightly/definitions.md
+  - About: about.md
+  - Spec: https://github.com/open-semantic-interchange/OSI/blob/main/core-spec/spec.md
   - Community: community.md
-  - GitHub: https://github.com/open-semantic-interchange/OSI
   - Blog: blog/
+  - GitHub: https://github.com/open-semantic-interchange/OSI
 ```
 
 Each top-level item becomes a nav link in the header. Nested items appear in the
@@ -425,8 +476,10 @@ MkDocs. Key things to be aware of:
 - **Button classes** — Bootstrap's `.btn`, `.btn-primary` etc. are used instead
   of custom button styles. OSI brand colors are applied via `--bs-btn-bg` and
   related CSS custom properties in `global.css`.
-- **Link styles** — `--bs-link-color` and `--bs-link-decoration` are overridden
-  in `global.css` to match the OSI palette and prevent unwanted underlines.
+- **Link styles** — `--bs-link-color`, `--bs-link-color-rgb`, and
+  `--bs-link-decoration` are overridden in `global.css` to match the OSI palette
+  and prevent unwanted underlines. Material link colors are set via the custom
+  palette system (see "Material for MkDocs Custom Palette" above).
 
 ---
 
