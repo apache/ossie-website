@@ -1,0 +1,162 @@
+# =============================================================================
+# OSI Website Configuration
+# =============================================================================
+# This file controls the site: theme, navigation, and plugins.
+# Landing page content lives in data/home.yml (loaded by mkdocs-macros-plugin).
+#
+# Reference docs:
+#   MkDocs:              https://www.mkdocs.org/user-guide/configuration/
+#   Material for MkDocs: https://squidfunk.github.io/mkdocs-material/
+# =============================================================================
+
+# ---------------------------------------------------------------------------
+# Site metadata
+# Shows in browser tabs, search engine results, and the site footer.
+# ---------------------------------------------------------------------------
+site_name: Open Semantic Interchange
+site_url: https://open-semantic-interchange.github.io/osi-website
+site_description: >-
+  The Open Semantic Interchange (OSI) is a collaborative, open-source effort
+  dedicated to standardizing semantic model exchange across analytics, AI,
+  and BI platforms.
+copyright: >-
+  Copyright 2026 The Open Semantic Interchange authors.<br>
+  Licensed under the Apache License, Version 2.0. Documentation distributed under CC BY 4.0.
+
+# ---------------------------------------------------------------------------
+# Theme configuration
+# Controls the visual appearance and behavior of the site.
+# Docs: https://squidfunk.github.io/mkdocs-material/setup/
+# ---------------------------------------------------------------------------
+theme:
+  name: material
+  custom_dir: overrides
+  logo: assets/images/osi-logos/logo-full-horizontal.svg
+  favicon: assets/images/favicon.png
+  font:
+    text: Work Sans
+  palette:
+    scheme: default
+    primary: custom
+    accent: custom
+  features:
+    # Navigation: tabs for sidebar scoping, breadcrumb path
+    - navigation.tabs
+    - navigation.path
+    - navigation.sections
+    - navigation.top
+    - navigation.tracking
+    # Table of contents: follows scroll position
+    - toc.follow
+    # Search: suggestions and highlighted matches
+    - search.suggest
+    - search.highlight
+    # Code blocks: copy button, tabbed language switching, annotations
+    - content.tabs.link
+    - content.code.copy
+    - content.code.annotate
+
+# ---------------------------------------------------------------------------
+# Plugins
+# search:            Built-in full-text search
+# include-markdown:  Includes remote/local markdown at build time
+# blog:              Blog with posts, categories, archive by year
+# macros:            Enables {{ config.extra.* }} access in templates and markdown
+#
+# NOTE: include-markdown must come before macros so its directives are
+# processed first. Custom tags ({! / !}) avoid conflicts with macros' {% %}.
+# ---------------------------------------------------------------------------
+plugins:
+  - search
+  - include-markdown:
+      opening_tag: "{!"
+      closing_tag: "!}"
+      cache: 600
+  - blog:
+      blog_dir: blog
+      blog_toc: true
+      post_date_format: long
+      post_url_format: "{slug}"
+  - macros
+
+# ---------------------------------------------------------------------------
+# Markdown extensions
+# These enable advanced formatting in .md files: code highlighting, tabs,
+# admonitions (callout boxes), emoji icons, tables, and more.
+# Docs: https://squidfunk.github.io/mkdocs-material/setup/extensions/
+# ---------------------------------------------------------------------------
+markdown_extensions:
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.mark
+  - pymdownx.tilde
+  - attr_list
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - tables
+  - md_in_html
+  - toc:
+      permalink: true
+  - footnotes
+  - def_list
+
+# ---------------------------------------------------------------------------
+# Hooks
+# Custom Python hooks that run during the build process.
+# load_data.py: loads all YAML files from data/ as Jinja2 template globals.
+# ---------------------------------------------------------------------------
+hooks:
+  - hooks/load_data.py
+  # - hooks/fetch_spec.py  # TODO: re-enable when spec rendering is reimplemented
+
+# ---------------------------------------------------------------------------
+# Navigation
+# Controls the top-level tabs and sidebar menu structure.
+# Add new pages by creating a .md file in docs/ and listing it here.
+# Nesting is unlimited -- just indent further under a parent item.
+#
+# Example of deeply nested docs:
+#   - Docs:
+#     - Getting Started:
+#       - Installation: docs/getting-started/installation.md
+#       - Configuration:
+#         - Basic: docs/getting-started/config-basic.md
+#         - Advanced: docs/getting-started/config-advanced.md
+# ---------------------------------------------------------------------------
+nav:
+  - Home: index.md
+  - About: about.md
+  - Spec: https://github.com/open-semantic-interchange/OSI/blob/main/core-spec/spec.md
+  - Community: community.md
+  - Blog: blog/
+  - GitHub: https://github.com/open-semantic-interchange/OSI
+
+# ---------------------------------------------------------------------------
+# Extra CSS and JavaScript
+# These files are loaded on every page in the order listed.
+# Page-specific stylesheets (e.g. home.css) are loaded in their own templates.
+# ---------------------------------------------------------------------------
+extra_css:
+  - assets/stylesheets/bootstrap.min.css
+  - assets/stylesheets/global.css
+
+extra_javascript:
+  - assets/javascripts/home.js
+
+# ---------------------------------------------------------------------------
+# Social links
+# Rendered in the site footer by Material for MkDocs.
+# ---------------------------------------------------------------------------
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/open-semantic-interchange/OSI
+      name: OSI on GitHub

@@ -1,0 +1,193 @@
+# =============================================================================
+# Landing Page Content
+# =============================================================================
+# This file drives all text on the home page. To change text on the landing
+# page, edit these values — no HTML knowledge required. The template at
+# overrides/home.html reads these values and renders them.
+#
+# Loaded by hooks/load_data.py which injects these values as Jinja2 globals.
+# =============================================================================
+
+# --- Hero Section ------------------------------------------------------------
+# The large banner at the top of the landing page.
+hero:
+  title: "Open Semantic Interchange"
+  subtitle: >-
+    The Open Semantic Interchange is an industry-wide specification effort
+    to standardize how we exchange semantic metadata across analytics, AI
+    and BI platforms, providing a vendor neutral, single source of truth
+    for semantic data.
+  buttons:
+    - text: "View Specification"
+      link: "https://github.com/open-semantic-interchange/OSI/blob/main/core-spec/spec.md"
+      style: primary
+      icon: github
+    - text: "Get Involved"
+      link: "community/"
+      style: secondary
+
+# --- About Section -----------------------------------------------------------
+# Introductory paragraph and four feature cards.
+about:
+  heading: "About OSI"
+  description: >-
+    The Open Semantic Interchange (OSI) is a collaborative, open-source
+    effort dedicated to standardizing and streamlining semantic model
+    definitions across the data analytics, AI, and BI ecosystem.
+  features:
+    - icon: "🔄"
+      title: "Interoperability"
+      description: >-
+        Seamlessly exchange semantic models between AI agents, BI
+        platforms, and analytics tools.
+    - icon: "✅"
+      title: "Consistency"
+      description: >-
+        Maintain consistent data definitions and values across every
+        platform in your ecosystem.
+    - icon: "🌐"
+      title: "Vendor-Agnostic"
+      description: >-
+        A common standard that works across all vendors, eliminating
+        tool-specific inconsistencies and lock-in.
+    - icon: "🚀"
+      title: "Efficiency"
+      description: >-
+        Reduce engineering debt and accelerate innovation by using a
+        unified, governed semantic foundation.
+
+
+# --- Members Section ---------------------------------------------------------
+# Logo wall of working group members. To add a new member:
+#   1. Place the logo file in docs/assets/images/logos/
+#   2. Add a new entry below with name and logo filename
+# The template loops over this list to render the logo grid.
+members:
+  heading: "Working Group Members"
+  subtitle: "Leading organizations collaborating to build the future of semantic interchange"
+  list:
+    - name: "Alation"
+      logo: "alation-logo.png"
+    - name: "Anomalo"
+      logo: "anomalo-logo.svg"
+    - name: "Atlan"
+      logo: "atlan-logo.png"
+    - name: "AtScale"
+      logo: "atscale-logo.png"
+    - name: "Bigeye"
+      logo: "bigeye-logo.png"
+    - name: "BlackRock"
+      logo: "blackrock-logo.png"
+    - name: "Blue Yonder"
+      logo: "blueyonder-logo.png"
+    - name: "Carto"
+      logo: "carto-logo.png"
+    - name: "Cloudera"
+      logo: "cloudera-logo.png"
+    - name: "Coalesce"
+      logo: "coalesce-logo.png"
+    - name: "Collate"
+      logo: "collate-logo.png"
+    - name: "Collibra"
+      logo: "collibra-logo.png"
+    - name: "Cogniti"
+      logo: "cogniti-logo.png"
+    - name: "Count"
+      logo: "count-logo.png"
+    - name: "Credible"
+      logo: "credible-logo.png"
+    - name: "Cube"
+      logo: "cube-logo.png"
+    - name: "Databricks"
+      logo: "databricks-logo.png"
+    - name: "DataHub"
+      logo: "datahub-logo.png"
+    - name: "Denodo"
+      logo: "denodo-logo.png"
+    - name: "dbt Labs"
+      logo: "dbt-labs-logo.png"
+    - name: "Dremio"
+      logo: "dremio-logo.png"
+    - name: "Domo"
+      logo: "domo-logo.png"
+    - name: "Elementum AI"
+      logo: "elementum-logo.png"
+    - name: "Firebolt"
+      logo: "firebolt-logo.png"
+    - name: "GoodData"
+      logo: "gooddata-logo.svg"
+    - name: "Hex"
+      logo: "hex-logo.png"
+    - name: "Honeydew"
+      logo: "honeydew-logo.png"
+    - name: "Informatica"
+      logo: "informatica-logo.png"
+    - name: "Instacart"
+      logo: "instacart-logo.png"
+    - name: "JetBrains"
+      logo: "jetbrains-logo.png"
+    - name: "Lightdash"
+      logo: "lightdash-logo.png"
+    - name: "Mistral AI"
+      logo: "mistral-ai-logo.png"
+    - name: "Omni"
+      logo: "omni-logo.png"
+    - name: "Oracle"
+      logo: "oracle-logo.png"
+    - name: "Preset"
+      logo: "preset-logo.png"
+    - name: "Qlik"
+      logo: "qlik-logo.png"
+    - name: "RelationalAI"
+      logo: "relationalai-logo.png"
+    - name: "Salesforce"
+      logo: "salesforce-logo.png"
+    - name: "Select Star"
+      logo: "selectstar-logo.png"
+    - name: "Sigma"
+      logo: "sigma-logo.png"
+    - name: "Snowflake"
+      logo: "snowflake-logo.png"
+    - name: "Starburst Data"
+      logo: "starburst-logo.png"
+    - name: "Strategy"
+      logo: "strategy-logo.png"
+    - name: "Sundial"
+      logo: "sundial-logo.png"
+    - name: "ThoughtSpot"
+      logo: "thoughtspot-logo.png"
+
+
+# --- Get Involved Section ----------------------------------------------------
+# Call-to-action cards and the working group registration link.
+get_involved:
+  heading: "Get Involved"
+  intro:
+    heading: "How to Contribute?"
+    description: >-
+      Join our open-source community on GitHub. Decouple your semantic
+      logic from proprietary platforms and help shape the future.
+  actions:
+    - text: >-
+        Review the <a href="https://github.com/open-semantic-interchange/OSI"
+        target="_blank">OSI repository</a> and documentation for the
+        current spec.
+    - text: >-
+        Have a use case or an idea for the spec evolution that you would
+        like to discuss with the community?
+        <a href="https://github.com/open-semantic-interchange/OSI/discussions"
+        target="_blank">Start a discussion here</a>.
+    - text: >-
+        Have a suggestion to modify the existing spec?
+        <a href="https://github.com/open-semantic-interchange/OSI"
+        target="_blank">Raise a Pull Request</a> in the repo.
+    - text: >-
+        Have tools or converters you would like to add?
+        <a href="https://github.com/open-semantic-interchange/OSI"
+        target="_blank">Raise a Pull Request</a> in the repo.
+  join:
+    heading: "Join the Working Group"
+    description: >-
+      Whether you are a vendor or customer, ensure your voice is heard.
+    link: "https://www.snowflake.com/event/partnering-for-open-standards-join-the-open-semantic-interchange"
+    link_text: "Register your interest"

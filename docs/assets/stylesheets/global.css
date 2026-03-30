@@ -1,0 +1,332 @@
+/*
+ * global.css — Shared design tokens, typography, colors, and components
+ * used across all pages on the OSI website.
+ *
+ * Loaded before page-specific stylesheets (e.g. home.css) so that tokens
+ * and utility classes are available everywhere.
+ */
+
+/* ==========================================================================
+   CSS Custom Properties (Design Tokens)
+   ========================================================================== */
+:root {
+  --osi-primary-blue: #29B5E8;
+  --osi-dark-blue: #043464;
+  --osi-navy: #0E1C3D;
+  --osi-light-blue: #56C4EF;
+  --osi-ice-blue: #E8F7FC;
+  --osi-white: #FFFFFF;
+  --osi-light-gray: #F5F7FA;
+  --osi-gray: #6B7280;
+  --osi-dark-gray: #374151;
+  --osi-accent-green: #07A77F;
+  --osi-text-dark: #111827;
+
+  --osi-spacing-xs: 0.4rem;
+  --osi-spacing-sm: 0.8rem;
+  --osi-spacing-md: 1.6rem;
+  --osi-spacing-lg: 3.2rem;
+  --osi-spacing-xl: 4.8rem;
+
+  /* Bootstrap body overrides */
+  --bs-body-font-family: Helvetica, Arial, sans-serif;
+  --bs-body-font-weight: 500;
+  --bs-body-line-height: 1.2;
+
+  /* Font scale — component tokens */
+  --osi-font-small:      0.79rem;
+  --osi-font-caption:    0.889rem;
+  --osi-font-body:       1rem;
+  --osi-font-lead:       1.125rem;
+
+  /* Heading tokens (aligned with Material for MkDocs) */
+  --osi-font-heading-sm: 0.8rem;    /* h4: 16px */
+  --osi-font-heading-md: 1.0rem;    /* h3: 20px */
+  --osi-font-heading-lg: 1.25rem;   /* h2: 25px */
+  --osi-font-heading-xl: 1.6rem;    /* h1: 32px */
+
+  --bs-link-color: var(--osi-dark-blue);
+  --bs-link-color-rgb: 4, 52, 100;
+  --bs-link-hover-color: var(--osi-light-blue);
+  --bs-link-decoration: none;
+}
+
+
+/* ==========================================================================
+   Material for MkDocs — Custom Palette
+   Maps our brand colors into Material's palette system via the
+   data-md-color-primary="custom" and data-md-color-accent="custom"
+   attributes set on <body> by mkdocs.yml.
+   ========================================================================== */
+
+[data-md-color-primary=custom] {
+  --md-primary-fg-color:        #29B5E8;
+  --md-primary-fg-color--light: #56C4EF;
+  --md-primary-fg-color--dark:  #043464;
+  --md-primary-bg-color:        #fff;
+  --md-primary-bg-color--light: rgba(255, 255, 255, 0.7);
+  --md-typeset-a-color:         #043464;
+}
+
+[data-md-color-accent=custom] {
+  --md-accent-fg-color:              #56C4EF;
+  --md-accent-fg-color--transparent: rgba(86, 196, 239, 0.1);
+}
+
+
+/* ==========================================================================
+   Global Link Styles — strip underlines site-wide.
+   Colors are handled by Material's palette system above.
+   ========================================================================== */
+
+a {
+  text-decoration: none;
+}
+
+.md-typeset a {
+  text-decoration: none;
+}
+
+
+/* ==========================================================================
+   Heading Overrides (Material for MkDocs sizes + our font choices)
+   ========================================================================== */
+
+h1, .h1, .md-typeset h1 {
+  font-size: var(--osi-font-heading-xl);
+  font-weight: 300;
+  font-family: 'Work Sans', sans-serif;
+  line-height: 1.4;
+  letter-spacing: -0.01em;
+  margin: 0 0 0.625em;
+}
+
+h2, .h2, .md-typeset h2 {
+  font-size: var(--osi-font-heading-lg);
+  font-weight: 300;
+  font-family: 'Work Sans', sans-serif;
+  line-height: 1.4;
+  letter-spacing: -0.01em;
+  margin: 0.64em 0 0.4em;
+}
+
+h3, .h3, .md-typeset h3 {
+  font-size: var(--osi-font-heading-md);
+  font-weight: 300;
+  font-family: 'Work Sans', sans-serif;
+  line-height: 1.4;
+  letter-spacing: -0.01em;
+  margin: 0.8em 0 0.4em;
+}
+
+h4, .h4, .md-typeset h4 {
+  font-size: var(--osi-font-heading-sm);
+  font-weight: 300;
+  font-family: 'Work Sans', sans-serif;
+  line-height: 1.2;
+  margin: 1em 0;
+}
+
+h5, .h5, .md-typeset h5 {
+  font-size: 0.64rem;
+  font-weight: 300;
+  font-family: 'Work Sans', sans-serif;
+  line-height: 1.2;
+  margin: 1.25em 0;
+}
+
+h6, .h6, .md-typeset h6 {
+  font-size: 0.512rem;
+  font-weight: 300;
+  font-family: 'Work Sans', sans-serif;
+  line-height: 1.2;
+  margin: 1.25em 0;
+}
+
+.lead { font-size: var(--osi-font-lead); }
+
+
+
+/* ==========================================================================
+   Text Colors
+   ========================================================================== */
+
+.osi-text-dark-blue { color: var(--osi-dark-blue); }
+.osi-text-dark-gray { color: var(--osi-dark-gray); }
+.osi-text-gray      { color: var(--osi-gray); }
+.osi-text-primary   { color: var(--osi-primary-blue); }
+
+
+
+/* ==========================================================================
+   Search Box Override
+   ========================================================================== */
+
+.md-search__input {
+  font-size: 0.7rem;
+}
+
+
+/* ==========================================================================
+   Custom Header: single-bar layout (logo | nav links | search)
+   ========================================================================== */
+
+/* Frosted-glass header with drop shadow */
+.md-header {
+  background-color: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 0 .2rem rgba(0, 0, 0, .1), 0 .2rem .4rem rgba(0, 0, 0, .2);
+}
+
+/* Search icon inherits dark color to match frosted header */
+.md-header .md-header__button {
+  color: var(--osi-dark-blue);
+}
+
+/* Hide Material's separate tabs bar (sidebar scoping kept via navigation.tabs) */
+.md-tabs {
+  display: none;
+}
+
+/* Three-zone flex layout */
+.md-header__inner {
+  display: flex;
+  align-items: center;
+}
+
+.md-header__left {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.md-header__center {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.md-header__right {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+/* Nav link list */
+.md-header__nav {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 1.5rem;
+}
+
+.md-header__nav-link {
+  color: var(--osi-dark-blue);
+  font-size: 0.7rem;
+  font-weight: 500;
+  font-family: Arial, sans-serif;
+  padding: 0.5rem 0;
+  transition: color 0.15s;
+}
+
+.md-header__nav-link:hover {
+  color: var(--osi-light-blue);
+}
+
+.osi-external-icon {
+  width: 0.65em;
+  height: 0.65em;
+  margin-left: 0.25em;
+  vertical-align: baseline;
+  position: relative;
+  top: -0.05em;
+}
+
+.md-post--external .md-post__content > h2 a::after,
+.md-post--external .md-post__content > h1 a::after {
+  content: "";
+  display: inline-block;
+  width: 0.55em;
+  height: 0.55em;
+  margin-left: 0.3em;
+  vertical-align: baseline;
+  position: relative;
+  top: -0.05em;
+  background-color: currentColor;
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Cpath d='M352 0c-12.9 0-24.6 7.8-29.6 19.8s-2.2 25.7 6.9 34.9L370.7 96 201.4 265.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L416 141.3l41.4 41.4c9.2 9.2 22.9 11.9 34.9 6.9s19.8-16.6 19.8-29.6l0-128c0-17.7-14.3-32-32-32L352 0zM80 32C35.8 32 0 67.8 0 112L0 432c0 44.2 35.8 80 80 80l320 0c44.2 0 80-35.8 80-80l0-160c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 160c0 8.8-7.2 16-16 16L80 448c-8.8 0-16-7.2-16-16l0-320c0-8.8 7.2-16 16-16l160 0c17.7 0 32-14.3 32-32s-14.3-32-32-32L80 32z'/%3E%3C/svg%3E");
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Cpath d='M352 0c-12.9 0-24.6 7.8-29.6 19.8s-2.2 25.7 6.9 34.9L370.7 96 201.4 265.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L416 141.3l41.4 41.4c9.2 9.2 22.9 11.9 34.9 6.9s19.8-16.6 19.8-29.6l0-128c0-17.7-14.3-32-32-32L352 0zM80 32C35.8 32 0 67.8 0 112L0 432c0 44.2 35.8 80 80 80l320 0c44.2 0 80-35.8 80-80l0-160c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 160c0 8.8-7.2 16-16 16L80 448c-8.8 0-16-7.2-16-16l0-320c0-8.8 7.2-16 16-16l160 0c17.7 0 32-14.3 32-32s-14.3-32-32-32L80 32z'/%3E%3C/svg%3E");
+  mask-size: contain;
+  -webkit-mask-size: contain;
+  mask-repeat: no-repeat;
+  -webkit-mask-repeat: no-repeat;
+}
+
+.md-header__nav-link:active {
+  color: var(--osi-light-blue);
+}
+
+.md-header__nav-item--active .md-header__nav-link {
+  color: var(--osi-primary-blue);
+}
+
+/* Hide center nav on mobile — the drawer handles navigation */
+@media (max-width: 76.1875em) {
+  .md-header__center {
+    display: none;
+  }
+}
+
+/* Hide hamburger on desktop */
+@media (min-width: 76.25em) {
+  .md-header__hamburger {
+    display: none;
+  }
+}
+
+
+/* ==========================================================================
+   Bootstrap Button Overrides (OSI brand colors)
+   ========================================================================== */
+
+.btn-primary {
+  --bs-btn-bg: var(--osi-primary-blue);
+  --bs-btn-border-color: var(--osi-primary-blue);
+  --bs-btn-hover-bg: var(--osi-light-blue);
+  --bs-btn-hover-border-color: var(--osi-light-blue);
+  --bs-btn-active-bg: var(--osi-dark-blue);
+  --bs-btn-active-border-color: var(--osi-dark-blue);
+  font-weight: 600;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(41, 181, 232, 0.3);
+}
+
+.btn-outline-light:hover {
+  color: var(--osi-dark-blue);
+}
+
+.btn svg {
+  vertical-align: middle;
+  margin-right: 0.5rem;
+}
+
+
+/* ==========================================================================
+   Responsive Breakpoints (Global)
+   ========================================================================== */
+
+@media (max-width: 768px) {
+  h1, .h1 {
+    font-size: var(--osi-font-heading-lg);
+  }
+
+  h2, .h2 {
+    font-size: var(--osi-font-heading-md);
+  }
+}
+
+
