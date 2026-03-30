@@ -292,6 +292,15 @@ hide:
 ---
 ```
 
+> **Warning — `hide: [navigation]` and the homepage:** Do **not** use
+> `hide: [navigation]` on `docs/index.md`. Material for MkDocs implements this
+> by adding an HTML `hidden` attribute to `.md-sidebar--primary`, which removes
+> the sidebar from the DOM on **all** screen sizes — including mobile, where it
+> serves as the hamburger drawer menu. The homepage template (`home.html`)
+> already hides the sidebar on desktop via a CSS media query, so
+> `hide: [navigation]` is redundant there and breaks the mobile drawer. Use
+> `hide: [toc]` only.
+
 ---
 
 ## Writing Blog Posts
