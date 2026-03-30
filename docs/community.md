@@ -5,15 +5,7 @@ title: Community
 
 # Community
 
-The OSI community is an open, collaborative group of engineers, data architects, and platform vendors working together to standardize semantic model exchange across the analytics and AI ecosystem.
-
-## Getting Started
-
-Whether you're a vendor looking to integrate OSI into your platform or an end-user who wants to help shape the specification, there are several ways to get involved:
-
-- **Review the specification** — Read through the current OSI spec on GitHub to understand the data model and core classes.
-- **Join the discussion** — Participate in GitHub Discussions to share use cases, propose features, and ask questions.
-- **Contribute code** — Submit pull requests for spec changes, converters, or developer tools.
+> TODO: Populate with useful content
 
 ## Working Groups
 

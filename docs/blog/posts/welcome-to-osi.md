@@ -1,5 +1,6 @@
 ---
 date: 2025-06-15
+draft: true
 authors:
   - ghost
 categories:
@@ -10,6 +11,10 @@ tags:
   - open-source
 description: Introducing the Open Semantic Interchange initiative — a vendor-neutral standard for semantic model exchange across analytics, AI, and BI platforms.
 ---
+
+!!! warning "TODO"
+    This is a temporary placeholder post. Delete this file and the `ghost`
+    author entry in `.authors.yml` once real blog content is available.
 
 # Welcome to the Open Semantic Interchange Initiative
 

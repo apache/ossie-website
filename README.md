@@ -49,8 +49,7 @@ osi-website/
 ├── data/
 │   └── home.yml                        # Landing page content (text, members, updates)
 ├── hooks/
-│   ├── load_data.py                    # MkDocs hook: injects data/*.yml into Jinja2 context
-│   └── fetch_spec.py                   # MkDocs hook: downloads spec.yaml, serves definitions as virtual page
+│   └── load_data.py                    # MkDocs hook: injects data/*.yml into Jinja2 context
 ├── overrides/                          # MkDocs template overrides (custom_dir)
 │   ├── home.html                       # Landing page template (extends main.html)
 │   ├── content.html                    # Standard content page template (extends main.html)
@@ -63,9 +62,7 @@ osi-website/
     ├── index.md                        # Home page (uses home.html template)
     ├── about.md                        # About page (Why OSI, Core Classes)
     ├── community.md                    # Community page (uses content.html template)
-    ├── spec/
-    │   └── nightly/
-    │       └── index.md                # Spec page (pulls spec.md from GitHub at build time)
+    ├── spec/                             # Spec rendering (TODO: re-implement build-time import)
     ├── blog/                           # Blog (managed by blog plugin)
     │   ├── .authors.yml                # Author definitions (name, description)
     │   └── posts/                      # Individual blog posts go here
@@ -208,32 +205,12 @@ date (newest first), and injects the top 3 as `latest_posts`. The homepage
 and external posts (identified by an `external_url` front matter field) appear
 here and on the `/blog/` index.
 
-### Specification Pages (Remote Fetch)
+### Specification Pages
 
-The spec pages pull content from the
-[OSI GitHub repo](https://github.com/open-semantic-interchange/OSI/tree/main/core-spec)
-at build time — nothing is stored locally.
-
-| Page | Source | Mechanism |
-|---|---|---|
-| `spec/nightly/index.md` | `core-spec/spec.md` | `mkdocs-include-markdown-plugin` fetches the remote markdown and inlines it |
-| `spec/nightly/definitions.md` | `core-spec/spec.yaml` | `hooks/fetch_spec.py` downloads the YAML, parses it, and serves a virtual page (no file on disk) |
-
-The definitions page is a **virtual file** — it exists only in memory during the
-build. The hook uses MkDocs' `on_files` event to inject a `File` object and
-`on_page_read_source` to supply its markdown content. Nothing is written to the
-`docs/` directory.
-
-The `include-markdown` plugin uses custom delimiters (`{!` / `!}`) instead of the
-default `{% %}` to avoid conflicts with the `macros` plugin. When writing
-include directives in markdown files, use:
-
-```markdown
-{! include-markdown "https://example.com/file.md" !}
-```
-
-The plugin caches HTTP responses for 600 seconds during development to avoid
-re-fetching on every save.
+Build-time rendering of the OSI specification is not yet implemented. The `Spec`
+nav link currently points directly to the
+[spec on GitHub](https://github.com/open-semantic-interchange/OSI/blob/main/core-spec/spec.md).
+See `docs/spec/README.md` for the TODO.
 
 ---
 
