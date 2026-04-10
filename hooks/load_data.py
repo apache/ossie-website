@@ -27,6 +27,17 @@ def _load_data_files(env, config):
 
 
 _FRONT_MATTER_RE = re.compile(r"^---\s*\n(.+?)\n---", re.DOTALL)
+_H1_RE = re.compile(r"^\s*#\s+(.+)", re.MULTILINE)
+
+
+def _extract_title(meta, body, fname):
+    """Return the post title from front-matter, the first H1, or the filename."""
+    if meta.get("title"):
+        return meta["title"]
+    h1 = _H1_RE.search(body)
+    if h1:
+        return h1.group(1).strip()
+    return fname.replace(".md", "").replace("-", " ").title()
 
 
 def _load_latest_posts(config, limit=3):
@@ -39,14 +50,16 @@ def _load_latest_posts(config, limit=3):
         if not fname.endswith(".md"):
             continue
         with open(os.path.join(posts_dir, fname)) as f:
-            match = _FRONT_MATTER_RE.match(f.read())
+            content = f.read()
+        match = _FRONT_MATTER_RE.match(content)
         if not match:
             continue
         meta = yaml.safe_load(match.group(1))
         if not meta or meta.get("draft"):
             continue
+        body = content[match.end():]
         posts.append({
-            "title": meta.get("title", fname.replace(".md", "").replace("-", " ").title()),
+            "title": _extract_title(meta, body, fname),
             "description": meta.get("description", ""),
             "date": meta.get("date", date.min),
             "external_url": meta.get("external_url"),
