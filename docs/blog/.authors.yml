@@ -1,9 +1,9 @@
 authors:
-  ghost:
-    name: Ghost in the Machine
-    description: Demo author for placeholder content
-    avatar: https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png
   snowflake:
     name: Snowflake
     description: Snowflake blog
     avatar: https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Snowflake_Logo.svg/220px-Snowflake_Logo.svg.png
+  celesteh:
+    name: Celeste Horgan
+    description: Snowflake OSS Advocate
+    avatar: https://#  
