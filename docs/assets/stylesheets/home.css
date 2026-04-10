@@ -15,7 +15,7 @@
    ========================================================================== */
 
 .osi-hero {
-  background: linear-gradient(135deg, var(--osi-dark-blue) 0%, var(--osi-navy) 100%);
+  background: linear-gradient(135deg, var(--osi-primary-green) 0%, var(--osi-accent-blue) 100%);
   color: var(--osi-white);
 }
 
@@ -31,8 +31,8 @@
 
 .osi-hero .btn-outline-light {
   --bs-btn-color: var(--osi-white);
-  --bs-btn-bg: var(--osi-accent-green);
-  --bs-btn-border-color: var(--osi-accent-green);
+  --bs-btn-bg: var(--osi-accent-blue);
+  --bs-btn-border-color: var(--osi-accent-blue);
   --bs-btn-hover-color: var(--osi-white);
   --bs-btn-hover-bg: #059669;
   --bs-btn-hover-border-color: #059669;
@@ -53,7 +53,7 @@
    ========================================================================== */
 
 .osi-feature-card {
-  background-color: var(--osi-light-gray) !important;
+  background-color: var(--osi-light-green) !important;
   border-radius: 12px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
@@ -70,7 +70,7 @@
    ========================================================================== */
 
 .osi-member-card {
-  border: 2px solid var(--osi-light-gray) !important;
+  border: 2px solid var(--osi-white) !important;
   border-radius: 8px;
   transition: all 0.3s ease;
   min-height: 120px;
@@ -86,10 +86,10 @@
 }
 
 .osi-member-card:hover {
-  border-color: var(--osi-primary-blue) !important;
-  background-color: var(--osi-ice-blue) !important;
+  border-color: var(--osi-primary-green) !important;
+  background-color: var(--osi-light-green) !important;
   transform: translateY(-4px);
-  box-shadow: 0 8px 20px rgba(41, 181, 232, 0.15);
+  box-shadow: 0 8px 20px rgba(7, 167, 127, 0.15);
 }
 
 .osi-member-card:hover .osi-member-card__logo {
@@ -107,16 +107,16 @@
    ========================================================================== */
 
 .osi-update-card {
-  background-color: var(--osi-light-gray) !important;
+  background-color: var(--osi-light-green) !important;
   border-radius: 12px;
-  border-left: 4px solid var(--osi-primary-blue) !important;
+  border-left: 4px solid var(--osi-primary-green) !important;
   transition: all 0.3s ease;
 }
 
 .osi-update-card:hover {
   transform: translateY(-4px);
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
-  border-left-color: var(--osi-light-blue) !important;
+  border-left-color: var(--osi-primary-green) !important;
 }
 
 .osi-update-card p {
@@ -130,11 +130,11 @@
 }
 
 .osi-update-card__title:hover {
-  color: var(--osi-primary-blue);
+  color: var(--osi-primary-green);
 }
 
 .osi-update-card__link {
-  color: var(--osi-primary-blue);
+  color: var(--osi-primary-green);
   font-weight: 600;
   font-size: var(--osi-font-caption);
   transition: all 0.3s ease;
@@ -142,22 +142,22 @@
 }
 
 .osi-update-card__link:hover {
-  color: var(--osi-light-blue);
+  color: var(--osi-primary-green);
   transform: translateX(4px);
 }
 
 .osi-update-card--all {
-  background-color: var(--osi-ice-blue) !important;
-  border-left: 4px solid var(--osi-primary-blue) !important;
+  background-color: var(--osi-light-green) !important;
+  border-left: 4px solid var(--osi-primary-green) !important;
 }
 
 .osi-update-card--all:hover {
-  background-color: var(--osi-light-gray) !important;
-  border-left-color: var(--osi-light-blue) !important;
+  background-color: var(--osi-light-green) !important;
+  border-left-color: var(--osi-primary-green) !important;
 }
 
 .osi-update-card__all-label {
-  color: var(--osi-primary-blue);
+  color: var(--osi-primary-green);
   font-family: Arial, sans-serif;
   font-size: var(--osi-font-lead);
   font-weight: 600;
@@ -165,7 +165,7 @@
 }
 
 .osi-update-card--all:hover .osi-update-card__all-label {
-  color: var(--osi-light-blue);
+  color: var(--osi-primary-green);
 }
 
 
@@ -174,7 +174,7 @@
    ========================================================================== */
 
 .osi-get-involved {
-  background: linear-gradient(135deg, var(--osi-primary-blue) 0%, var(--osi-accent-green) 100%);
+  background-color: var(--osi-dark-blue);
   color: var(--osi-white);
 }
 
@@ -200,7 +200,7 @@
 }
 
 .osi-get-involved .osi-involvement-card a {
-  color: var(--osi-accent-green);
+  color: var(--osi-accent-blue);
   font-weight: 600;
   border-bottom: none;
 }

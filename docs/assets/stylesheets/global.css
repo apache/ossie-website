@@ -10,16 +10,14 @@
    CSS Custom Properties (Design Tokens)
    ========================================================================== */
 :root {
-  --osi-primary-blue: #29B5E8;
+  --osi-primary-green: #07A77F;
+  --osi-accent-blue: #29B5E8;
   --osi-dark-blue: #043464;
   --osi-navy: #0E1C3D;
-  --osi-light-blue: #56C4EF;
-  --osi-ice-blue: #E8F7FC;
+  --osi-light-green: #E6F7F2;
   --osi-white: #FFFFFF;
-  --osi-light-gray: #F5F7FA;
   --osi-gray: #6B7280;
   --osi-dark-gray: #374151;
-  --osi-accent-green: #07A77F;
   --osi-text-dark: #111827;
 
   --osi-spacing-xs: 0.4rem;
@@ -47,7 +45,7 @@
 
   --bs-link-color: var(--osi-dark-blue);
   --bs-link-color-rgb: 4, 52, 100;
-  --bs-link-hover-color: var(--osi-light-blue);
+  --bs-link-hover-color: var(--osi-primary-green);
   --bs-link-decoration: none;
 }
 
@@ -60,17 +58,17 @@
    ========================================================================== */
 
 [data-md-color-primary=custom] {
-  --md-primary-fg-color:        #29B5E8;
-  --md-primary-fg-color--light: #56C4EF;
-  --md-primary-fg-color--dark:  #043464;
-  --md-primary-bg-color:        #fff;
+  --md-primary-fg-color:        var(--osi-primary-green);
+  --md-primary-fg-color--light: var(--osi-light-green);
+  --md-primary-fg-color--dark:  var(--osi-dark-blue);
+  --md-primary-bg-color:        var(--osi-white);
   --md-primary-bg-color--light: rgba(255, 255, 255, 0.7);
-  --md-typeset-a-color:         #043464;
+  --md-typeset-a-color:         var(--osi-dark-blue);
 }
 
 [data-md-color-accent=custom] {
-  --md-accent-fg-color:              #56C4EF;
-  --md-accent-fg-color--transparent: rgba(86, 196, 239, 0.1);
+  --md-accent-fg-color:              var(--osi-primary-green);
+  --md-accent-fg-color--transparent: rgba(7, 167, 127, 0.1);
 }
 
 
@@ -154,7 +152,7 @@ h6, .h6, .md-typeset h6 {
 .osi-text-dark-blue { color: var(--osi-dark-blue); }
 .osi-text-dark-gray { color: var(--osi-dark-gray); }
 .osi-text-gray      { color: var(--osi-gray); }
-.osi-text-primary   { color: var(--osi-primary-blue); }
+.osi-text-primary   { color: var(--osi-primary-green); }
 
 
 
@@ -173,7 +171,7 @@ h6, .h6, .md-typeset h6 {
 
 /* Frosted-glass header with drop shadow */
 .md-header {
-  background-color: rgba(255, 255, 255, 0.5);
+  background-color: var(--osi-light-green);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   box-shadow: 0 0 .2rem rgba(0, 0, 0, .1), 0 .2rem .4rem rgba(0, 0, 0, .2);
@@ -232,7 +230,7 @@ h6, .h6, .md-typeset h6 {
 }
 
 .md-header__nav-link:hover {
-  color: var(--osi-light-blue);
+  color: var(--osi-primary-green);
 }
 
 .osi-external-icon {
@@ -264,11 +262,11 @@ h6, .h6, .md-typeset h6 {
 }
 
 .md-header__nav-link:active {
-  color: var(--osi-light-blue);
+  color: var(--osi-primary-green);
 }
 
 .md-header__nav-item--active .md-header__nav-link {
-  color: var(--osi-primary-blue);
+  color: var(--osi-primary-green);
 }
 
 /* Hide center nav on mobile — the drawer handles navigation */
@@ -291,10 +289,10 @@ h6, .h6, .md-typeset h6 {
    ========================================================================== */
 
 .btn-primary {
-  --bs-btn-bg: var(--osi-primary-blue);
-  --bs-btn-border-color: var(--osi-primary-blue);
-  --bs-btn-hover-bg: var(--osi-light-blue);
-  --bs-btn-hover-border-color: var(--osi-light-blue);
+  --bs-btn-bg: var(--osi-primary-green);
+  --bs-btn-border-color: var(--osi-primary-green);
+  --bs-btn-hover-bg: var(--osi-primary-green);
+  --bs-btn-hover-border-color: var(--osi-primary-green);
   --bs-btn-active-bg: var(--osi-dark-blue);
   --bs-btn-active-border-color: var(--osi-dark-blue);
   font-weight: 600;
@@ -302,7 +300,7 @@ h6, .h6, .md-typeset h6 {
 
 .btn-primary:hover {
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(41, 181, 232, 0.3);
+  box-shadow: 0 4px 12px rgba(7, 167, 127, 0.3);
 }
 
 .btn-outline-light:hover {
