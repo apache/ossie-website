@@ -1,4 +1,8 @@
 authors:
+  ghost:
+    name: OSI Team
+    description: Open Semantic Interchange
+    avatar: https://open-semantic-interchange.github.io/osi-website/assets/images/favicon.png
   snowflake:
     name: Snowflake
     description: Snowflake blog

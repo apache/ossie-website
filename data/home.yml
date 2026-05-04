@@ -128,6 +128,8 @@ members:
       logo: "jetbrains-logo.png"
     - name: "Lightdash"
       logo: "lightdash-logo.png"
+    - name: "Metabase"
+      logo: "metabase-logo.png"
     - name: "Mistral AI"
       logo: "mistral-ai-logo.png"
     - name: "Omni"
@@ -156,6 +158,8 @@ members:
       logo: "sundial-logo.png"
     - name: "ThoughtSpot"
       logo: "thoughtspot-logo.png"
+    - name: "Zeta Global"
+      logo: "zeta-global-logo.png"
 
 
 # --- Get Involved Section ----------------------------------------------------

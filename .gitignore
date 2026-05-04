@@ -1,6 +1,9 @@
 # MkDocs build output
 site/
 
+# Python virtual environment
+.venv/
+
 # Python bytecode
 __pycache__/
 
