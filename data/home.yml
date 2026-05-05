@@ -191,6 +191,8 @@ members:
       logo: "credible-logo.png"
     - name: "Cube"
       logo: "cube-logo.png"
+    - name: "Dataiku"
+      logo: "dataiku-logo.png"
     - name: "Databricks"
       logo: "databricks-logo.png"
     - name: "DataHub"
