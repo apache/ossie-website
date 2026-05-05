@@ -131,8 +131,8 @@ hooks:
 # ---------------------------------------------------------------------------
 nav:
   - Home: index.md
-  - About: "#about"
-  - Community: "#members"
+  - About: "/index.html#about"
+  - Community: "/index.html#members"
   - Updates: updates/
   - GitHub: https://github.com/open-semantic-interchange/OSI
 
