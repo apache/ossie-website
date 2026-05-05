@@ -70,7 +70,7 @@ plugins:
       cache: 600
   - blog:
       blog_dir: updates
-      blog_toc: true
+      blog_toc: false
       post_date_format: long
       post_url_format: "{slug}"
       categories: false

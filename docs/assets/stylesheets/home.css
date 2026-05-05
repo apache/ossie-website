@@ -585,10 +585,20 @@
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
 }
 
+.osi-update-card .card-body {
+  padding: 0.75rem 1rem;
+}
+
+.osi-update-card h4 {
+  font-size: 0.82rem;
+  margin-bottom: 0.25rem;
+}
+
 .osi-update-card p {
-  line-height: 1.5;
-  font-size: 0.78rem;
+  line-height: 1.4;
+  font-size: 0.72rem;
   color: var(--osi-gray-600);
+  margin-bottom: 0;
 }
 
 .osi-update-card__title {
@@ -599,19 +609,6 @@
 
 .osi-update-card__title:hover {
   color: var(--osi-primary-blue);
-}
-
-.osi-update-card__link {
-  color: var(--osi-primary-blue);
-  font-weight: 600;
-  font-size: 0.78rem;
-  transition: all 0.3s ease;
-  display: inline-block;
-}
-
-.osi-update-card__link:hover {
-  color: var(--osi-dark-blue);
-  transform: translateX(4px);
 }
 
 .osi-update-card--all {

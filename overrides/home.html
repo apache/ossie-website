@@ -128,58 +128,6 @@
 
 
   <!-- ===================================================================
-       UPDATES SECTION
-       =================================================================== -->
-  <section id="updates" class="osi-updates-section py-5">
-    <div class="container">
-      <h2 class="osi-section-heading text-center mb-2">Latest Updates</h2>
-      <p class="osi-section-subtitle text-center mb-5">News and announcements from the OSI community</p>
-      <div class="row g-4">
-        {% for post in latest_posts %}
-          <div class="col-md-6">
-            <div class="card osi-update-card h-100 border-0">
-              <div class="card-body">
-                {% if post.external_url %}
-                  <h4>
-                    <a href="{{ post.external_url }}" target="_blank" rel="noopener" class="osi-update-card__title">
-                      {{ post.title }}
-                      {% include "partials/external-link-icon.html" %}
-                    </a>
-                  </h4>
-                {% else %}
-                  <h4>
-                    <a href="{{ ('updates/' ~ post.slug ~ '/') | url }}" class="osi-update-card__title">
-                      {{ post.title }}
-                    </a>
-                  </h4>
-                {% endif %}
-                <p>{{ post.description }}</p>
-                {% if post.external_url %}
-                  <a href="{{ post.external_url }}" target="_blank" class="osi-update-card__link">
-                    Read More &rarr;
-                  </a>
-                {% else %}
-                  <a href="{{ ('updates/' ~ post.slug ~ '/') | url }}" class="osi-update-card__link">
-                    Read More &rarr;
-                  </a>
-                {% endif %}
-              </div>
-            </div>
-          </div>
-        {% endfor %}
-          <div class="col-md-6">
-            <a href="{{ 'updates/' | url }}" class="card osi-update-card osi-update-card--all h-100 border-0 text-decoration-none">
-              <div class="card-body d-flex align-items-center justify-content-center">
-                <span class="osi-update-card__all-label">Read All Posts &rsaquo;</span>
-              </div>
-            </a>
-          </div>
-      </div>
-    </div>
-  </section>
-
-
-  <!-- ===================================================================
        ABOUT SECTION
        =================================================================== -->
   <section id="about" class="osi-about-section py-5">
@@ -345,6 +293,47 @@
   </section>
 
 
+  <!-- ===================================================================
+       UPDATES SECTION
+       =================================================================== -->
+  <section id="updates" class="osi-updates-section py-5">
+    <div class="container">
+      <h2 class="osi-section-heading text-center mb-2">Latest Updates</h2>
+      <p class="osi-section-subtitle text-center mb-4">News and announcements from the OSI community</p>
+      <div class="row g-3">
+        {% for post in latest_posts %}
+          <div class="col-md-6">
+            <div class="card osi-update-card h-100 border-0">
+              <div class="card-body">
+                {% if post.external_url %}
+                  <h4>
+                    <a href="{{ post.external_url }}" target="_blank" rel="noopener" class="osi-update-card__title">
+                      {{ post.title }}
+                      {% include "partials/external-link-icon.html" %}
+                    </a>
+                  </h4>
+                {% else %}
+                  <h4>
+                    <a href="{{ ('updates/' ~ post.slug ~ '/') | url }}" class="osi-update-card__title">
+                      {{ post.title }}
+                    </a>
+                  </h4>
+                {% endif %}
+                <p>{{ post.description }}</p>
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+          <div class="col-md-6">
+            <a href="{{ 'updates/' | url }}" class="card osi-update-card osi-update-card--all h-100 border-0 text-decoration-none">
+              <div class="card-body d-flex align-items-center justify-content-center">
+                <span class="osi-update-card__all-label">View All Updates &rsaquo;</span>
+              </div>
+            </a>
+          </div>
+      </div>
+    </div>
+  </section>
 
 
 {% endblock %}

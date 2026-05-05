@@ -40,7 +40,7 @@ def _extract_title(meta, body, fname):
     return fname.replace(".md", "").replace("-", " ").title()
 
 
-def _load_latest_posts(config, limit=3):
+def _load_latest_posts(config, limit=5):
     posts_dir = os.path.join(config["docs_dir"], "updates", "posts")
     if not os.path.isdir(posts_dir):
         return []
