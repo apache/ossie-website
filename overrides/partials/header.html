@@ -31,19 +31,7 @@
       </ul>
     </div>
 
-    <!-- Right: search -->
-    <div class="md-header__right">
-      {% if "material/search" in config.plugins %}
-        {% set search = config.plugins["material/search"] | attr("config") %}
-        {% if search.enabled %}
-          <label class="md-header__button md-icon" for="__search">
-            {% set icon = config.theme.icon.search or "material/magnify" %}
-            {% include ".icons/" ~ icon ~ ".svg" %}
-          </label>
-          {% include "partials/search.html" %}
-        {% endif %}
-      {% endif %}
-    </div>
+    <div class="md-header__right"></div>
 
   </nav>
 </header>

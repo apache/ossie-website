@@ -34,7 +34,7 @@ theme:
   logo: assets/images/osi-logos/logo-full-horizontal.svg
   favicon: assets/images/favicon.png
   font:
-    text: Work Sans
+    text: Inter
   palette:
     scheme: default
     primary: custom
@@ -48,9 +48,6 @@ theme:
     - navigation.tracking
     # Table of contents: follows scroll position
     - toc.follow
-    # Search: suggestions and highlighted matches
-    - search.suggest
-    - search.highlight
     # Code blocks: copy button, tabbed language switching, annotations
     - content.tabs.link
     - content.code.copy
@@ -67,16 +64,17 @@ theme:
 # processed first. Custom tags ({! / !}) avoid conflicts with macros' {% %}.
 # ---------------------------------------------------------------------------
 plugins:
-  - search
   - include-markdown:
       opening_tag: "{!"
       closing_tag: "!}"
       cache: 600
   - blog:
-      blog_dir: blog
+      blog_dir: updates
       blog_toc: true
       post_date_format: long
       post_url_format: "{slug}"
+      categories: false
+      pagination: false
   - macros
 
 # ---------------------------------------------------------------------------
@@ -133,10 +131,9 @@ hooks:
 # ---------------------------------------------------------------------------
 nav:
   - Home: index.md
-  - About: about.md
-  - Spec: https://github.com/open-semantic-interchange/OSI/blob/main/core-spec/spec.md
-  - Community: community.md
-  - Blog: blog/
+  - About: "#about"
+  - Community: "#members"
+  - Updates: updates/
   - GitHub: https://github.com/open-semantic-interchange/OSI
 
 # ---------------------------------------------------------------------------

@@ -3,19 +3,10 @@
  *
  * This script only targets elements with "osi-" prefixed classes, so it
  * will not interfere with standard MkDocs docs/blog pages.
- *
- * Features:
- *   - Scroll-triggered fade-in animations via IntersectionObserver
- *   - Enhanced hover effects on member logo cards
- *   - Page load fade-in transition
  */
 
 document.addEventListener("DOMContentLoaded", function () {
 
-  // -----------------------------------------------------------------------
-  // Scroll-triggered fade-in animations
-  // Elements start invisible and slide up into view as the user scrolls.
-  // -----------------------------------------------------------------------
   var observerOptions = {
     threshold: 0.1,
     rootMargin: "0px 0px -50px 0px"
@@ -30,9 +21,10 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }, observerOptions);
 
-  // Select all cards that should animate in on scroll
   var animatedElements = document.querySelectorAll(
-    ".osi-feature-card, .osi-spec-card, .osi-involvement-card, .osi-member-card, .osi-update-card"
+    ".osi-feature-card, .osi-involvement-card, .osi-member-card, " +
+    ".osi-update-card, .osi-check-item, .osi-code-block, .osi-stat, " +
+    ".osi-pitch-card, .osi-class-card, .osi-wg-card, .osi-community-bar"
   );
 
   animatedElements.forEach(function (el) {
@@ -42,10 +34,6 @@ document.addEventListener("DOMContentLoaded", function () {
     observer.observe(el);
   });
 
-  // -----------------------------------------------------------------------
-  // Page load fade-in
-  // Brief fade-in of the entire page to smooth the initial render.
-  // -----------------------------------------------------------------------
   document.body.style.opacity = "0";
   setTimeout(function () {
     document.body.style.transition = "opacity 0.5s ease";

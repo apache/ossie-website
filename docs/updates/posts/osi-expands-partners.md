@@ -1,9 +1,8 @@
 ---
-date: 2025-05-07
+title: "OSI Initiative Grows with New Partners"
+date: 2025-11-13
 authors:
   - snowflake
-categories:
-  - Announcements
 description: >-
   Major industry leaders, including JPMC and Collibra, have joined the
   working group to advance semantic data standards.

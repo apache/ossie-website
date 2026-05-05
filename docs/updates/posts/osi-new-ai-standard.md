@@ -1,9 +1,8 @@
 ---
-date: 2025-03-12
+title: "Open Semantic Interchange: A New AI Standard"
+date: 2025-09-23
 authors:
   - snowflake
-categories:
-  - Announcements
 description: >-
   Introducing OSI, a collaborative initiative to create a vendor-agnostic
   standard for semantic model exchange across AI and BI platforms.

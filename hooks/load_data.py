@@ -41,7 +41,7 @@ def _extract_title(meta, body, fname):
 
 
 def _load_latest_posts(config, limit=3):
-    posts_dir = os.path.join(config["docs_dir"], "blog", "posts")
+    posts_dir = os.path.join(config["docs_dir"], "updates", "posts")
     if not os.path.isdir(posts_dir):
         return []
 

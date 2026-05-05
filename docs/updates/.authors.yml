@@ -1,0 +1,101 @@
+authors:
+  snowflake:
+    name: Snowflake
+    description: Snowflake blog
+    avatar: https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Snowflake_Logo.svg/220px-Snowflake_Logo.svg.png
+  salesforce:
+    name: Salesforce
+    description: Salesforce blog
+    avatar: https://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/Salesforce.com_logo.svg/220px-Salesforce.com_logo.svg.png
+  dbt-labs:
+    name: dbt Labs
+    description: dbt Labs blog
+    avatar: https://avatars.githubusercontent.com/u/62003700
+  thoughtspot:
+    name: ThoughtSpot
+    description: ThoughtSpot blog
+    avatar: https://avatars.githubusercontent.com/u/13218498
+  atscale:
+    name: AtScale
+    description: AtScale blog
+    avatar: https://avatars.githubusercontent.com/u/6750498
+  cube:
+    name: Cube
+    description: Cube blog
+    avatar: https://avatars.githubusercontent.com/u/43436539
+  collibra:
+    name: Collibra
+    description: Collibra blog
+    avatar: https://avatars.githubusercontent.com/u/5816606
+  sigma:
+    name: Sigma
+    description: Sigma Computing blog
+    avatar: https://avatars.githubusercontent.com/u/45755753
+  omni:
+    name: Omni
+    description: Omni Analytics blog
+    avatar: https://avatars.githubusercontent.com/u/130475972
+  honeydew:
+    name: Honeydew
+    description: Honeydew blog
+    avatar: https://avatars.githubusercontent.com/u/106979419
+  preset:
+    name: Preset
+    description: Preset blog
+    avatar: https://avatars.githubusercontent.com/u/64818795
+  elementum:
+    name: Elementum AI
+    description: Elementum AI blog
+    avatar: https://avatars.githubusercontent.com/u/7766661
+  selectstar:
+    name: Select Star
+    description: Select Star blog
+    avatar: https://avatars.githubusercontent.com/u/52255320
+  relationalai:
+    name: RelationalAI
+    description: RelationalAI blog
+    avatar: https://avatars.githubusercontent.com/u/61414011
+  alation:
+    name: Alation
+    description: Alation news
+    avatar: https://avatars.githubusercontent.com/u/12087573
+  atlan:
+    name: Atlan
+    description: Atlan blog
+    avatar: https://avatars.githubusercontent.com/u/39625741
+  strategy:
+    name: Strategy
+    description: Strategy Software blog
+    avatar: https://avatars.githubusercontent.com/u/55671063
+  starburst:
+    name: Starburst Data
+    description: Starburst Data news
+    avatar: https://avatars.githubusercontent.com/u/54542863
+  domo:
+    name: Domo
+    description: Domo news
+    avatar: https://avatars.githubusercontent.com/u/840757
+  datahub:
+    name: DataHub
+    description: DataHub news
+    avatar: https://avatars.githubusercontent.com/u/76015290
+  qlik:
+    name: Qlik
+    description: Qlik news
+    avatar: https://avatars.githubusercontent.com/u/10448043
+  jetbrains:
+    name: JetBrains
+    description: JetBrains / Databao blog
+    avatar: https://avatars.githubusercontent.com/u/878437
+  collate:
+    name: Collate
+    description: Collate blog
+    avatar: https://avatars.githubusercontent.com/u/95484987
+  denodo:
+    name: Denodo
+    description: Denodo news
+    avatar: https://avatars.githubusercontent.com/u/20906399
+  bigeye:
+    name: Bigeye
+    description: Bigeye news
+    avatar: https://avatars.githubusercontent.com/u/76363373
