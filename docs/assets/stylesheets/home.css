@@ -589,6 +589,14 @@
   padding: 0.75rem 1rem;
 }
 
+.osi-update-card__date {
+  display: block;
+  font-size: 0.68rem;
+  color: var(--osi-gray-400);
+  margin-bottom: 0.2rem;
+  font-weight: 500;
+}
+
 .osi-update-card h4 {
   font-size: 0.82rem;
   margin-bottom: 0.25rem;

@@ -486,3 +486,37 @@ h6, .h6, .md-typeset h6 {
     flex-wrap: wrap;
   }
 }
+
+
+/* ── Blog post page ────────────────────────────────────────────────── */
+.md-content--post .md-typeset {
+  font-size: 0.76rem;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  line-height: 1.5;
+}
+
+.md-content--post .md-typeset h1 {
+  font-size: 1rem;
+}
+
+.md-content--post .md-typeset h2 {
+  font-size: 0.88rem;
+}
+
+.md-content--post .md-typeset h3 {
+  font-size: 0.8rem;
+}
+
+.md-content--post .md-typeset h4 {
+  font-size: 0.76rem;
+}
+
+.md-content--post .md-typeset p,
+.md-content--post .md-typeset li {
+  font-size: 0.76rem;
+  color: var(--osi-gray-700);
+}
+
+.md-content--post .md-typeset table {
+  font-size: 0.74rem;
+}

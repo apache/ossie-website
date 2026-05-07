@@ -305,6 +305,7 @@
           <div class="col-md-6">
             <div class="card osi-update-card h-100 border-0">
               <div class="card-body">
+                <span class="osi-update-card__date">{{ post.date.strftime('%B %-d, %Y') }}</span>
                 {% if post.external_url %}
                   <h4>
                     <a href="{{ post.external_url }}" target="_blank" rel="noopener" class="osi-update-card__title">
