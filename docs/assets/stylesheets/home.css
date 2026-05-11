@@ -1,10 +1,9 @@
 /*
  * home.css — Styles for the OSI landing page (overrides/home.html).
  *
- * Layout is handled by Bootstrap 5 grid, card, and utility classes.
- * This file contains ONLY section-specific visuals that Bootstrap
- * cannot express: backgrounds, gradients, hover effects, accent
- * borders, and custom component details.
+ * Modern, clean design with white background, subtle gradients,
+ * and blue/purple accents. Borrows patterns from tech-forward
+ * landing pages while keeping OSI's content and brand identity.
  *
  * Global design tokens and Bootstrap overrides live in global.css.
  */
@@ -15,13 +14,60 @@
    ========================================================================== */
 
 .osi-hero {
-  background: linear-gradient(135deg, var(--osi-primary-green) 0%, var(--osi-accent-blue) 100%);
-  color: var(--osi-white);
+  background: var(--osi-white);
+  color: var(--osi-gray-900);
+  position: relative;
+  overflow: hidden;
+  padding-top: 5rem;
+  padding-bottom: 4rem;
+}
+
+.osi-hero::before {
+  content: "";
+  position: absolute;
+  top: -20%;
+  left: 20%;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(0, 147, 199, 0.08) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.osi-hero::after {
+  content: "";
+  position: absolute;
+  bottom: -10%;
+  right: 15%;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(124, 58, 237, 0.06) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.osi-hero h1 {
+  font-size: clamp(1.4rem, 3vw, 2rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.2;
+  color: var(--osi-gray-900);
 }
 
 .osi-hero__subtitle {
-  opacity: 0.95;
-  line-height: 1.4;
+  color: var(--osi-gray-500);
+  line-height: 1.6;
+  font-size: 0.85rem;
+}
+
+.osi-hero .btn-primary {
+  padding: 0.5rem 1.25rem;
+  font-size: 0.8rem;
+}
+
+.osi-hero .btn-outline-secondary {
+  padding: 0.5rem 1.25rem;
+  font-size: 0.8rem;
 }
 
 .osi-btn-icon {
@@ -29,51 +75,378 @@
   margin-right: 0.35em;
 }
 
-.osi-hero .btn-outline-light {
-  --bs-btn-color: var(--osi-white);
-  --bs-btn-bg: var(--osi-accent-blue);
-  --bs-btn-border-color: var(--osi-accent-blue);
-  --bs-btn-hover-color: var(--osi-white);
-  --bs-btn-hover-bg: #059669;
-  --bs-btn-hover-border-color: #059669;
-  --bs-btn-active-bg: #047857;
-  --bs-btn-active-border-color: #047857;
-  font-weight: 600;
+
+/* ==========================================================================
+   Stats / Trust Bar (below hero)
+   ========================================================================== */
+
+.osi-stats-bar {
+  border-top: 1px solid var(--osi-gray-200);
+  margin-top: 3rem;
+  padding-top: 2rem;
 }
 
-.osi-hero .btn-outline-light:hover {
-  color: var(--osi-white);
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(7, 167, 127, 0.35);
+.osi-stat {
+  text-align: center;
+}
+
+.osi-stat__value {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--osi-gray-900);
+  display: block;
+}
+
+.osi-stat__label {
+  font-size: 0.65rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--osi-gray-400);
+  margin-top: 0.25rem;
+  display: block;
 }
 
 
 /* ==========================================================================
-   About Section
+   Code / Specification Section
    ========================================================================== */
 
+.osi-code-section {
+  background: var(--osi-gray-50);
+  border-bottom: 1px solid var(--osi-gray-100);
+  position: relative;
+}
+
+.osi-code-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 10%;
+  right: 10%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--osi-primary-blue), var(--osi-accent-purple), transparent);
+  opacity: 0.3;
+}
+
+.osi-code-section h2 {
+  color: var(--osi-gray-900);
+}
+
+.osi-code-section h2 {
+  font-size: 1.05rem;
+}
+
+.osi-code-section .osi-text-gradient {
+  background: linear-gradient(135deg, var(--osi-primary-blue), var(--osi-accent-purple));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.osi-code-section p {
+  font-size: 0.75rem;
+}
+
+.osi-check-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.osi-check-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.osi-check-icon {
+  flex-shrink: 0;
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 50%;
+  background: var(--osi-light-blue);
+  border: 1px solid rgba(0, 147, 199, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 0.15rem;
+  color: var(--osi-primary-blue);
+  font-size: 0.7rem;
+}
+
+.osi-check-item h3 {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--osi-gray-900);
+  margin: 0 0 0.2rem;
+}
+
+.osi-check-item p {
+  color: var(--osi-gray-500);
+  font-size: 0.75rem;
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* Code block (terminal style) */
+.osi-code-block {
+  background: var(--osi-gray-900);
+  border-radius: 0.75rem;
+  border: 1px solid var(--osi-gray-800);
+  overflow: hidden;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.1);
+}
+
+.osi-code-block__header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.osi-code-dot {
+  width: 0.75rem;
+  height: 0.75rem;
+  border-radius: 50%;
+}
+
+.osi-code-dot--red { background: #EF4444; }
+.osi-code-dot--yellow { background: #F59E0B; }
+.osi-code-dot--green { background: #22C55E; }
+
+.osi-code-block__filename {
+  font-family: 'JetBrains Mono', 'Fira Code', monospace;
+  font-size: 0.75rem;
+  color: var(--osi-gray-400);
+  margin-left: 0.5rem;
+}
+
+.osi-code-block__body {
+  padding: 1rem;
+  overflow-x: auto;
+}
+
+.osi-code-block pre {
+  font-family: 'JetBrains Mono', 'Fira Code', monospace;
+  font-size: 0.65rem;
+  line-height: 1.7;
+  margin: 0;
+  color: var(--osi-gray-300);
+}
+
+.osi-code-block .osi-yaml-key { color: #C084FC; }
+.osi-code-block .osi-yaml-prop { color: #60A5FA; }
+.osi-code-block .osi-yaml-val { color: #34D399; }
+.osi-code-block .osi-yaml-comment { color: #6B7280; }
+
+
+/* ==========================================================================
+   About Section (Feature Cards)
+   ========================================================================== */
+
+.osi-about-section {
+  background: var(--osi-ice-blue);
+  border-top: 1px solid rgba(0, 147, 199, 0.06);
+  border-bottom: 1px solid rgba(0, 147, 199, 0.06);
+}
+
 .osi-feature-card {
-  background-color: var(--osi-light-green) !important;
-  border-radius: 12px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background-color: var(--osi-white) !important;
+  border: 1px solid var(--osi-gray-200) !important;
+  border-radius: 1rem;
+  transition: all 0.3s ease;
 }
 
 .osi-feature-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
+  border-color: var(--osi-primary-blue) !important;
 }
 
+.osi-feature-icon {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+}
+
+.osi-feature-icon--blue {
+  background: var(--osi-light-blue);
+  color: var(--osi-primary-blue);
+}
+
+.osi-feature-icon--purple {
+  background: var(--osi-light-purple);
+  color: var(--osi-accent-purple);
+}
+
+.osi-feature-icon--green {
+  background: var(--osi-light-green);
+  color: var(--osi-accent-green);
+}
+
+.osi-feature-card h3 {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--osi-gray-900);
+}
+
+.osi-feature-card p {
+  color: var(--osi-gray-500);
+  font-size: 0.78rem;
+  line-height: 1.6;
+}
+
+
+/* ==========================================================================
+   Challenge / Solution Pitch Cards
+   ========================================================================== */
+
+.osi-pitch-card {
+  border: 1px solid var(--osi-gray-200);
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+  height: 100%;
+}
+
+.osi-pitch-card--challenge {
+  background: var(--osi-white);
+  border-left: 3px solid #EF4444;
+}
+
+.osi-pitch-card--solution {
+  background: var(--osi-white);
+  border-left: 3px solid var(--osi-accent-green);
+}
+
+.osi-pitch-card__heading {
+  font-size: 0.9rem !important;
+  font-weight: 700;
+  color: var(--osi-gray-900);
+  margin-bottom: 1rem !important;
+}
+
+.osi-pitch-card__sub {
+  font-weight: 400;
+  color: var(--osi-gray-500);
+  margin-left: 0.25rem;
+}
+
+.osi-pitch-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.osi-pitch-list__item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  margin-bottom: 0.75rem;
+  font-size: 0.78rem;
+  color: var(--osi-gray-700);
+}
+
+.osi-pitch-list__item strong {
+  display: block;
+  font-size: 0.78rem;
+  color: var(--osi-gray-900);
+}
+
+.osi-pitch-list__desc {
+  color: var(--osi-gray-500);
+  font-size: 0.72rem;
+}
+
+.osi-pitch-list__icon {
+  flex-shrink: 0;
+  width: 1.1rem;
+  height: 1.1rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.6rem;
+  font-weight: 700;
+  margin-top: 0.1rem;
+}
+
+.osi-pitch-list__icon--problem {
+  background: #FEE2E2;
+  color: #EF4444;
+}
+
+.osi-pitch-list__icon--solution {
+  background: var(--osi-light-green);
+  color: var(--osi-accent-green);
+}
+
+
+/* ==========================================================================
+   Core Classes Cards
+   ========================================================================== */
+
+.osi-class-card {
+  background: var(--osi-white);
+  border: 1px solid var(--osi-gray-200);
+  border-radius: 0.5rem;
+  padding: 1rem 1.25rem;
+  transition: all 0.2s ease;
+}
+
+.osi-class-card:hover {
+  border-color: rgba(0, 147, 199, 0.3);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.osi-class-card__name {
+  font-size: 0.8rem;
+  color: var(--osi-gray-900);
+}
+
+.osi-class-card__desc {
+  font-size: 0.72rem;
+  color: var(--osi-gray-500);
+  margin: 0.25rem 0 0;
+  line-height: 1.5;
+}
 
 
 /* ==========================================================================
    Members Section (Logo Wall)
    ========================================================================== */
 
+.osi-members-section {
+  background: var(--osi-gray-50);
+  border-top: 1px solid var(--osi-gray-100);
+  border-bottom: 1px solid var(--osi-gray-100);
+  position: relative;
+}
+
+.osi-members-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(circle at 1px 1px, var(--osi-gray-200) 1px, transparent 0);
+  background-size: 28px 28px;
+  opacity: 0.4;
+  pointer-events: none;
+}
+
 .osi-member-card {
-  border: 2px solid var(--osi-white) !important;
-  border-radius: 8px;
+  border: 1px solid var(--osi-gray-200) !important;
+  border-radius: 0.75rem;
   transition: all 0.3s ease;
   min-height: 120px;
+  background: var(--osi-white) !important;
 }
 
 .osi-member-card__logo {
@@ -86,126 +459,283 @@
 }
 
 .osi-member-card:hover {
-  border-color: var(--osi-primary-green) !important;
-  background-color: var(--osi-light-green) !important;
-  transform: translateY(-4px);
-  box-shadow: 0 8px 20px rgba(7, 167, 127, 0.15);
+  border-color: rgba(0, 147, 199, 0.4) !important;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(0, 147, 199, 0.1);
 }
 
 .osi-member-card:hover .osi-member-card__logo {
-  transform: scale(1.1);
+  transform: scale(1.05);
 }
 
 .osi-member-card__name {
-  font-size: var(--osi-font-caption);
+  font-size: 0.7rem;
+  color: var(--osi-gray-600);
 }
 
+
+/* ==========================================================================
+   Working Group Cards
+   ========================================================================== */
+
+.osi-wg-card {
+  background: var(--osi-white);
+  border: 1px solid var(--osi-gray-200);
+  border-radius: 0.5rem;
+  padding: 1rem 1.25rem;
+  transition: all 0.2s ease;
+  height: 100%;
+}
+
+.osi-wg-card:hover {
+  border-color: rgba(0, 147, 199, 0.3);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.osi-wg-card__name {
+  font-size: 0.78rem;
+  color: var(--osi-gray-900);
+  display: block;
+  margin-bottom: 0.2rem;
+}
+
+.osi-wg-card__focus {
+  font-size: 0.72rem;
+  color: var(--osi-gray-500);
+  margin: 0;
+  line-height: 1.5;
+}
+
+
+/* ==========================================================================
+   Community Bar (Get Involved)
+   ========================================================================== */
+
+.osi-community-bar {
+  background: var(--osi-white);
+  border: 1px solid var(--osi-gray-200);
+  border-radius: 0.75rem;
+  padding: 1.5rem 2rem;
+}
+
+.osi-community-bar__heading {
+  font-size: 0.95rem !important;
+  font-weight: 700;
+  color: var(--osi-gray-900);
+  margin-bottom: 0.3rem !important;
+}
+
+.osi-community-bar__desc {
+  font-size: 0.75rem;
+  color: var(--osi-gray-500);
+  margin: 0;
+  line-height: 1.5;
+}
+
+.osi-community-link {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  background: var(--osi-gray-50);
+  border: 1px solid var(--osi-gray-200);
+  border-radius: 0.5rem;
+  padding: 0.75rem 1.25rem;
+  flex: 1;
+  min-width: 200px;
+  transition: all 0.2s ease;
+  text-decoration: none !important;
+}
+
+.osi-community-link:hover {
+  border-color: var(--osi-primary-blue);
+  background: var(--osi-light-blue);
+  transform: translateY(-1px);
+}
+
+.osi-community-link strong {
+  font-size: 0.78rem;
+  color: var(--osi-primary-blue);
+}
+
+.osi-community-link span {
+  font-size: 0.7rem;
+  color: var(--osi-gray-500);
+}
 
 
 /* ==========================================================================
    Updates Section
    ========================================================================== */
 
+.osi-updates-section {
+  background: var(--osi-white);
+  border-bottom: 1px solid var(--osi-gray-100);
+}
+
 .osi-update-card {
-  background-color: var(--osi-light-green) !important;
-  border-radius: 12px;
-  border-left: 4px solid var(--osi-primary-green) !important;
+  background-color: var(--osi-white) !important;
+  border: 1px solid var(--osi-gray-200) !important;
+  border-left: 4px solid var(--osi-primary-blue) !important;
+  border-radius: 0.75rem;
   transition: all 0.3s ease;
 }
 
 .osi-update-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
-  border-left-color: var(--osi-primary-green) !important;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+.osi-update-card .card-body {
+  padding: 0.75rem 1rem;
+}
+
+.osi-update-card__date {
+  display: block;
+  font-size: 0.68rem;
+  color: var(--osi-gray-400);
+  margin-bottom: 0.2rem;
+  font-weight: 500;
+}
+
+.osi-update-card h4 {
+  font-size: 0.82rem;
+  margin-bottom: 0.25rem;
 }
 
 .osi-update-card p {
-  line-height: 1.6;
-  font-size: var(--osi-font-caption);
+  line-height: 1.4;
+  font-size: 0.72rem;
+  color: var(--osi-gray-600);
+  margin-bottom: 0;
 }
 
 .osi-update-card__title {
-  color: var(--osi-dark-blue);
+  color: var(--osi-gray-900);
+  font-weight: 600;
   transition: color 0.15s ease;
 }
 
 .osi-update-card__title:hover {
-  color: var(--osi-primary-green);
-}
-
-.osi-update-card__link {
-  color: var(--osi-primary-green);
-  font-weight: 600;
-  font-size: var(--osi-font-caption);
-  transition: all 0.3s ease;
-  display: inline-block;
-}
-
-.osi-update-card__link:hover {
-  color: var(--osi-primary-green);
-  transform: translateX(4px);
+  color: var(--osi-primary-blue);
 }
 
 .osi-update-card--all {
-  background-color: var(--osi-light-green) !important;
-  border-left: 4px solid var(--osi-primary-green) !important;
+  background-color: var(--osi-light-blue) !important;
+  border-left: 4px solid var(--osi-primary-blue) !important;
+  border-color: transparent !important;
+  border-left-color: var(--osi-primary-blue) !important;
 }
 
 .osi-update-card--all:hover {
-  background-color: var(--osi-light-green) !important;
-  border-left-color: var(--osi-primary-green) !important;
+  background-color: var(--osi-light-blue) !important;
 }
 
 .osi-update-card__all-label {
-  color: var(--osi-primary-green);
-  font-family: Arial, sans-serif;
-  font-size: var(--osi-font-lead);
+  color: var(--osi-primary-blue);
+  font-size: 0.85rem;
   font-weight: 600;
   transition: color 0.15s ease;
 }
 
-.osi-update-card--all:hover .osi-update-card__all-label {
-  color: var(--osi-primary-green);
-}
-
 
 /* ==========================================================================
-   Get Involved Section
+   Get Involved Section (CTA)
    ========================================================================== */
 
 .osi-get-involved {
-  background-color: var(--osi-dark-blue);
+  background: linear-gradient(135deg, var(--osi-dark-blue) 0%, #1E3A5F 50%, #0E2A4A 100%);
+  color: var(--osi-white);
+  position: relative;
+  overflow: hidden;
+}
+
+.osi-get-involved::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(circle at 1px 1px, rgba(255, 255, 255, 0.04) 1px, transparent 0);
+  background-size: 24px 24px;
+  pointer-events: none;
+}
+
+.osi-get-involved h2 {
+  color: var(--osi-white);
+}
+
+.osi-get-involved h3 {
   color: var(--osi-white);
 }
 
 .osi-involvement-card {
-  background-color: rgba(255, 255, 255, 0.95) !important;
-  border-radius: 12px;
+  background-color: rgba(255, 255, 255, 0.08) !important;
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+  border-radius: 1rem;
+  backdrop-filter: blur(4px);
+  transition: all 0.3s ease;
+}
+
+.osi-involvement-card:hover {
+  background-color: rgba(255, 255, 255, 0.12) !important;
+  border-color: rgba(255, 255, 255, 0.2) !important;
+  transform: translateY(-2px);
 }
 
 .osi-involvement-card p {
-  font-size: var(--osi-font-caption);
+  font-size: 0.78rem;
+  color: rgba(255, 255, 255, 0.8);
 }
 
 .osi-get-involved a {
-  color: var(--osi-white);
+  color: #60A5FA;
   font-weight: 600;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
-  transition: border-color 0.15s ease;
+  transition: color 0.15s ease;
 }
 
 .osi-get-involved a:hover {
-  color: var(--osi-white);
-  border-bottom-color: var(--osi-white);
+  color: #93C5FD;
 }
 
 .osi-get-involved .osi-involvement-card a {
-  color: var(--osi-accent-blue);
-  font-weight: 600;
+  color: #60A5FA;
   border-bottom: none;
 }
 
 .osi-get-involved .osi-involvement-card a:hover {
-  color: #059669;
+  color: #93C5FD;
 }
 
+.osi-join-btn {
+  display: inline-block;
+  background: var(--osi-white);
+  color: var(--osi-dark-blue);
+  padding: 0.5rem 1.5rem;
+  border-radius: 0.5rem;
+  font-size: 0.8rem;
+  font-weight: 700;
+  transition: all 0.2s ease;
+}
+
+.osi-join-btn:hover {
+  background: var(--osi-gray-100);
+  color: var(--osi-dark-blue);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+
+/* ==========================================================================
+   Section heading styles
+   ========================================================================== */
+
+.osi-section-heading {
+  font-size: clamp(1rem, 2vw, 1.15rem);
+  font-weight: 700;
+  color: var(--osi-gray-900);
+  letter-spacing: -0.02em;
+}
+
+.osi-section-subtitle {
+  color: var(--osi-gray-500);
+  font-size: 0.8rem;
+  line-height: 1.6;
+}

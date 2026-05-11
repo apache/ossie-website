@@ -9,9 +9,9 @@
 # =============================================================================
 
 # --- Hero Section ------------------------------------------------------------
-# The large banner at the top of the landing page.
 hero:
-  title: "Open Semantic Interchange"
+  title_line1: "The Universal Standard for"
+  title_accent: "Semantic Data"
   subtitle: >-
     The Open Semantic Interchange is an industry-wide specification effort
     to standardize how we exchange semantic metadata across analytics, AI
@@ -23,45 +23,138 @@ hero:
       style: primary
       icon: github
     - text: "Get Involved"
-      link: "community/"
+      link: "#members"
       style: secondary
+  stats:
+    - value: "100%"
+      label: "Vendor Neutral"
+    - value: "YAML"
+      label: "Configuration"
+    - value: "Apache 2.0"
+      label: "Open Source"
+    - value: "AI Ready"
+      label: "Semantic Context"
+
+# --- Specification Showcase --------------------------------------------------
+# Two-column section: feature checklist + syntax-highlighted code block.
+spec_showcase:
+  heading: "Write Once, "
+  heading_accent: "Query Anywhere."
+  description: >-
+    Stop redefining "Revenue" in every dashboard. OSI uses a declarative
+    YAML standard to define metrics, dimensions, and joins — so every
+    tool and agent in your stack works from the same source of truth.
+  code_filename: "sales_analytics.osi.yaml"
+  code: |
+    <span class="osi-yaml-key">semantic_model:</span>
+      - <span class="osi-yaml-prop">name:</span> <span class="osi-yaml-val">ecommerce_analytics</span>
+        <span class="osi-yaml-prop">description:</span> <span class="osi-yaml-comment">Sales and customer analytics</span>
+        <span class="osi-yaml-key">ai_context:</span>
+          <span class="osi-yaml-prop">instructions:</span> <span class="osi-yaml-comment">"Use for sales analysis"</span>
+
+        <span class="osi-yaml-key">datasets:</span>
+          - <span class="osi-yaml-prop">name:</span> <span class="osi-yaml-val">orders</span>
+            <span class="osi-yaml-prop">source:</span> <span class="osi-yaml-val">sales.public.orders</span>
+            <span class="osi-yaml-prop">primary_key:</span> <span class="osi-yaml-val">[order_id]</span>
+            <span class="osi-yaml-key">fields:</span>
+              - <span class="osi-yaml-prop">name:</span> <span class="osi-yaml-val">order_date</span>
+                <span class="osi-yaml-key">dimension:</span>
+                  <span class="osi-yaml-prop">is_time:</span> <span class="osi-yaml-val">true</span>
+
+        <span class="osi-yaml-key">metrics:</span>
+          - <span class="osi-yaml-prop">name:</span> <span class="osi-yaml-val">total_revenue</span>
+            <span class="osi-yaml-key">expression:</span>
+              <span class="osi-yaml-key">dialects:</span>
+                - <span class="osi-yaml-prop">dialect:</span> <span class="osi-yaml-val">ANSI_SQL</span>
+                  <span class="osi-yaml-prop">expression:</span> <span class="osi-yaml-val">SUM(orders.amount)</span>
+  features:
+    - title: "Consistent Definitions"
+      description: "Ensure Marketing, Finance, and Sales all see the same numbers — no more metric drift."
+    - title: "AI-Ready Context"
+      description: "Give LLMs the semantic context they need to answer business questions accurately."
+    - title: "No Lock-In"
+      description: "Move your business logic between platforms freely. Your metrics belong to you."
 
 # --- About Section -----------------------------------------------------------
-# Introductory paragraph and four feature cards.
 about:
   heading: "About OSI"
   description: >-
     The Open Semantic Interchange (OSI) is a collaborative, open-source
     effort dedicated to standardizing and streamlining semantic model
     definitions across the data analytics, AI, and BI ecosystem.
+
+  # The Challenge / Solution — two-column pitch
+  challenge:
+    heading: "The Challenge"
+    subtitle: "Semantic Fragmentation"
+    points:
+      - title: "Metric Drift"
+        description: "Inconsistent KPIs across different dashboards."
+      - title: "Manual Translation"
+        description: "Costly, error-prone reconciliation efforts."
+      - title: "Hallucinations"
+        description: "Unreliable AI grounding from conflicting data logic."
+      - title: "Integration Debt"
+        description: "Complex N-to-N custom integrations between proprietary tools."
+  solution:
+    heading: "The Solution"
+    subtitle: "A Unified Standard"
+    points:
+      - title: "Single Source of Truth"
+        description: "Unified semantic and metric definitions."
+      - title: "Native Interoperability"
+        description: "Direct exchange between platforms and AI agents."
+      - title: "Trusted AI Grounding"
+        description: "Agents reasoning accurately based on business logic."
+      - title: "Reduced TCO"
+        description: "Lower costs through automated model exchange."
+
   features:
-    - icon: "🔄"
+    - icon: "arrows-exchange"
       title: "Interoperability"
+      color: "blue"
       description: >-
         Seamlessly exchange semantic models between AI agents, BI
         platforms, and analytics tools.
-    - icon: "✅"
+    - icon: "shield-check"
       title: "Consistency"
+      color: "green"
       description: >-
         Maintain consistent data definitions and values across every
         platform in your ecosystem.
-    - icon: "🌐"
+    - icon: "globe-nodes"
       title: "Vendor-Agnostic"
+      color: "purple"
       description: >-
         A common standard that works across all vendors, eliminating
         tool-specific inconsistencies and lock-in.
-    - icon: "🚀"
+    - icon: "bolt"
       title: "Efficiency"
+      color: "blue"
       description: >-
         Reduce engineering debt and accelerate innovation by using a
         unified, governed semantic foundation.
 
+  # Core Classes — what the spec defines
+  core_classes:
+    heading: "Core Classes"
+    description: "The OSI specification defines these building blocks:"
+    classes:
+      - name: "Semantic Model"
+        description: "Top-level container representing a complete model with datasets, relationships, and metrics."
+      - name: "Datasets"
+        description: "Logical business entities — fact and dimension tables with fields and structure."
+      - name: "Fields"
+        description: "Row-level attributes for grouping, filtering, and metric expressions."
+      - name: "Metrics"
+        description: "Aggregate calculations — sums, averages, ratios — spanning multiple datasets."
+      - name: "Dimensions"
+        description: "Categorical attributes: Where, When, Who."
+      - name: "Relationships"
+        description: "Foreign key constraints connecting datasets, supporting simple and composite keys."
+
 
 # --- Members Section ---------------------------------------------------------
-# Logo wall of working group members. To add a new member:
-#   1. Place the logo file in docs/assets/images/logos/
-#   2. Add a new entry below with name and logo filename
-# The template loops over this list to render the logo grid.
 members:
   heading: "Working Group Members"
   subtitle: "Leading organizations collaborating to build the future of semantic interchange"
@@ -98,6 +191,8 @@ members:
       logo: "credible-logo.png"
     - name: "Cube"
       logo: "cube-logo.png"
+    - name: "Dataiku"
+      logo: "dataiku-logo.png"
     - name: "Databricks"
       logo: "databricks-logo.png"
     - name: "DataHub"
@@ -128,6 +223,8 @@ members:
       logo: "jetbrains-logo.png"
     - name: "Lightdash"
       logo: "lightdash-logo.png"
+    - name: "Metabase"
+      logo: "metabase-logo.png"
     - name: "Mistral AI"
       logo: "mistral-ai-logo.png"
     - name: "Omni"
@@ -156,38 +253,34 @@ members:
       logo: "sundial-logo.png"
     - name: "ThoughtSpot"
       logo: "thoughtspot-logo.png"
-
-
-# --- Get Involved Section ----------------------------------------------------
-# Call-to-action cards and the working group registration link.
-get_involved:
-  heading: "Get Involved"
-  intro:
-    heading: "How to Contribute?"
+    - name: "Zeta Global"
+      logo: "zeta-global-logo.png"
+  working_groups:
+    heading: "Working Groups"
+    description: "The initiative is organized into focused groups, each tackling a specific area of the specification."
+    groups:
+      - name: "Advanced Metrics & Expression Language"
+        focus: "Complex metric calculations and a portable expression syntax"
+      - name: "Composability"
+        focus: "Enabling semantic models to reference and extend one another"
+      - name: "Catalog Integration"
+        focus: "Bridging OSI models with data catalog and governance platforms"
+      - name: "Ontology Representation"
+        focus: "Mapping OSI concepts to formal ontology standards"
+      - name: "Model Converters & Developer Tools"
+        focus: "Tooling for importing, exporting, and validating OSI models"
+  community:
+    heading: "Get Involved"
     description: >-
-      Join our open-source community on GitHub. Decouple your semantic
-      logic from proprietary platforms and help shape the future.
-  actions:
-    - text: >-
-        Review the <a href="https://github.com/open-semantic-interchange/OSI"
-        target="_blank">OSI repository</a> and documentation for the
-        current spec.
-    - text: >-
-        Have a use case or an idea for the spec evolution that you would
-        like to discuss with the community?
-        <a href="https://github.com/open-semantic-interchange/OSI/discussions"
-        target="_blank">Start a discussion here</a>.
-    - text: >-
-        Have a suggestion to modify the existing spec?
-        <a href="https://github.com/open-semantic-interchange/OSI"
-        target="_blank">Raise a Pull Request</a> in the repo.
-    - text: >-
-        Have tools or converters you would like to add?
-        <a href="https://github.com/open-semantic-interchange/OSI"
-        target="_blank">Raise a Pull Request</a> in the repo.
-  join:
-    heading: "Join the Working Group"
-    description: >-
-      Whether you are a vendor or customer, ensure your voice is heard.
-    link: "https://www.snowflake.com/event/partnering-for-open-standards-join-the-open-semantic-interchange"
-    link_text: "Register your interest"
+      Join our open-source community on GitHub. Help shape the future of
+      semantic interchange.
+    links:
+      - label: "View Repository"
+        url: "https://github.com/open-semantic-interchange/OSI"
+        description: "Browse the spec, raise PRs, and contribute code."
+      - label: "Start a Discussion"
+        url: "https://github.com/open-semantic-interchange/OSI/discussions"
+        description: "Share ideas, propose features, and ask questions."
+      - label: "Contribute Tools"
+        url: "https://github.com/open-semantic-interchange/OSI"
+        description: "Build converters, validators, and developer tooling."

@@ -2,27 +2,23 @@
   home.html — Custom landing page template for the OSI website.
 
   This template extends Material for MkDocs' main.html and overrides the
-  "block tabs" region to inject the full landing page. This is the same
-  pattern used by the Apache Iceberg project.
+  "block tabs" region to inject the full landing page.
 
   ALL TEXT CONTENT is read from data/home.yml via the mkdocs-macros-plugin.
   Variables are accessed directly (e.g. hero.title). To change any text on
   this page, edit data/home.yml — not this file.
 
-  Layout uses Bootstrap 5 grid, card, and utility classes. Global design
-  tokens and OSI color overrides live in global.css (loaded site-wide via
-  mkdocs.yml). Page-specific styles come from home.css, loaded by this
-  template.
+  Layout uses Bootstrap 5 grid and utility classes. Design tokens live in
+  global.css (site-wide). Page-specific styles come from home.css.
 #}
 {% extends "main.html" %}
 
-<!-- Override the tabs block to inject the landing page content -->
 {% block tabs %}
   {{ super() }}
 
   <link rel="stylesheet" href="{{ 'assets/stylesheets/home.css' | url }}">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
 
-  <!-- Inline style: hide default MkDocs content/sidebar on the home page -->
   <style>
     .md-content { display: none; }
     @media screen and (min-width: 60em)   { .md-sidebar--secondary { display: none; } }
@@ -32,19 +28,24 @@
 
   <!-- ===================================================================
        HERO SECTION
-       Large banner with headline, subtitle, and call-to-action buttons.
-       Data source: hero
        =================================================================== -->
   <section id="home" class="osi-hero py-5">
-    <div class="container">
-      <div class="text-center mx-auto" style="max-width:900px">
-        <h1 class="text-white">{{ hero.title }}</h1>
-        <p class="osi-hero__subtitle lead">{{ hero.subtitle }}</p>
-        <div class="d-flex justify-content-center flex-wrap gap-2">
+    <div class="container position-relative" style="z-index:1">
+      <div class="text-center mx-auto" style="max-width:800px">
+
+        <h1>{{ hero.title_line1 | default(hero.title) }}
+          {% if hero.title_accent %}
+            <br><span class="osi-text-gradient">{{ hero.title_accent }}</span>
+          {% endif %}
+        </h1>
+
+        <p class="osi-hero__subtitle lead mx-auto" style="max-width:640px">{{ hero.subtitle }}</p>
+
+        <div class="d-flex justify-content-center flex-wrap gap-3 mt-4">
           {% for btn in hero.buttons %}
             {% set is_external = btn.link.startswith("http") %}
             <a href="{{ btn.link if is_external else btn.link | url }}"
-               class="btn {% if btn.style == 'primary' %}btn-primary{% else %}btn-outline-light{% endif %}"
+               class="btn {% if btn.style == 'primary' %}btn-primary{% else %}btn-outline-secondary{% endif %}"
                {% if is_external %}target="_blank" rel="noopener"{% endif %}>
               {% if btn.icon == 'github' %}
                 <svg class="osi-btn-icon" width="20" height="20" viewBox="0 0 16 16" fill="currentColor">
@@ -55,24 +56,256 @@
             </a>
           {% endfor %}
         </div>
+
+        {% if hero.stats %}
+          <div class="osi-stats-bar">
+            <div class="row g-4">
+              {% for stat in hero.stats %}
+                <div class="col-6 col-md-3">
+                  <div class="osi-stat">
+                    <span class="osi-stat__value">{{ stat.value }}</span>
+                    <span class="osi-stat__label">{{ stat.label }}</span>
+                  </div>
+                </div>
+              {% endfor %}
+            </div>
+          </div>
+        {% endif %}
+
       </div>
     </div>
   </section>
 
 
   <!-- ===================================================================
-       UPDATES SECTION
-       Latest blog post cards (internal + external).
-       Data source: latest_posts (injected by hooks/load_data.py)
+       CODE / SPECIFICATION SECTION
+       Two-column layout: feature checklist + YAML code example
        =================================================================== -->
-  <section id="updates" class="py-5">
+  {% if spec_showcase is defined and spec_showcase %}
+  <section id="code" class="osi-code-section py-5">
     <div class="container">
-      <h2 class="text-center mb-5 osi-text-dark-blue">Latest Updates</h2>
-      <div class="row g-4">
+      <div class="row g-5 align-items-center">
+
+        <div class="col-lg-6">
+          <h2>{{ spec_showcase.heading }}
+            {% if spec_showcase.heading_accent %}
+              <span class="osi-text-gradient">{{ spec_showcase.heading_accent }}</span>
+            {% endif %}
+          </h2>
+          <p class="osi-text-gray mb-4" style="font-size:0.8rem; line-height:1.6">{{ spec_showcase.description }}</p>
+
+          <ul class="osi-check-list">
+            {% for item in spec_showcase.features %}
+              <li class="osi-check-item">
+                <div class="osi-check-icon">&#10003;</div>
+                <div>
+                  <h3>{{ item.title }}</h3>
+                  <p>{{ item.description }}</p>
+                </div>
+              </li>
+            {% endfor %}
+          </ul>
+        </div>
+
+        <div class="col-lg-6">
+          <div class="osi-code-block">
+            <div class="osi-code-block__header">
+              <span class="osi-code-dot osi-code-dot--red"></span>
+              <span class="osi-code-dot osi-code-dot--yellow"></span>
+              <span class="osi-code-dot osi-code-dot--green"></span>
+              <span class="osi-code-block__filename">{{ spec_showcase.code_filename | default("semantic_model.yaml") }}</span>
+            </div>
+            <div class="osi-code-block__body">
+              <pre>{{ spec_showcase.code | safe }}</pre>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+  {% endif %}
+
+
+  <!-- ===================================================================
+       ABOUT SECTION
+       =================================================================== -->
+  <section id="about" class="osi-about-section py-5">
+    <div class="container">
+      <h2 class="osi-section-heading text-center mb-2">{{ about.heading }}</h2>
+      <p class="osi-section-subtitle text-center mx-auto mb-5" style="max-width:700px">{{ about.description }}</p>
+
+      <!-- Feature cards -->
+      <div class="row g-4 mb-5">
+        {% for feature in about.features %}
+          <div class="col-md-6 col-lg-3">
+            <div class="card osi-feature-card h-100 text-center border-0">
+              <div class="card-body">
+                <div class="osi-feature-icon osi-feature-icon--{{ feature.color | default('blue') }} mx-auto">
+                  {% if feature.icon == 'arrows-exchange' %}
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="17 1 21 5 17 9"></polyline><path d="M3 11V9a4 4 0 0 1 4-4h14"></path><polyline points="7 23 3 19 7 15"></polyline><path d="M21 13v2a4 4 0 0 1-4 4H3"></path></svg>
+                  {% elif feature.icon == 'shield-check' %}
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><polyline points="9 12 11 14 15 10"></polyline></svg>
+                  {% elif feature.icon == 'globe-nodes' %}
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+                  {% elif feature.icon == 'bolt' %}
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+                  {% else %}
+                    {{ feature.icon }}
+                  {% endif %}
+                </div>
+                <h3>{{ feature.title }}</h3>
+                <p class="small">{{ feature.description }}</p>
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+
+      {% if about.challenge and about.solution %}
+      <!-- Challenge / Solution columns -->
+      <div class="row g-4 mb-5">
+        <div class="col-md-6">
+          <div class="osi-pitch-card osi-pitch-card--challenge">
+            <h3 class="osi-pitch-card__heading">{{ about.challenge.heading }}
+              <span class="osi-pitch-card__sub">{{ about.challenge.subtitle }}</span>
+            </h3>
+            <ul class="osi-pitch-list">
+              {% for item in about.challenge.points %}
+                <li class="osi-pitch-list__item">
+                  <span class="osi-pitch-list__icon osi-pitch-list__icon--problem">&times;</span>
+                  <div>
+                    <strong>{{ item.title }}</strong>
+                    <span class="osi-pitch-list__desc">{{ item.description }}</span>
+                  </div>
+                </li>
+              {% endfor %}
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="osi-pitch-card osi-pitch-card--solution">
+            <h3 class="osi-pitch-card__heading">{{ about.solution.heading }}
+              <span class="osi-pitch-card__sub">{{ about.solution.subtitle }}</span>
+            </h3>
+            <ul class="osi-pitch-list">
+              {% for item in about.solution.points %}
+                <li class="osi-pitch-list__item">
+                  <span class="osi-pitch-list__icon osi-pitch-list__icon--solution">&#10003;</span>
+                  <div>
+                    <strong>{{ item.title }}</strong>
+                    <span class="osi-pitch-list__desc">{{ item.description }}</span>
+                  </div>
+                </li>
+              {% endfor %}
+            </ul>
+          </div>
+        </div>
+      </div>
+      {% endif %}
+
+      {% if about.core_classes %}
+      <!-- Core Classes -->
+      <div class="text-center mb-4">
+        <h3 class="osi-section-heading">{{ about.core_classes.heading }}</h3>
+        <p class="osi-section-subtitle">{{ about.core_classes.description }}</p>
+      </div>
+      <div class="row g-3">
+        {% for cls in about.core_classes.classes %}
+          <div class="col-md-6 col-lg-4">
+            <div class="osi-class-card">
+              <strong class="osi-class-card__name">{{ cls.name }}</strong>
+              <p class="osi-class-card__desc">{{ cls.description }}</p>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+      {% endif %}
+
+    </div>
+  </section>
+
+
+  <!-- ===================================================================
+       COMMUNITY SECTION (Members + Working Groups + Get Involved)
+       =================================================================== -->
+  <section id="members" class="osi-members-section py-5">
+    <div class="container">
+      <h2 class="osi-section-heading text-center mb-2">{{ members.heading }}</h2>
+      <p class="osi-section-subtitle text-center mb-5">{{ members.subtitle }}</p>
+      <div class="row g-4 mb-5">
+        {% for member in members.list %}
+          <div class="col-6 col-md-4 col-lg-3">
+            <div class="card osi-member-card h-100">
+              <div class="card-body d-flex flex-column align-items-center justify-content-center">
+                <img src="assets/images/logos/{{ member.logo }}"
+                     alt="{{ member.name }}"
+                     loading="lazy"
+                     class="osi-member-card__logo">
+                <span class="osi-member-card__name mt-2">{{ member.name }}</span>
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+
+      {% if members.working_groups %}
+      <!-- Working Groups -->
+      <div class="text-center mb-4">
+        <h3 class="osi-section-heading">{{ members.working_groups.heading }}</h3>
+        <p class="osi-section-subtitle">{{ members.working_groups.description }}</p>
+      </div>
+      <div class="row g-3 mb-5">
+        {% for wg in members.working_groups.groups %}
+          <div class="col-md-6 col-lg-4">
+            <div class="osi-wg-card">
+              <strong class="osi-wg-card__name">{{ wg.name }}</strong>
+              <p class="osi-wg-card__focus">{{ wg.focus }}</p>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+      {% endif %}
+
+      {% if members.community %}
+      <!-- Get Involved -->
+      <div class="osi-community-bar">
+        <div class="row align-items-center">
+          <div class="col-lg-5 mb-3 mb-lg-0">
+            <h3 class="osi-community-bar__heading">{{ members.community.heading }}</h3>
+            <p class="osi-community-bar__desc">{{ members.community.description }}</p>
+          </div>
+          <div class="col-lg-7">
+            <div class="d-flex flex-wrap gap-3">
+              {% for link in members.community.links %}
+                <a href="{{ link.url }}" target="_blank" rel="noopener" class="osi-community-link">
+                  <strong>{{ link.label }}</strong>
+                  <span>{{ link.description }}</span>
+                </a>
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endif %}
+
+    </div>
+  </section>
+
+
+  <!-- ===================================================================
+       UPDATES SECTION
+       =================================================================== -->
+  <section id="updates" class="osi-updates-section py-5">
+    <div class="container">
+      <h2 class="osi-section-heading text-center mb-2">Latest Updates</h2>
+      <p class="osi-section-subtitle text-center mb-4">News and announcements from the OSI community</p>
+      <div class="row g-3">
         {% for post in latest_posts %}
           <div class="col-md-6">
             <div class="card osi-update-card h-100 border-0">
               <div class="card-body">
+                <span class="osi-update-card__date">{{ post.date.strftime('%B %-d, %Y') }}</span>
                 {% if post.external_url %}
                   <h4>
                     <a href="{{ post.external_url }}" target="_blank" rel="noopener" class="osi-update-card__title">
@@ -82,29 +315,20 @@
                   </h4>
                 {% else %}
                   <h4>
-                    <a href="{{ ('blog/' ~ post.slug ~ '/') | url }}" class="osi-update-card__title">
+                    <a href="{{ ('updates/' ~ post.slug ~ '/') | url }}" class="osi-update-card__title">
                       {{ post.title }}
                     </a>
                   </h4>
                 {% endif %}
-                <p class="osi-text-dark-gray">{{ post.description }}</p>
-                {% if post.external_url %}
-                  <a href="{{ post.external_url }}" target="_blank" class="osi-update-card__link">
-                    Read More &rarr;
-                  </a>
-                {% else %}
-                  <a href="{{ ('blog/' ~ post.slug ~ '/') | url }}" class="osi-update-card__link">
-                    Read More &rarr;
-                  </a>
-                {% endif %}
+                <p>{{ post.description }}</p>
               </div>
             </div>
           </div>
         {% endfor %}
           <div class="col-md-6">
-            <a href="{{ 'blog/' | url }}" class="card osi-update-card osi-update-card--all h-100 border-0 text-decoration-none">
+            <a href="{{ 'updates/' | url }}" class="card osi-update-card osi-update-card--all h-100 border-0 text-decoration-none">
               <div class="card-body d-flex align-items-center justify-content-center">
-                <span class="osi-update-card__all-label">Read All Posts &rsaquo;</span>
+                <span class="osi-update-card__all-label">View All Updates &rsaquo;</span>
               </div>
             </a>
           </div>
@@ -113,101 +337,8 @@
   </section>
 
 
-  <!-- ===================================================================
-       ABOUT SECTION
-       Introductory paragraph + four feature cards in a responsive grid.
-       Data source: about
-       =================================================================== -->
-  <section id="about" class="py-5">
-    <div class="container">
-      <h2 class="text-center mb-5 osi-text-dark-blue">{{ about.heading }}</h2>
-      <p class="osi-text-dark-gray lead text-center mx-auto mb-5" style="max-width:800px">{{ about.description }}</p>
-      <div class="row g-4">
-        {% for feature in about.features %}
-          <div class="col-md-6 col-lg-3">
-            <div class="card osi-feature-card h-100 text-center border-0">
-              <div class="card-body">
-                <div class="fs-1 mb-3">{{ feature.icon }}</div>
-                <h3 class="osi-text-dark-blue">{{ feature.title }}</h3>
-                <p class="osi-text-dark-gray small">{{ feature.description }}</p>
-              </div>
-            </div>
-          </div>
-        {% endfor %}
-      </div>
-    </div>
-  </section>
-
-
-  <!-- ===================================================================
-       MEMBERS SECTION (LOGO WALL)
-       Responsive grid of member company logos. To add a new member:
-         1. Place the logo file in docs/assets/images/logos/
-         2. Add a name + logo entry in data/home.yml under members.list
-       Data source: members
-       =================================================================== -->
-  <section id="members" class="py-5">
-    <div class="container">
-      <h2 class="text-center mb-4 osi-text-dark-blue">{{ members.heading }}</h2>
-      <p class="text-center osi-text-gray lead mb-5">{{ members.subtitle }}</p>
-      <div class="row g-4">
-        {% for member in members.list %}
-          <div class="col-6 col-md-4 col-lg-3">
-            <div class="card osi-member-card h-100">
-              <div class="card-body d-flex flex-column align-items-center justify-content-center">
-                <img src="assets/images/logos/{{ member.logo }}"
-                     alt="{{ member.name }}"
-                     loading="lazy"
-                     class="osi-member-card__logo">
-                <span class="osi-member-card__name osi-text-dark-gray mt-2">{{ member.name }}</span>
-              </div>
-            </div>
-          </div>
-        {% endfor %}
-      </div>
-    </div>
-  </section>
-
-
-  <!-- ===================================================================
-       GET INVOLVED SECTION
-       Contribution cards and working group registration link.
-       Data source: get_involved
-       =================================================================== -->
-  <section id="get-involved" class="osi-get-involved py-5">
-    <div class="container">
-      <h2 class="text-center mb-5 text-white">{{ get_involved.heading }}</h2>
-      <div class="text-center mb-5">
-        <h3>{{ get_involved.intro.heading }}</h3>
-        <p class="lead">{{ get_involved.intro.description }}</p>
-      </div>
-      <div class="row g-4 mb-5">
-        {% for action in get_involved.actions %}
-          <div class="col-md-6 col-lg-3">
-            <div class="card osi-involvement-card h-100 border-0">
-              <div class="card-body text-center">
-                <p class="osi-text-dark-gray">{{ action.text }}</p>
-              </div>
-            </div>
-          </div>
-        {% endfor %}
-      </div>
-      <div class="text-center mb-5">
-        <h3>{{ get_involved.join.heading }}</h3>
-        <p class="lead">
-          {{ get_involved.join.description }}
-          <a href="{{ get_involved.join.link }}" target="_blank">
-            {{ get_involved.join.link_text }}
-          </a>
-          to influence the evolution of the OSI specification.
-        </p>
-      </div>
-    </div>
-  </section>
-
 {% endblock %}
 
-<!-- Render the default page content (hidden by CSS above on the home page) -->
 {% block content %}
   {{ super() }}
 {% endblock %}

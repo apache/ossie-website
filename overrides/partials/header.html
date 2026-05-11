@@ -16,7 +16,12 @@
     <div class="md-header__center">
       <ul class="md-header__nav">
         {% for nav_item in nav.items %}
-          {% set url = nav_item.url | url if not nav_item.children else nav_item.children | first | attr("url") | url %}
+          {% if nav_item.url and '/index.html#' in nav_item.url %}
+            {% set anchor = '#' ~ nav_item.url.split('#', 1)[1] %}
+            {% set url = ('.' | url) ~ anchor %}
+          {% else %}
+            {% set url = nav_item.url | url if not nav_item.children else nav_item.children | first | attr("url") | url %}
+          {% endif %}
           {% set is_external = url.startswith("http") %}
           <li class="md-header__nav-item{% if nav_item.active %} md-header__nav-item--active{% endif %}">
             <a href="{{ url }}" class="md-header__nav-link"
@@ -31,19 +36,7 @@
       </ul>
     </div>
 
-    <!-- Right: search -->
-    <div class="md-header__right">
-      {% if "material/search" in config.plugins %}
-        {% set search = config.plugins["material/search"] | attr("config") %}
-        {% if search.enabled %}
-          <label class="md-header__button md-icon" for="__search">
-            {% set icon = config.theme.icon.search or "material/magnify" %}
-            {% include ".icons/" ~ icon ~ ".svg" %}
-          </label>
-          {% include "partials/search.html" %}
-        {% endif %}
-      {% endif %}
-    </div>
+    <div class="md-header__right"></div>
 
   </nav>
 </header>

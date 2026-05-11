@@ -33,6 +33,16 @@
                         </time>
                       </div>
                     </li>
+                    {% if page.authors %}
+                      {% for author in page.authors %}
+                        <li class="md-nav__item">
+                          <div class="md-nav__link">
+                            {% include ".icons/material/account.svg" %}
+                            <span class="md-ellipsis">{{ author.name }}</span>
+                          </div>
+                        </li>
+                      {% endfor %}
+                    {% endif %}
                     {% if page.config.date.updated %}
                       <li class="md-nav__item">
                         <div class="md-nav__link">
