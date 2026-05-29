@@ -161,6 +161,8 @@ members:
   list:
     - name: "Alation"
       logo: "alation-logo.png"
+    - name: "Ataccama"
+      logo: "ataccama-logo.png"
     - name: "Anomalo"
       logo: "anomalo-logo.svg"
     - name: "Atlan"
