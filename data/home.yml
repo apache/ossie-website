@@ -207,6 +207,8 @@ members:
       logo: "domo-logo.png"
     - name: "Elementum AI"
       logo: "elementum-logo.png"
+    - name: "Entropy Data"
+      logo: "entropy-data-logo.svg"
     - name: "Firebolt"
       logo: "firebolt-logo.png"
     - name: "GoodData"
