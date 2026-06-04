@@ -245,6 +245,8 @@ members:
       logo: "salesforce-logo.png"
     - name: "Select Star"
       logo: "selectstar-logo.png"
+    - name: "ServiceNow"
+      logo: "servicenow-logo.png"
     - name: "Sigma"
       logo: "sigma-logo.png"
     - name: "Snowflake"
