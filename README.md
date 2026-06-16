@@ -472,5 +472,4 @@ MkDocs. Key things to be aware of:
 
 ## License
 
-- Code: Apache 2.0
-- Documentation: Creative Commons Attribution (CC BY)
+All content in this repository — including code and documentation — is licensed under the [Apache License 2.0](LICENSE).
