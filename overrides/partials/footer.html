@@ -1,0 +1,21 @@
+{#
+  footer.html — overrides Material's default footer partial.
+
+  The only change from Material's default is guarding against page=None
+  (which occurs when rendering theme templates like 404.html).
+  The ASF disclaimer is injected inside partials/copyright.html.
+#}
+<footer class="md-footer">
+  {% if not page or page.meta.hide is not defined or "footer" not in page.meta.hide %}
+
+    <div class="md-footer-meta md-typeset">
+      <div class="md-footer-meta__inner md-grid">
+        {% include "partials/copyright.html" %}
+        {% if config.extra.social %}
+          {% include "partials/social.html" %}
+        {% endif %}
+      </div>
+    </div>
+
+  {% endif %}
+</footer>

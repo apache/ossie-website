@@ -1,0 +1,25 @@
+{#
+  copyright.html — overrides Material's default copyright partial.
+
+  Inserts the ASF incubation disclaimer (extra.disclaimer from mkdocs.yml)
+  between the copyright text and the "Made with Material for MkDocs" line.
+  Styles live in docs/assets/stylesheets/global.css (.osi-disclaimer).
+#}
+{% if config.copyright %}
+<div class="md-copyright">
+  <div class="md-copyright__highlight">
+    {{ config.copyright }}
+  </div>
+  {% if config.extra.disclaimer %}
+    <div class="osi-disclaimer">
+      {{ config.extra.disclaimer }}
+    </div>
+  {% endif %}
+  {% if not config.extra.generator == false %}
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  {% endif %}
+</div>
+{% endif %}

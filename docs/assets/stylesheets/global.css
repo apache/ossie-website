@@ -539,3 +539,22 @@ h6, .h6, .md-typeset h6 {
 .md-content--post .md-typeset table {
   font-size: 0.74rem;
 }
+
+
+/* ==========================================================================
+   Site Footer — ASF Incubation Disclaimer
+   Rendered inside .md-copyright, below the copyright text and above
+   the "Made with Material for MkDocs" line.
+   ========================================================================== */
+
+/* 0.75em = 75% of the footer's inherited font size; applies to copyright,
+   disclaimer, and "Made with" equally */
+.md-copyright {
+  font-size: 0.75em;
+}
+
+.osi-disclaimer {
+  line-height: 1.6;
+  color: var(--md-footer-fg-color--lighter, rgba(255, 255, 255, 0.45));
+  margin: 0.4em 0 0.2em;
+}
