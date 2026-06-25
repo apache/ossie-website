@@ -44,6 +44,14 @@
   --ossie-accent-purple: #7C3AED;
   --ossie-light-purple: #EDE9FE;
 
+  /* Danger red (challenge card, code-dot) */
+  --osi-danger-red: #EF4444;
+  --osi-danger-red-light: #FEE2E2;
+
+  /* Link colors for use on dark backgrounds */
+  --osi-link-on-dark: #60A5FA;
+  --osi-link-on-dark-hover: #93C5FD;
+
   /* Neutrals */
   --ossie-white: #FFFFFF;
   --ossie-gray-50: #F9FAFB;
@@ -113,10 +121,7 @@
    Global Link Styles
    ========================================================================== */
 
-a {
-  text-decoration: none;
-}
-
+a,
 .md-typeset a {
   text-decoration: none;
 }
@@ -166,7 +171,7 @@ h4, .h4, .md-typeset h4 {
 }
 
 h5, .h5, .md-typeset h5 {
-  font-size: 0.875rem;
+  font-size: var(--osi-font-heading-md);
   font-weight: 600;
   font-family: 'Inter', system-ui, sans-serif;
   line-height: 1.4;
