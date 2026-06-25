@@ -30,7 +30,7 @@ hero:
   title_line1: "The Universal Standard for"
   title_accent: "Semantic Data"
   subtitle: >-
-    Apache Ossie is an industry-wide specification effort
+    Apache Ossie (incubating) is an industry-wide specification effort
     to standardize how we exchange semantic metadata across analytics, AI
     and BI platforms, providing a vendor neutral, single source of truth
     for semantic data.
