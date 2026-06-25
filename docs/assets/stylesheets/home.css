@@ -65,7 +65,14 @@
   pointer-events: none;
 }
 
-.ossie-hero h1 {
+.osi-hero__logo {
+  max-width: 280px;
+  width: 100%;
+  height: auto;
+  margin-bottom: 1.5rem;
+}
+
+.osi-hero h1 {
   font-size: clamp(1.4rem, 3vw, 2rem);
   font-weight: 700;
   letter-spacing: -0.03em;

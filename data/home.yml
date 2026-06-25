@@ -27,8 +27,8 @@
 
 # --- Hero Section ------------------------------------------------------------
 hero:
-  title_line1: "The Universal Standard for"
-  title_accent: "Semantic Data"
+  title_line1: "Apache Ossie (incubating) is the"
+  title_accent: "universal standard for semantic data"
   subtitle: >-
     Apache Ossie (incubating) is an industry-wide specification effort
     to standardize how we exchange semantic metadata across analytics, AI
