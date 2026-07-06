@@ -1,5 +1,22 @@
+# Licensed to the Apache Software Foundation (ASF) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The ASF licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#   http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing,
+# software distributed under the License is distributed on an
+# "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+# KIND, either express or implied.  See the License for the
+# specific language governing permissions and limitations
+# under the License.
+
 """
-MkDocs hook that downloads the OSI spec.yaml from GitHub and generates
+MkDocs hook that downloads the Apache Ossie spec.yaml from GitHub and generates
 a virtual definitions page as a markdown definition list.
 
 Uses on_files to inject a virtual File into the build and
@@ -14,7 +31,7 @@ from mkdocs.structure.files import File
 
 SPEC_YAML_URL = (
     "https://raw.githubusercontent.com/"
-    "open-semantic-interchange/OSI/main/core-spec/spec.yaml"
+    "apache/ossie/main/core-spec/spec.yaml"
 )
 
 DEFINITIONS_SRC_PATH = "spec/nightly/definitions.md"
@@ -41,9 +58,9 @@ def _make_front_matter():
         "template: content.html\n"
         "title: Definitions (Nightly)\n"
         "---\n\n"
-        "# OSI Schema Definitions — Nightly\n\n"
+        "# Apache Ossie Schema Definitions — Nightly\n\n"
         "Field-level reference generated from\n"
-        "[`spec.yaml`](https://github.com/open-semantic-interchange/OSI/"
+        "[`spec.yaml`](https://github.com/apache/ossie/"
         f"blob/main/core-spec/spec.yaml) on {date_str} at {time_str}.\n\n"
     )
 

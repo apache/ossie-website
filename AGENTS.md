@@ -1,11 +1,30 @@
+<!--
+Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing,
+software distributed under the License is distributed on an
+"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, either express or implied.  See the License for the
+specific language governing permissions and limitations
+under the License.
+-->
+
 # AGENTS.md
 
-Guidelines for AI coding agents working on the OSI website. See `README.md` for
+Guidelines for AI coding agents working on the Apache Ossie website. See `README.md` for
 full setup instructions and architecture details.
 
 ## Project Overview
 
-This is the official website for the Open Semantic Interchange (OSI) initiative.
+This is the official website for the Apache Ossie initiative.
 It is built with [MkDocs](https://www.mkdocs.org/) and
 [Material for MkDocs](https://squidfunk.github.io/mkdocs-material/), packaged
 in a Docker image, and deployed to GitHub Pages via a GitHub Actions workflow.
@@ -107,8 +126,8 @@ their behalf, agents should:
 **Docker (recommended):**
 
 ```bash
-docker build -t osi-website .
-docker run --rm -p 8000:8000 -v $(pwd):/docs osi-website
+docker build -t ossie-website .
+docker run --rm -p 8000:8000 -v $(pwd):/docs ossie-website
 ```
 
 **Local Python (requires 3.9+):**

@@ -1,5 +1,22 @@
+# Licensed to the Apache Software Foundation (ASF) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The ASF licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#   http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing,
+# software distributed under the License is distributed on an
+# "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+# KIND, either express or implied.  See the License for the
+# specific language governing permissions and limitations
+# under the License.
+
 # =============================================================================
-# OSI Website Configuration
+# Apache Ossie Website Configuration
 # =============================================================================
 # This file controls the site: theme, navigation, and plugins.
 # Landing page content lives in data/home.yml (loaded by mkdocs-macros-plugin).
@@ -13,14 +30,14 @@
 # Site metadata
 # Shows in browser tabs, search engine results, and the site footer.
 # ---------------------------------------------------------------------------
-site_name: Open Semantic Interchange
-site_url: https://open-semantic-interchange.github.io/osi-website
+site_name: Apache Ossie
+site_url: https://ossie.apache.org
 site_description: >-
-  The Open Semantic Interchange (OSI) is a collaborative, open-source effort
+  Apache Ossie is a collaborative, open-source effort
   dedicated to standardizing semantic model exchange across analytics, AI,
   and BI platforms.
 copyright: >-
-  Copyright 2026 The Open Semantic Interchange authors.<br>
+  Copyright 2026 The Apache Ossie authors.<br>
   Licensed under the Apache License, Version 2.0.
 
 # ---------------------------------------------------------------------------
@@ -31,7 +48,7 @@ copyright: >-
 theme:
   name: material
   custom_dir: overrides
-  logo: assets/images/osi-logos/logo-full-horizontal.svg
+  logo: assets/images/ossie-logos/logo-full-horizontal.svg
   favicon: assets/images/favicon.png
   font:
     text: Inter
@@ -134,7 +151,7 @@ nav:
   - About: "/index.html#about"
   - Community: "/index.html#members"
   - Updates: updates/
-  - GitHub: https://github.com/open-semantic-interchange/OSI
+  - GitHub: https://github.com/apache/ossie
 
 # ---------------------------------------------------------------------------
 # Extra CSS and JavaScript
@@ -155,5 +172,5 @@ extra_javascript:
 extra:
   social:
     - icon: fontawesome/brands/github
-      link: https://github.com/open-semantic-interchange/OSI
-      name: OSI on GitHub
+      link: https://github.com/apache/ossie
+      name: Apache Ossie on GitHub

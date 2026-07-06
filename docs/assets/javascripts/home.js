@@ -1,7 +1,26 @@
 /*
- * home.js — Animations and interactive effects for the OSI landing page.
+ * Licensed to the Apache Software Foundation (ASF) under one
+ * or more contributor license agreements.  See the NOTICE file
+ * distributed with this work for additional information
+ * regarding copyright ownership.  The ASF licenses this file
+ * to you under the Apache License, Version 2.0 (the
+ * "License"); you may not use this file except in compliance
+ * with the License.  You may obtain a copy of the License at
  *
- * This script only targets elements with "osi-" prefixed classes, so it
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on an
+ * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied.  See the License for the
+ * specific language governing permissions and limitations
+ * under the License.
+ */
+
+/*
+ * home.js — Animations and interactive effects for the Apache Ossie landing page.
+ *
+ * This script only targets elements with "ossie-" prefixed classes, so it
  * will not interfere with standard MkDocs docs/blog pages.
  */
 
@@ -22,9 +41,9 @@ document.addEventListener("DOMContentLoaded", function () {
   }, observerOptions);
 
   var animatedElements = document.querySelectorAll(
-    ".osi-feature-card, .osi-involvement-card, .osi-member-card, " +
-    ".osi-update-card, .osi-check-item, .osi-code-block, .osi-stat, " +
-    ".osi-pitch-card, .osi-class-card, .osi-wg-card, .osi-community-bar"
+    ".ossie-feature-card, .ossie-involvement-card, .ossie-member-card, " +
+    ".ossie-update-card, .ossie-check-item, .ossie-code-block, .ossie-stat, " +
+    ".ossie-pitch-card, .ossie-class-card, .ossie-wg-card, .ossie-community-bar"
   );
 
   animatedElements.forEach(function (el) {

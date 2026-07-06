@@ -1,3 +1,20 @@
+# Licensed to the Apache Software Foundation (ASF) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The ASF licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#   http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing,
+# software distributed under the License is distributed on an
+# "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+# KIND, either express or implied.  See the License for the
+# specific language governing permissions and limitations
+# under the License.
+
 # =============================================================================
 # Landing Page Content
 # =============================================================================
@@ -13,13 +30,13 @@ hero:
   title_line1: "The Universal Standard for"
   title_accent: "Semantic Data"
   subtitle: >-
-    The Open Semantic Interchange is an industry-wide specification effort
+    Apache Ossie is an industry-wide specification effort
     to standardize how we exchange semantic metadata across analytics, AI
     and BI platforms, providing a vendor neutral, single source of truth
     for semantic data.
   buttons:
     - text: "View Specification"
-      link: "https://github.com/open-semantic-interchange/OSI/blob/main/core-spec/spec.md"
+      link: "https://github.com/apache/ossie/blob/main/core-spec/spec.md"
       style: primary
       icon: github
     - text: "Get Involved"
@@ -41,32 +58,32 @@ spec_showcase:
   heading: "Write Once, "
   heading_accent: "Query Anywhere."
   description: >-
-    Stop redefining "Revenue" in every dashboard. OSI uses a declarative
+    Stop redefining "Revenue" in every dashboard. Apache Ossie uses a declarative
     YAML standard to define metrics, dimensions, and joins — so every
     tool and agent in your stack works from the same source of truth.
-  code_filename: "sales_analytics.osi.yaml"
+  code_filename: "sales_analytics.ossie.yaml"
   code: |
-    <span class="osi-yaml-key">semantic_model:</span>
-      - <span class="osi-yaml-prop">name:</span> <span class="osi-yaml-val">ecommerce_analytics</span>
-        <span class="osi-yaml-prop">description:</span> <span class="osi-yaml-comment">Sales and customer analytics</span>
-        <span class="osi-yaml-key">ai_context:</span>
-          <span class="osi-yaml-prop">instructions:</span> <span class="osi-yaml-comment">"Use for sales analysis"</span>
+    <span class="ossie-yaml-key">semantic_model:</span>
+      - <span class="ossie-yaml-prop">name:</span> <span class="ossie-yaml-val">ecommerce_analytics</span>
+        <span class="ossie-yaml-prop">description:</span> <span class="ossie-yaml-comment">Sales and customer analytics</span>
+        <span class="ossie-yaml-key">ai_context:</span>
+          <span class="ossie-yaml-prop">instructions:</span> <span class="ossie-yaml-comment">"Use for sales analysis"</span>
 
-        <span class="osi-yaml-key">datasets:</span>
-          - <span class="osi-yaml-prop">name:</span> <span class="osi-yaml-val">orders</span>
-            <span class="osi-yaml-prop">source:</span> <span class="osi-yaml-val">sales.public.orders</span>
-            <span class="osi-yaml-prop">primary_key:</span> <span class="osi-yaml-val">[order_id]</span>
-            <span class="osi-yaml-key">fields:</span>
-              - <span class="osi-yaml-prop">name:</span> <span class="osi-yaml-val">order_date</span>
-                <span class="osi-yaml-key">dimension:</span>
-                  <span class="osi-yaml-prop">is_time:</span> <span class="osi-yaml-val">true</span>
+        <span class="ossie-yaml-key">datasets:</span>
+          - <span class="ossie-yaml-prop">name:</span> <span class="ossie-yaml-val">orders</span>
+            <span class="ossie-yaml-prop">source:</span> <span class="ossie-yaml-val">sales.public.orders</span>
+            <span class="ossie-yaml-prop">primary_key:</span> <span class="ossie-yaml-val">[order_id]</span>
+            <span class="ossie-yaml-key">fields:</span>
+              - <span class="ossie-yaml-prop">name:</span> <span class="ossie-yaml-val">order_date</span>
+                <span class="ossie-yaml-key">dimension:</span>
+                  <span class="ossie-yaml-prop">is_time:</span> <span class="ossie-yaml-val">true</span>
 
-        <span class="osi-yaml-key">metrics:</span>
-          - <span class="osi-yaml-prop">name:</span> <span class="osi-yaml-val">total_revenue</span>
-            <span class="osi-yaml-key">expression:</span>
-              <span class="osi-yaml-key">dialects:</span>
-                - <span class="osi-yaml-prop">dialect:</span> <span class="osi-yaml-val">ANSI_SQL</span>
-                  <span class="osi-yaml-prop">expression:</span> <span class="osi-yaml-val">SUM(orders.amount)</span>
+        <span class="ossie-yaml-key">metrics:</span>
+          - <span class="ossie-yaml-prop">name:</span> <span class="ossie-yaml-val">total_revenue</span>
+            <span class="ossie-yaml-key">expression:</span>
+              <span class="ossie-yaml-key">dialects:</span>
+                - <span class="ossie-yaml-prop">dialect:</span> <span class="ossie-yaml-val">ANSI_SQL</span>
+                  <span class="ossie-yaml-prop">expression:</span> <span class="ossie-yaml-val">SUM(orders.amount)</span>
   features:
     - title: "Consistent Definitions"
       description: "Ensure Marketing, Finance, and Sales all see the same numbers — no more metric drift."
@@ -77,9 +94,9 @@ spec_showcase:
 
 # --- About Section -----------------------------------------------------------
 about:
-  heading: "About OSI"
+  heading: "About Apache Ossie"
   description: >-
-    The Open Semantic Interchange (OSI) is a collaborative, open-source
+    Apache Ossie is a collaborative, open-source
     effort dedicated to standardizing and streamlining semantic model
     definitions across the data analytics, AI, and BI ecosystem.
 
@@ -138,7 +155,7 @@ about:
   # Core Classes — what the spec defines
   core_classes:
     heading: "Core Classes"
-    description: "The OSI specification defines these building blocks:"
+    description: "The Apache Ossie specification defines these building blocks:"
     classes:
       - name: "Semantic Model"
         description: "Top-level container representing a complete model with datasets, relationships, and metrics."
@@ -270,11 +287,11 @@ members:
       - name: "Composability"
         focus: "Enabling semantic models to reference and extend one another"
       - name: "Catalog Integration"
-        focus: "Bridging OSI models with data catalog and governance platforms"
+        focus: "Bridging Apache Ossie models with data catalog and governance platforms"
       - name: "Ontology Representation"
-        focus: "Mapping OSI concepts to formal ontology standards"
+        focus: "Mapping Apache Ossie concepts to formal ontology standards"
       - name: "Model Converters & Developer Tools"
-        focus: "Tooling for importing, exporting, and validating OSI models"
+        focus: "Tooling for importing, exporting, and validating Apache Ossie models"
   community:
     heading: "Get Involved"
     description: >-
@@ -282,11 +299,11 @@ members:
       semantic interchange.
     links:
       - label: "View Repository"
-        url: "https://github.com/open-semantic-interchange/OSI"
+        url: "https://github.com/apache/ossie"
         description: "Browse the spec, raise PRs, and contribute code."
       - label: "Start a Discussion"
-        url: "https://github.com/open-semantic-interchange/OSI/discussions"
+        url: "https://github.com/apache/ossie/discussions"
         description: "Share ideas, propose features, and ask questions."
       - label: "Contribute Tools"
-        url: "https://github.com/open-semantic-interchange/OSI"
+        url: "https://github.com/apache/ossie"
         description: "Build converters, validators, and developer tooling."

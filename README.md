@@ -1,6 +1,25 @@
-# OSI Website
+<!--
+Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
 
-Official website for the [Open Semantic Interchange (OSI)](https://github.com/open-semantic-interchange/OSI) initiative. Built with [MkDocs](https://www.mkdocs.org/) and [Material for MkDocs](https://squidfunk.github.io/mkdocs-material/).
+  http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing,
+software distributed under the License is distributed on an
+"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, either express or implied.  See the License for the
+specific language governing permissions and limitations
+under the License.
+-->
+
+# Apache Ossie Website
+
+Official website for the [Apache Ossie](https://github.com/apache/ossie) initiative. Built with [MkDocs](https://www.mkdocs.org/) and [Material for MkDocs](https://squidfunk.github.io/mkdocs-material/).
 
 ## Quick Start
 
@@ -9,8 +28,8 @@ Official website for the [Open Semantic Interchange (OSI)](https://github.com/op
 Build the image once, then run:
 
 ```bash
-docker build -t osi-website .
-docker run --rm -it -p 8000:8000 -v ${PWD}:/docs osi-website
+docker build -t ossie-website .
+docker run --rm -it -p 8000:8000 -v ${PWD}:/docs ossie-website
 ```
 
 The site will be available at `http://localhost:8000`.
@@ -33,7 +52,7 @@ The site will be available at `http://localhost:8000` with live-reload.
 ### Building for production
 
 ```bash
-mkdocs build          # or: docker run --rm -v ${PWD}:/docs osi-website build
+mkdocs build          # or: docker run --rm -v ${PWD}:/docs ossie-website build
 ```
 
 Output goes to the `site/` directory (gitignored).
@@ -43,7 +62,7 @@ Output goes to the `site/` directory (gitignored).
 ## Project Structure
 
 ```
-osi-website/
+ossie-website/
 ├── mkdocs.yml                          # Site config: theme, nav, plugins, extensions
 ├── Dockerfile                          # Docker dev environment (Material + plugins)
 ├── data/
@@ -60,7 +79,7 @@ osi-website/
 │       └── external-link-icon.html     # Reusable external-link SVG icon partial
 └── docs/                               # MkDocs content root
     ├── index.md                        # Home page (uses home.html template)
-    ├── about.md                        # About page (Why OSI, Core Classes)
+    ├── about.md                        # About page (Why Apache Ossie, Core Classes)
     ├── community.md                    # Community page (uses content.html template)
     ├── spec/                             # Spec rendering (TODO: re-implement build-time import)
     ├── blog/                           # Blog (managed by blog plugin)
@@ -68,12 +87,12 @@ osi-website/
     │   └── posts/                      # Individual blog posts go here
     └── assets/
         ├── images/
-        │   ├── osi-logos/              # OSI brand logos (SVG)
+        │   ├── ossie-logos/              # Apache Ossie brand logos (SVG)
         │   ├── favicon.png             # Browser tab icon
         │   └── logos/                  # Member company logos (PNG/SVG)
         ├── stylesheets/
         │   ├── bootstrap.min.css       # Bootstrap 5.3 (full framework)
-        │   ├── global.css              # OSI design tokens, typography, color utilities
+        │   ├── global.css              # Apache Ossie design tokens, typography, color utilities
         │   └── home.css                # Landing page styles (backgrounds, hover effects)
         └── javascripts/
             └── home.js                 # Scroll animations (landing page)
@@ -108,7 +127,7 @@ template: content.html
 Stylesheets load in this order (configured in `mkdocs.yml` and templates):
 
 1. **`bootstrap.min.css`** — Full Bootstrap 5.3 framework (loaded site-wide)
-2. **`global.css`** — OSI design tokens, typography classes, color utilities, Bootstrap overrides (loaded site-wide)
+2. **`global.css`** — Apache Ossie design tokens, typography classes, color utilities, Bootstrap overrides (loaded site-wide)
 3. **`home.css`** — Landing page visuals: section backgrounds, hover effects, accent borders (loaded only by `home.html`)
 
 #### Design Tokens
@@ -117,11 +136,11 @@ All shared values are defined as CSS custom properties in `global.css`:
 
 | Category | Examples |
 |---|---|
-| Colors | `--osi-primary-blue`, `--osi-dark-blue`, `--osi-navy`, `--osi-light-blue`, `--osi-ice-blue`, `--osi-accent-green` |
-| Spacing | `--osi-spacing-xs` through `--osi-spacing-xl` |
-| Typography | `--osi-font-body`, `--osi-font-lead`, `--osi-font-heading-sm` through `--osi-font-heading-xl` |
+| Colors | `--ossie-primary-blue`, `--ossie-dark-blue`, `--ossie-navy`, `--ossie-light-blue`, `--ossie-ice-blue`, `--ossie-accent-green` |
+| Spacing | `--ossie-spacing-xs` through `--ossie-spacing-xl` |
+| Typography | `--ossie-font-body`, `--ossie-font-lead`, `--ossie-font-heading-sm` through `--ossie-font-heading-xl` |
 
-Utility classes: `.osi-text-dark-blue` / `-dark-gray` / `-gray` / `-primary`.
+Utility classes: `.ossie-text-dark-blue` / `-dark-gray` / `-gray` / `-primary`.
 
 #### Material for MkDocs Custom Palette
 
@@ -207,9 +226,9 @@ here and on the `/blog/` index.
 
 ### Specification Pages
 
-Build-time rendering of the OSI specification is not yet implemented. The `Spec`
+Build-time rendering of the Apache Ossie specification is not yet implemented. The `Spec`
 nav link currently points directly to the
-[spec on GitHub](https://github.com/open-semantic-interchange/OSI/blob/main/core-spec/spec.md).
+[spec on GitHub](https://github.com/apache/ossie/blob/main/core-spec/spec.md).
 See `docs/spec/README.md` for the TODO.
 
 ---
@@ -246,13 +265,13 @@ members:
 
 ### Changing colors
 
-OSI design tokens live in `:root` in `docs/assets/stylesheets/global.css`:
+Apache Ossie design tokens live in `:root` in `docs/assets/stylesheets/global.css`:
 
 ```css
 :root {
-  --osi-primary-blue: #29B5E8;
-  --osi-dark-blue: #043464;
-  --osi-accent-green: #07A77F;
+  --ossie-primary-blue: #29B5E8;
+  --ossie-dark-blue: #043464;
+  --ossie-accent-green: #07A77F;
   /* ... etc ... */
 }
 ```
@@ -291,10 +310,10 @@ The `nav:` section in `mkdocs.yml` controls the header tabs and sidebar menus:
 nav:
   - Home: index.md
   - About: about.md
-  - Spec: https://github.com/open-semantic-interchange/OSI/blob/main/core-spec/spec.md
+  - Spec: https://github.com/apache/ossie/blob/main/core-spec/spec.md
   - Community: community.md
   - Blog: blog/
-  - GitHub: https://github.com/open-semantic-interchange/OSI
+  - GitHub: https://github.com/apache/ossie
 ```
 
 Each top-level item becomes a nav link in the header. Nested items appear in the
@@ -415,7 +434,7 @@ post front matter) and a display name:
 authors:
   jsmith:
     name: Jane Smith
-    description: OSI Working Group Lead
+    description: Apache Ossie Working Group Lead
     avatar: https://example.com/jsmith.png
 ```
 
@@ -451,10 +470,10 @@ MkDocs. Key things to be aware of:
   `.md-typeset`, so Bootstrap's reboot generally doesn't conflict with doc/blog
   pages.
 - **Button classes** — Bootstrap's `.btn`, `.btn-primary` etc. are used instead
-  of custom button styles. OSI brand colors are applied via `--bs-btn-bg` and
+  of custom button styles. Apache Ossie brand colors are applied via `--bs-btn-bg` and
   related CSS custom properties in `global.css`.
 - **Link styles** — `--bs-link-color`, `--bs-link-color-rgb`, and
-  `--bs-link-decoration` are overridden in `global.css` to match the OSI palette
+  `--bs-link-decoration` are overridden in `global.css` to match the Apache Ossie palette
   and prevent unwanted underlines. Material link colors are set via the custom
   palette system (see "Material for MkDocs Custom Palette" above).
 

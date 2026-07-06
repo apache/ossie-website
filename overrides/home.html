@@ -1,5 +1,23 @@
 {#
-  home.html — Custom landing page template for the OSI website.
+  Licensed to the Apache Software Foundation (ASF) under one
+  or more contributor license agreements.  See the NOTICE file
+  distributed with this work for additional information
+  regarding copyright ownership.  The ASF licenses this file
+  to you under the Apache License, Version 2.0 (the
+  "License"); you may not use this file except in compliance
+  with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing,
+  software distributed under the License is distributed on an
+  "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+  KIND, either express or implied.  See the License for the
+  specific language governing permissions and limitations
+  under the License.
+#}
+{#
+  home.html — Custom landing page template for the Apache Ossie website.
 
   This template extends Material for MkDocs' main.html and overrides the
   "block tabs" region to inject the full landing page.
@@ -29,17 +47,17 @@
   <!-- ===================================================================
        HERO SECTION
        =================================================================== -->
-  <section id="home" class="osi-hero py-5">
+  <section id="home" class="ossie-hero py-5">
     <div class="container position-relative" style="z-index:1">
       <div class="text-center mx-auto" style="max-width:800px">
 
         <h1>{{ hero.title_line1 | default(hero.title) }}
           {% if hero.title_accent %}
-            <br><span class="osi-text-gradient">{{ hero.title_accent }}</span>
+            <br><span class="ossie-text-gradient">{{ hero.title_accent }}</span>
           {% endif %}
         </h1>
 
-        <p class="osi-hero__subtitle lead mx-auto" style="max-width:640px">{{ hero.subtitle }}</p>
+        <p class="ossie-hero__subtitle lead mx-auto" style="max-width:640px">{{ hero.subtitle }}</p>
 
         <div class="d-flex justify-content-center flex-wrap gap-3 mt-4">
           {% for btn in hero.buttons %}
@@ -48,7 +66,7 @@
                class="btn {% if btn.style == 'primary' %}btn-primary{% else %}btn-outline-secondary{% endif %}"
                {% if is_external %}target="_blank" rel="noopener"{% endif %}>
               {% if btn.icon == 'github' %}
-                <svg class="osi-btn-icon" width="20" height="20" viewBox="0 0 16 16" fill="currentColor">
+                <svg class="ossie-btn-icon" width="20" height="20" viewBox="0 0 16 16" fill="currentColor">
                   <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/>
                 </svg>
               {% endif %}
@@ -58,13 +76,13 @@
         </div>
 
         {% if hero.stats %}
-          <div class="osi-stats-bar">
+          <div class="ossie-stats-bar">
             <div class="row g-4">
               {% for stat in hero.stats %}
                 <div class="col-6 col-md-3">
-                  <div class="osi-stat">
-                    <span class="osi-stat__value">{{ stat.value }}</span>
-                    <span class="osi-stat__label">{{ stat.label }}</span>
+                  <div class="ossie-stat">
+                    <span class="ossie-stat__value">{{ stat.value }}</span>
+                    <span class="ossie-stat__label">{{ stat.label }}</span>
                   </div>
                 </div>
               {% endfor %}
@@ -82,22 +100,22 @@
        Two-column layout: feature checklist + YAML code example
        =================================================================== -->
   {% if spec_showcase is defined and spec_showcase %}
-  <section id="code" class="osi-code-section py-5">
+  <section id="code" class="ossie-code-section py-5">
     <div class="container">
       <div class="row g-5 align-items-center">
 
         <div class="col-lg-6">
           <h2>{{ spec_showcase.heading }}
             {% if spec_showcase.heading_accent %}
-              <span class="osi-text-gradient">{{ spec_showcase.heading_accent }}</span>
+              <span class="ossie-text-gradient">{{ spec_showcase.heading_accent }}</span>
             {% endif %}
           </h2>
-          <p class="osi-text-gray mb-4" style="font-size:0.8rem; line-height:1.6">{{ spec_showcase.description }}</p>
+          <p class="ossie-text-gray mb-4" style="font-size:0.8rem; line-height:1.6">{{ spec_showcase.description }}</p>
 
-          <ul class="osi-check-list">
+          <ul class="ossie-check-list">
             {% for item in spec_showcase.features %}
-              <li class="osi-check-item">
-                <div class="osi-check-icon">&#10003;</div>
+              <li class="ossie-check-item">
+                <div class="ossie-check-icon">&#10003;</div>
                 <div>
                   <h3>{{ item.title }}</h3>
                   <p>{{ item.description }}</p>
@@ -108,14 +126,14 @@
         </div>
 
         <div class="col-lg-6">
-          <div class="osi-code-block">
-            <div class="osi-code-block__header">
-              <span class="osi-code-dot osi-code-dot--red"></span>
-              <span class="osi-code-dot osi-code-dot--yellow"></span>
-              <span class="osi-code-dot osi-code-dot--green"></span>
-              <span class="osi-code-block__filename">{{ spec_showcase.code_filename | default("semantic_model.yaml") }}</span>
+          <div class="ossie-code-block">
+            <div class="ossie-code-block__header">
+              <span class="ossie-code-dot ossie-code-dot--red"></span>
+              <span class="ossie-code-dot ossie-code-dot--yellow"></span>
+              <span class="ossie-code-dot ossie-code-dot--green"></span>
+              <span class="ossie-code-block__filename">{{ spec_showcase.code_filename | default("semantic_model.yaml") }}</span>
             </div>
-            <div class="osi-code-block__body">
+            <div class="ossie-code-block__body">
               <pre>{{ spec_showcase.code | safe }}</pre>
             </div>
           </div>
@@ -130,18 +148,18 @@
   <!-- ===================================================================
        ABOUT SECTION
        =================================================================== -->
-  <section id="about" class="osi-about-section py-5">
+  <section id="about" class="ossie-about-section py-5">
     <div class="container">
-      <h2 class="osi-section-heading text-center mb-2">{{ about.heading }}</h2>
-      <p class="osi-section-subtitle text-center mx-auto mb-5" style="max-width:700px">{{ about.description }}</p>
+      <h2 class="ossie-section-heading text-center mb-2">{{ about.heading }}</h2>
+      <p class="ossie-section-subtitle text-center mx-auto mb-5" style="max-width:700px">{{ about.description }}</p>
 
       <!-- Feature cards -->
       <div class="row g-4 mb-5">
         {% for feature in about.features %}
           <div class="col-md-6 col-lg-3">
-            <div class="card osi-feature-card h-100 text-center border-0">
+            <div class="card ossie-feature-card h-100 text-center border-0">
               <div class="card-body">
-                <div class="osi-feature-icon osi-feature-icon--{{ feature.color | default('blue') }} mx-auto">
+                <div class="ossie-feature-icon ossie-feature-icon--{{ feature.color | default('blue') }} mx-auto">
                   {% if feature.icon == 'arrows-exchange' %}
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="17 1 21 5 17 9"></polyline><path d="M3 11V9a4 4 0 0 1 4-4h14"></path><polyline points="7 23 3 19 7 15"></polyline><path d="M21 13v2a4 4 0 0 1-4 4H3"></path></svg>
                   {% elif feature.icon == 'shield-check' %}
@@ -166,17 +184,17 @@
       <!-- Challenge / Solution columns -->
       <div class="row g-4 mb-5">
         <div class="col-md-6">
-          <div class="osi-pitch-card osi-pitch-card--challenge">
-            <h3 class="osi-pitch-card__heading">{{ about.challenge.heading }}
-              <span class="osi-pitch-card__sub">{{ about.challenge.subtitle }}</span>
+          <div class="ossie-pitch-card ossie-pitch-card--challenge">
+            <h3 class="ossie-pitch-card__heading">{{ about.challenge.heading }}
+              <span class="ossie-pitch-card__sub">{{ about.challenge.subtitle }}</span>
             </h3>
-            <ul class="osi-pitch-list">
+            <ul class="ossie-pitch-list">
               {% for item in about.challenge.points %}
-                <li class="osi-pitch-list__item">
-                  <span class="osi-pitch-list__icon osi-pitch-list__icon--problem">&times;</span>
+                <li class="ossie-pitch-list__item">
+                  <span class="ossie-pitch-list__icon ossie-pitch-list__icon--problem">&times;</span>
                   <div>
                     <strong>{{ item.title }}</strong>
-                    <span class="osi-pitch-list__desc">{{ item.description }}</span>
+                    <span class="ossie-pitch-list__desc">{{ item.description }}</span>
                   </div>
                 </li>
               {% endfor %}
@@ -184,17 +202,17 @@
           </div>
         </div>
         <div class="col-md-6">
-          <div class="osi-pitch-card osi-pitch-card--solution">
-            <h3 class="osi-pitch-card__heading">{{ about.solution.heading }}
-              <span class="osi-pitch-card__sub">{{ about.solution.subtitle }}</span>
+          <div class="ossie-pitch-card ossie-pitch-card--solution">
+            <h3 class="ossie-pitch-card__heading">{{ about.solution.heading }}
+              <span class="ossie-pitch-card__sub">{{ about.solution.subtitle }}</span>
             </h3>
-            <ul class="osi-pitch-list">
+            <ul class="ossie-pitch-list">
               {% for item in about.solution.points %}
-                <li class="osi-pitch-list__item">
-                  <span class="osi-pitch-list__icon osi-pitch-list__icon--solution">&#10003;</span>
+                <li class="ossie-pitch-list__item">
+                  <span class="ossie-pitch-list__icon ossie-pitch-list__icon--solution">&#10003;</span>
                   <div>
                     <strong>{{ item.title }}</strong>
-                    <span class="osi-pitch-list__desc">{{ item.description }}</span>
+                    <span class="ossie-pitch-list__desc">{{ item.description }}</span>
                   </div>
                 </li>
               {% endfor %}
@@ -207,15 +225,15 @@
       {% if about.core_classes %}
       <!-- Core Classes -->
       <div class="text-center mb-4">
-        <h3 class="osi-section-heading">{{ about.core_classes.heading }}</h3>
-        <p class="osi-section-subtitle">{{ about.core_classes.description }}</p>
+        <h3 class="ossie-section-heading">{{ about.core_classes.heading }}</h3>
+        <p class="ossie-section-subtitle">{{ about.core_classes.description }}</p>
       </div>
       <div class="row g-3">
         {% for cls in about.core_classes.classes %}
           <div class="col-md-6 col-lg-4">
-            <div class="osi-class-card">
-              <strong class="osi-class-card__name">{{ cls.name }}</strong>
-              <p class="osi-class-card__desc">{{ cls.description }}</p>
+            <div class="ossie-class-card">
+              <strong class="ossie-class-card__name">{{ cls.name }}</strong>
+              <p class="ossie-class-card__desc">{{ cls.description }}</p>
             </div>
           </div>
         {% endfor %}
@@ -229,20 +247,20 @@
   <!-- ===================================================================
        COMMUNITY SECTION (Members + Working Groups + Get Involved)
        =================================================================== -->
-  <section id="members" class="osi-members-section py-5">
+  <section id="members" class="ossie-members-section py-5">
     <div class="container">
-      <h2 class="osi-section-heading text-center mb-2">{{ members.heading }}</h2>
-      <p class="osi-section-subtitle text-center mb-5">{{ members.subtitle }}</p>
+      <h2 class="ossie-section-heading text-center mb-2">{{ members.heading }}</h2>
+      <p class="ossie-section-subtitle text-center mb-5">{{ members.subtitle }}</p>
       <div class="row g-4 mb-5">
         {% for member in members.list %}
           <div class="col-6 col-md-4 col-lg-3">
-            <div class="card osi-member-card h-100">
+            <div class="card ossie-member-card h-100">
               <div class="card-body d-flex flex-column align-items-center justify-content-center">
                 <img src="assets/images/logos/{{ member.logo }}"
                      alt="{{ member.name }}"
                      loading="lazy"
-                     class="osi-member-card__logo">
-                <span class="osi-member-card__name mt-2">{{ member.name }}</span>
+                     class="ossie-member-card__logo">
+                <span class="ossie-member-card__name mt-2">{{ member.name }}</span>
               </div>
             </div>
           </div>
@@ -252,15 +270,15 @@
       {% if members.working_groups %}
       <!-- Working Groups -->
       <div class="text-center mb-4">
-        <h3 class="osi-section-heading">{{ members.working_groups.heading }}</h3>
-        <p class="osi-section-subtitle">{{ members.working_groups.description }}</p>
+        <h3 class="ossie-section-heading">{{ members.working_groups.heading }}</h3>
+        <p class="ossie-section-subtitle">{{ members.working_groups.description }}</p>
       </div>
       <div class="row g-3 mb-5">
         {% for wg in members.working_groups.groups %}
           <div class="col-md-6 col-lg-4">
-            <div class="osi-wg-card">
-              <strong class="osi-wg-card__name">{{ wg.name }}</strong>
-              <p class="osi-wg-card__focus">{{ wg.focus }}</p>
+            <div class="ossie-wg-card">
+              <strong class="ossie-wg-card__name">{{ wg.name }}</strong>
+              <p class="ossie-wg-card__focus">{{ wg.focus }}</p>
             </div>
           </div>
         {% endfor %}
@@ -269,16 +287,16 @@
 
       {% if members.community %}
       <!-- Get Involved -->
-      <div class="osi-community-bar">
+      <div class="ossie-community-bar">
         <div class="row align-items-center">
           <div class="col-lg-5 mb-3 mb-lg-0">
-            <h3 class="osi-community-bar__heading">{{ members.community.heading }}</h3>
-            <p class="osi-community-bar__desc">{{ members.community.description }}</p>
+            <h3 class="ossie-community-bar__heading">{{ members.community.heading }}</h3>
+            <p class="ossie-community-bar__desc">{{ members.community.description }}</p>
           </div>
           <div class="col-lg-7">
             <div class="d-flex flex-wrap gap-3">
               {% for link in members.community.links %}
-                <a href="{{ link.url }}" target="_blank" rel="noopener" class="osi-community-link">
+                <a href="{{ link.url }}" target="_blank" rel="noopener" class="ossie-community-link">
                   <strong>{{ link.label }}</strong>
                   <span>{{ link.description }}</span>
                 </a>
@@ -296,26 +314,26 @@
   <!-- ===================================================================
        UPDATES SECTION
        =================================================================== -->
-  <section id="updates" class="osi-updates-section py-5">
+  <section id="updates" class="ossie-updates-section py-5">
     <div class="container">
-      <h2 class="osi-section-heading text-center mb-2">Latest Updates</h2>
-      <p class="osi-section-subtitle text-center mb-4">News and announcements from the OSI community</p>
+      <h2 class="ossie-section-heading text-center mb-2">Latest Updates</h2>
+      <p class="ossie-section-subtitle text-center mb-4">News and announcements from the Apache Ossie community</p>
       <div class="row g-3">
         {% for post in latest_posts %}
           <div class="col-md-6">
-            <div class="card osi-update-card h-100 border-0">
+            <div class="card ossie-update-card h-100 border-0">
               <div class="card-body">
-                <span class="osi-update-card__date">{{ post.date.strftime('%B %-d, %Y') }}</span>
+                <span class="ossie-update-card__date">{{ post.date.strftime('%B %-d, %Y') }}</span>
                 {% if post.external_url %}
                   <h4>
-                    <a href="{{ post.external_url }}" target="_blank" rel="noopener" class="osi-update-card__title">
+                    <a href="{{ post.external_url }}" target="_blank" rel="noopener" class="ossie-update-card__title">
                       {{ post.title }}
                       {% include "partials/external-link-icon.html" %}
                     </a>
                   </h4>
                 {% else %}
                   <h4>
-                    <a href="{{ ('updates/' ~ post.slug ~ '/') | url }}" class="osi-update-card__title">
+                    <a href="{{ ('updates/' ~ post.slug ~ '/') | url }}" class="ossie-update-card__title">
                       {{ post.title }}
                     </a>
                   </h4>
@@ -326,9 +344,9 @@
           </div>
         {% endfor %}
           <div class="col-md-6">
-            <a href="{{ 'updates/' | url }}" class="card osi-update-card osi-update-card--all h-100 border-0 text-decoration-none">
+            <a href="{{ 'updates/' | url }}" class="card ossie-update-card ossie-update-card--all h-100 border-0 text-decoration-none">
               <div class="card-body d-flex align-items-center justify-content-center">
-                <span class="osi-update-card__all-label">View All Updates &rsaquo;</span>
+                <span class="ossie-update-card__all-label">View All Updates &rsaquo;</span>
               </div>
             </a>
           </div>
