@@ -237,6 +237,29 @@ h6, .h6, .md-typeset h6 {
   width: auto;
 }
 
+/* Icon + text brand (replaces the wordmark image in the header) */
+.md-header__brand {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  width: auto;
+  padding: 0;
+}
+
+.md-header .md-logo img.md-header__brand-icon {
+  height: 1.6rem;
+  width: auto;
+  flex-shrink: 0;
+}
+
+.md-header__brand-text {
+  font-weight: 700;
+  font-size: 1rem;
+  line-height: 1.2;
+  white-space: nowrap;
+  color: var(--ossie-dark-blue);
+}
+
 .md-tabs {
   display: none;
 }
