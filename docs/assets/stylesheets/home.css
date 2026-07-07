@@ -60,12 +60,19 @@
   right: 15%;
   width: 400px;
   height: 400px;
-  background: radial-gradient(circle, rgba(124, 58, 237, 0.06) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(7, 167, 127, 0.06) 0%, transparent 70%);
   border-radius: 50%;
   pointer-events: none;
 }
 
-.ossie-hero h1 {
+.osi-hero__logo {
+  max-width: 280px;
+  width: 100%;
+  height: auto;
+  margin-bottom: 1.5rem;
+}
+
+.osi-hero h1 {
   font-size: clamp(1.4rem, 3vw, 2rem);
   font-weight: 700;
   letter-spacing: -0.03em;
@@ -77,6 +84,9 @@
   color: var(--ossie-gray-500);
   line-height: 1.6;
   font-size: 0.85rem;
+  max-width: 640px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .ossie-hero .btn-primary {
@@ -233,9 +243,9 @@
   border-radius: 50%;
 }
 
-.ossie-code-dot--red { background: #EF4444; }
-.ossie-code-dot--yellow { background: #F59E0B; }
-.ossie-code-dot--green { background: #22C55E; }
+.osi-code-dot--red { background: var(--osi-danger-red); }
+.osi-code-dot--yellow { background: #F59E0B; }
+.osi-code-dot--green { background: #22C55E; }
 
 .ossie-code-block__filename {
   font-family: 'JetBrains Mono', 'Fira Code', monospace;

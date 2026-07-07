@@ -43,11 +43,11 @@ technical discussions shaping it.
 The OSI specification is now publicly available, and development is happening in
 the open:
 
-**[github.com/open-semantic-interchange/OSI](https://github.com/open-semantic-interchange/OSI)**
+**[github.com/open-semantic-interchange/OSI](https://github.com/apache/ossie)**
 
 The repository has become an active hub for discussion and iteration. Community
 members are engaging on a range of topics via
-[GitHub Discussions](https://github.com/open-semantic-interchange/OSI/discussions),
+[GitHub Discussions](https://github.com/apache/ossie/discussions),
 including:
 
 - How to represent **metrics and derived logic** in a portable way
@@ -79,7 +79,7 @@ helping ensure that OSI remains grounded in real-world use cases.
 ## A Public Roadmap
 
 We've also introduced a
-[public roadmap](https://github.com/open-semantic-interchange/OSI/blob/main/ROADMAP.md)
+[public roadmap](https://github.com/apache/ossie/blob/main/ROADMAP.md)
 to provide transparency into upcoming priorities and areas of focus. This
 roadmap will continue to evolve alongside community input and serve as a shared
 reference point for contributors and adopters alike.
@@ -112,12 +112,12 @@ remains broadly applicable and not shaped by any single tool or vendor.
 OSI is an open initiative, and participation is encouraged at all levels. Here
 are a few ways to get started:
 
-- **[GitHub](https://github.com/open-semantic-interchange/OSI)** (Primary Hub)
-  — Review the [spec](https://github.com/open-semantic-interchange/OSI/blob/main/core-spec/spec.md),
+- **[GitHub](https://github.com/apache/ossie)** (Primary Hub)
+  — Review the [spec](https://github.com/apache/ossie/blob/main/core-spec/spec.md),
   open issues, and submit pull requests
-- **[GitHub Discussions](https://github.com/open-semantic-interchange/OSI/discussions)**
+- **[GitHub Discussions](https://github.com/apache/ossie/discussions)**
   — Ask questions, propose ideas, and share feedback
-- **[Ecosystem Contributions](https://github.com/open-semantic-interchange/OSI/tree/main/converters)**
+- **[Ecosystem Contributions](https://github.com/apache/ossie/tree/main/converters)**
   — Build or contribute converters into or from OSI
 
 All contributions are reviewed by the working group, and the project follows an
@@ -125,10 +125,10 @@ open-source model with broad and growing participation.
 
 Even if you're not part of a formal working group, you can still engage by:
 
-- Forking the [repository](https://github.com/open-semantic-interchange/OSI)
+- Forking the [repository](https://github.com/apache/ossie)
   and proposing changes
 - Participating in
-  [discussions](https://github.com/open-semantic-interchange/OSI/discussions)
+  [discussions](https://github.com/apache/ossie/discussions)
   around architecture and use cases
 - Following the repository to stay up to date with ongoing progress
 
