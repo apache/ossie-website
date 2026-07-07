@@ -49,7 +49,12 @@ jobs:
         run: docker build -t ossie-website .
 
       - name: Build site
-        run: docker run --rm -v "${{ github.workspace }}:/docs" ossie-website build
+        run: |
+          docker run --rm -v "${{ github.workspace }}:/docs" ossie-website build
+          # The mkdocs-material container runs as root, so the rendered output
+          # in site/ ends up owned by root. Reclaim it for the runner user so
+          # the publish step can write into it (e.g. touch .nojekyll).
+          sudo chown -R "$(id -u):$(id -g)" site
 
       - name: Publish to asf-site
         working-directory: site
