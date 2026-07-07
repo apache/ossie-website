@@ -64,6 +64,10 @@ jobs:
           set -euo pipefail
           # Disable Jekyll processing on the published output.
           touch .nojekyll
+          # ASF infrastructure reads .asf.yaml from the published branch to
+          # learn it should serve this content (publish.whoami: asf-site), so
+          # carry it over from the source checkout into the output.
+          cp "${GITHUB_WORKSPACE}/.asf.yaml" .asf.yaml
           git init -q
           git checkout -q -b asf-site
           git config user.name "Apache Ossie CI"
