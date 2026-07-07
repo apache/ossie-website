@@ -581,6 +581,24 @@ h6, .h6, .md-typeset h6 {
   font-size: 0.75em;
 }
 
+/* Apache Incubator logo above the disclaimer. The logo artwork is dark on a
+   transparent background, so it sits on a light chip to stay legible against
+   the dark footer while keeping the feather's brand colors intact. */
+.osi-incubator-logo {
+  display: inline-block;
+  margin: 0.6em 0 0.4em;
+  padding: 0.4em 0.6em;
+  background: #fff;
+  border-radius: 4px;
+  line-height: 0;
+}
+
+.osi-incubator-logo img {
+  display: block;
+  width: auto;
+  height: 2.4em;
+}
+
 .osi-disclaimer {
   line-height: 1.6;
   color: var(--md-footer-fg-color--lighter, rgba(255, 255, 255, 0.45));
