@@ -285,10 +285,16 @@ h6, .h6, .md-typeset h6 {
 
 .md-header__nav {
   display: flex;
+  align-items: center;
   list-style: none;
   margin: 0;
   padding: 0;
   gap: 1.5rem;
+}
+
+.md-header__nav-item {
+  display: flex;
+  align-items: center;
 }
 
 .md-header__nav-link {
