@@ -295,8 +295,8 @@ members:
   community:
     heading: "Get Involved"
     description: >-
-      Join our open-source community on GitHub. Help shape the future of
-      semantic interchange.
+      Join our open-source community on GitHub, the mailing lists, or Slack.
+      Help shape the future of semantic interchange.
     links:
       - label: "View Repository"
         url: "https://github.com/apache/ossie"
@@ -304,6 +304,15 @@ members:
       - label: "Start a Discussion"
         url: "https://github.com/apache/ossie/discussions"
         description: "Share ideas, propose features, and ask questions."
-      - label: "Contribute Tools"
-        url: "https://github.com/apache/ossie"
-        description: "Build converters, validators, and developer tooling."
+      - label: "Join Slack"
+        url: "https://join.slack.com/t/apache-ossie/shared_invite/zt-42zw4rflt-Gpve8_NFJq7AsdAQTY~SCg"
+        description: "Chat directly with contributors on Slack."
+      - label: "Subscribe to dev@"
+        url: "mailto:dev-subscribe@ossie.apache.org"
+        description: "Main development and community discussion list."
+      - label: "Subscribe to commits@"
+        url: "mailto:commits-subscribe@ossie.apache.org"
+        description: "Automated notifications for commits and pull requests."
+      - label: "Subscribe to issues@"
+        url: "mailto:issues-subscribe@ossie.apache.org"
+        description: "Automated notifications for GitHub issues."
