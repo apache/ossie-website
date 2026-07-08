@@ -661,28 +661,36 @@ h6, .h6, .md-typeset h6 {
    the "Made with Material for MkDocs" line.
    ========================================================================== */
 
+/* Center all footer content */
+.md-footer-meta__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
 /* 0.75em = 75% of the footer's inherited font size; applies to copyright,
    disclaimer, and "Made with" equally */
 .md-copyright {
   font-size: 0.75em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: 100%;
 }
 
-/* Apache Incubator logo above the disclaimer. The logo artwork is dark on a
-   transparent background, so it sits on a light chip to stay legible against
-   the dark footer while keeping the feather's brand colors intact. */
+/* Apache Incubator SVG logo — renders its own colors so no white chip needed */
 .osi-incubator-logo {
   display: inline-block;
   margin: 0.6em 0 0.4em;
-  padding: 0.4em 0.6em;
-  background: #fff;
-  border-radius: 4px;
   line-height: 0;
 }
 
 .osi-incubator-logo img {
   display: block;
   width: auto;
-  height: 2.4em;
+  height: 3em;
 }
 
 .osi-disclaimer {
