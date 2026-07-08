@@ -342,6 +342,8 @@ h6, .h6, .md-typeset h6 {
 /* ASF menu (top-right dropdown) */
 .md-header__asf {
   position: relative;
+  display: flex;
+  align-items: center;
 }
 
 .md-header__asf-trigger {
