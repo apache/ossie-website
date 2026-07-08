@@ -40,7 +40,7 @@ hero:
       style: primary
       icon: github
     - text: "Get Involved"
-      link: "#members"
+      link: "#get-involved"
       style: secondary
   stats:
     - value: "100%"

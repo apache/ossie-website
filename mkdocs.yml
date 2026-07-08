@@ -151,7 +151,7 @@ hooks:
 nav:
   - Home: index.md
   - About: "/index.html#about"
-  - Community: "/index.html#members"
+  - Community: "/index.html#get-involved"
   - Updates: updates/
   - GitHub: https://github.com/apache/ossie
 

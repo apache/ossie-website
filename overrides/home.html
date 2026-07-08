@@ -249,7 +249,36 @@
 
 
   <!-- ===================================================================
-       COMMUNITY SECTION (Members + Working Groups + Get Involved)
+       GET INVOLVED SECTION
+       =================================================================== -->
+  {% if members.community %}
+  <section id="get-involved" class="ossie-members-section py-5">
+    <div class="container">
+      <div class="ossie-community-bar">
+        <div class="row align-items-center">
+          <div class="col-lg-5 mb-3 mb-lg-0">
+            <h3 class="ossie-community-bar__heading">{{ members.community.heading }}</h3>
+            <p class="ossie-community-bar__desc">{{ members.community.description }}</p>
+          </div>
+          <div class="col-lg-7">
+            <div class="d-flex flex-wrap gap-3">
+              {% for link in members.community.links %}
+                <a href="{{ link.url }}" target="_blank" rel="noopener" class="ossie-community-link">
+                  <strong>{{ link.label }}</strong>
+                  <span>{{ link.description }}</span>
+                </a>
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  {% endif %}
+
+
+  <!-- ===================================================================
+       COMMUNITY SECTION (Working Group Members + Working Groups)
        =================================================================== -->
   <section id="members" class="ossie-members-section py-5">
     <div class="container">
@@ -286,28 +315,6 @@
             </div>
           </div>
         {% endfor %}
-      </div>
-      {% endif %}
-
-      {% if members.community %}
-      <!-- Get Involved -->
-      <div class="ossie-community-bar">
-        <div class="row align-items-center">
-          <div class="col-lg-5 mb-3 mb-lg-0">
-            <h3 class="ossie-community-bar__heading">{{ members.community.heading }}</h3>
-            <p class="ossie-community-bar__desc">{{ members.community.description }}</p>
-          </div>
-          <div class="col-lg-7">
-            <div class="d-flex flex-wrap gap-3">
-              {% for link in members.community.links %}
-                <a href="{{ link.url }}" target="_blank" rel="noopener" class="ossie-community-link">
-                  <strong>{{ link.label }}</strong>
-                  <span>{{ link.description }}</span>
-                </a>
-              {% endfor %}
-            </div>
-          </div>
-        </div>
       </div>
       {% endif %}
 
