@@ -283,12 +283,6 @@ h6, .h6, .md-typeset h6 {
   justify-content: center;
 }
 
-.md-header__right {
-  display: flex;
-  align-items: center;
-  flex-shrink: 0;
-}
-
 .md-header__nav {
   display: flex;
   list-style: none;
@@ -425,7 +419,12 @@ h6, .h6, .md-typeset h6 {
 }
 
 @media (max-width: 76.1875em) {
+  /* Hide the desktop nav links but keep the ASF menu pinned to the right */
   .md-header__center {
+    justify-content: flex-end;
+  }
+
+  .md-header__nav-item:not(.md-header__nav-item--asf) {
     display: none;
   }
 
