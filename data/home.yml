@@ -30,10 +30,9 @@ hero:
   title_line1: "Apache Ossie (incubating) is the"
   title_accent: "universal standard for semantic data"
   subtitle: >-
-    Apache Ossie (incubating) is an industry-wide specification effort
-    to standardize how we exchange semantic metadata across analytics, AI
-    and BI platforms, providing a vendor neutral, single source of truth
-    for semantic data.
+    Apache Ossie (incubating) is an industry-wide specification effort to standardize how we exchange
+    semantic metadata across analytics, AI and BI platforms, providing a vendor neutral, single source
+    of truth for semantic data. Ossie was previously known as Open Semantic Interchange (OSI).
   buttons:
     - text: "View Specification"
       link: "https://github.com/apache/ossie/blob/main/core-spec/spec.md"
@@ -174,7 +173,7 @@ about:
 # --- Members Section ---------------------------------------------------------
 members:
   heading: "Working Group Contributors Affiliation"
-  subtitle: "Leading organizations collaborating to build the future of semantic interchange"
+  subtitle: "Leading organizations collaborating as part of Ossie to build the future of open semantic interoperability"
   list:
     - name: "Alation"
       logo: "alation-logo.png"
