@@ -50,7 +50,7 @@ copyright: >-
 theme:
   name: material
   custom_dir: overrides
-  logo: assets/images/ossie-logos/logo-full-horizontal.svg
+  logo: assets/images/ossie-logos/Ossie_DarkBlue.svg
   favicon: assets/images/ossie-logos/logo-mark.svg
   font:
     text: Inter
