@@ -132,6 +132,7 @@ markdown_extensions:
 # ---------------------------------------------------------------------------
 hooks:
   - hooks/load_data.py
+  - hooks/add_og_meta.py
   # - hooks/fetch_spec.py  # TODO: re-enable when spec rendering is reimplemented
 
 # ---------------------------------------------------------------------------
