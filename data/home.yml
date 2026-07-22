@@ -315,3 +315,6 @@ members:
       - label: "Subscribe to issues@"
         url: "mailto:issues-subscribe@ossie.apache.org"
         description: "Automated notifications for GitHub issues."
+      - label: "Google Calendar"
+        url: "https://calendar.google.com/calendar/u/0?cid=YTM0ZjAxM2U4ZDhmOWNkYTQxOWM2NmFmODlhYjQ3NDg4NjQ0ZDczNWZkZmUzYjBjYjJjZWQ5MGE4ODBhMmE5NUBncm91cC5jYWxlbmRhci5nb29nbGUuY29t"
+        description: "Subscribe to community meetings and events."
