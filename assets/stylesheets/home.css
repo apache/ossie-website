@@ -1,0 +1,770 @@
+/*
+ * Licensed to the Apache Software Foundation (ASF) under one
+ * or more contributor license agreements.  See the NOTICE file
+ * distributed with this work for additional information
+ * regarding copyright ownership.  The ASF licenses this file
+ * to you under the Apache License, Version 2.0 (the
+ * "License"); you may not use this file except in compliance
+ * with the License.  You may obtain a copy of the License at
+ *
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on an
+ * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied.  See the License for the
+ * specific language governing permissions and limitations
+ * under the License.
+ */
+
+/*
+ * home.css — Styles for the Apache Ossie landing page (overrides/home.html).
+ *
+ * Modern, clean design with white background, subtle gradients,
+ * and blue/purple accents. Borrows patterns from tech-forward
+ * landing pages while keeping Apache Ossie's content and brand identity.
+ *
+ * Global design tokens and Bootstrap overrides live in global.css.
+ */
+
+
+/* ==========================================================================
+   Hero Section
+   ========================================================================== */
+
+.ossie-hero {
+  background: var(--ossie-white);
+  color: var(--ossie-gray-900);
+  position: relative;
+  overflow: hidden;
+  padding-top: 5rem;
+  padding-bottom: 4rem;
+}
+
+.ossie-hero::before {
+  content: "";
+  position: absolute;
+  top: -20%;
+  left: 20%;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(0, 147, 199, 0.08) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.ossie-hero::after {
+  content: "";
+  position: absolute;
+  bottom: -10%;
+  right: 15%;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(7, 167, 127, 0.06) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.osi-hero__logo {
+  max-width: 280px;
+  width: 100%;
+  height: auto;
+  margin-bottom: 1.5rem;
+}
+
+.osi-hero h1 {
+  font-size: clamp(1.4rem, 3vw, 2rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.2;
+  color: var(--ossie-gray-900);
+}
+
+.ossie-hero__subtitle {
+  color: var(--ossie-gray-500);
+  line-height: 1.6;
+  font-size: 0.85rem;
+  max-width: 640px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.ossie-hero .btn-primary {
+  padding: 0.5rem 1.25rem;
+  font-size: 0.8rem;
+}
+
+.ossie-hero .btn-outline-secondary {
+  padding: 0.5rem 1.25rem;
+  font-size: 0.8rem;
+}
+
+.ossie-btn-icon {
+  vertical-align: -0.15em;
+  margin-right: 0.35em;
+}
+
+
+/* ==========================================================================
+   Stats / Trust Bar (below hero)
+   ========================================================================== */
+
+.ossie-stats-bar {
+  border-top: 1px solid var(--ossie-gray-200);
+  margin-top: 3rem;
+  padding-top: 2rem;
+}
+
+.ossie-stat {
+  text-align: center;
+}
+
+.ossie-stat__value {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--ossie-gray-900);
+  display: block;
+}
+
+.ossie-stat__label {
+  font-size: 0.65rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--ossie-gray-400);
+  margin-top: 0.25rem;
+  display: block;
+}
+
+
+/* ==========================================================================
+   Code / Specification Section
+   ========================================================================== */
+
+.ossie-code-section {
+  background: var(--ossie-gray-50);
+  border-bottom: 1px solid var(--ossie-gray-100);
+  position: relative;
+}
+
+.ossie-code-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 10%;
+  right: 10%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--ossie-primary-blue), var(--ossie-accent-purple), transparent);
+  opacity: 0.3;
+}
+
+.ossie-code-section h2 {
+  color: var(--ossie-gray-900);
+}
+
+.ossie-code-section h2 {
+  font-size: 1.05rem;
+}
+
+.ossie-code-section .ossie-text-gradient {
+  background: linear-gradient(135deg, var(--ossie-primary-blue), var(--ossie-accent-purple));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.ossie-code-section p {
+  font-size: 0.75rem;
+}
+
+.ossie-check-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.ossie-check-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.ossie-check-icon {
+  flex-shrink: 0;
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 50%;
+  background: var(--ossie-light-blue);
+  border: 1px solid rgba(0, 147, 199, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 0.15rem;
+  color: var(--ossie-primary-blue);
+  font-size: 0.7rem;
+}
+
+.ossie-check-item h3 {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--ossie-gray-900);
+  margin: 0 0 0.2rem;
+}
+
+.ossie-check-item p {
+  color: var(--ossie-gray-500);
+  font-size: 0.75rem;
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* Code block (terminal style) */
+.ossie-code-block {
+  background: var(--ossie-gray-900);
+  border-radius: 0.75rem;
+  border: 1px solid var(--ossie-gray-800);
+  overflow: hidden;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.1);
+}
+
+.ossie-code-block__header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.ossie-code-dot {
+  width: 0.75rem;
+  height: 0.75rem;
+  border-radius: 50%;
+}
+
+.osi-code-dot--red { background: var(--osi-danger-red); }
+.osi-code-dot--yellow { background: #F59E0B; }
+.osi-code-dot--green { background: #22C55E; }
+
+.ossie-code-block__filename {
+  font-family: 'JetBrains Mono', 'Fira Code', monospace;
+  font-size: 0.75rem;
+  color: var(--ossie-gray-400);
+  margin-left: 0.5rem;
+}
+
+.ossie-code-block__body {
+  padding: 1rem;
+  overflow-x: auto;
+}
+
+.ossie-code-block pre {
+  font-family: 'JetBrains Mono', 'Fira Code', monospace;
+  font-size: 0.65rem;
+  line-height: 1.7;
+  margin: 0;
+  color: var(--ossie-gray-300);
+}
+
+.ossie-code-block .ossie-yaml-key { color: #C084FC; }
+.ossie-code-block .ossie-yaml-prop { color: #60A5FA; }
+.ossie-code-block .ossie-yaml-val { color: #34D399; }
+.ossie-code-block .ossie-yaml-comment { color: #6B7280; }
+
+
+/* ==========================================================================
+   About Section (Feature Cards)
+   ========================================================================== */
+
+.ossie-about-section {
+  background: var(--ossie-ice-blue);
+  border-top: 1px solid rgba(0, 147, 199, 0.06);
+  border-bottom: 1px solid rgba(0, 147, 199, 0.06);
+}
+
+.ossie-feature-card {
+  background-color: var(--ossie-white) !important;
+  border: 1px solid var(--ossie-gray-200) !important;
+  border-radius: 1rem;
+  transition: all 0.3s ease;
+}
+
+.ossie-feature-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
+  border-color: var(--ossie-primary-blue) !important;
+}
+
+.ossie-feature-icon {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+}
+
+.ossie-feature-icon--blue {
+  background: var(--ossie-light-blue);
+  color: var(--ossie-primary-blue);
+}
+
+.ossie-feature-icon--purple {
+  background: var(--ossie-light-purple);
+  color: var(--ossie-accent-purple);
+}
+
+.ossie-feature-icon--green {
+  background: var(--ossie-light-green);
+  color: var(--ossie-accent-green);
+}
+
+.ossie-feature-card h3 {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--ossie-gray-900);
+}
+
+.ossie-feature-card p {
+  color: var(--ossie-gray-500);
+  font-size: 0.78rem;
+  line-height: 1.6;
+}
+
+
+/* ==========================================================================
+   Challenge / Solution Pitch Cards
+   ========================================================================== */
+
+.ossie-pitch-card {
+  border: 1px solid var(--ossie-gray-200);
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+  height: 100%;
+}
+
+.ossie-pitch-card--challenge {
+  background: var(--ossie-white);
+  border-left: 3px solid #EF4444;
+}
+
+.ossie-pitch-card--solution {
+  background: var(--ossie-white);
+  border-left: 3px solid var(--ossie-accent-green);
+}
+
+.ossie-pitch-card__heading {
+  font-size: 0.9rem !important;
+  font-weight: 700;
+  color: var(--ossie-gray-900);
+  margin-bottom: 1rem !important;
+}
+
+.ossie-pitch-card__sub {
+  font-weight: 400;
+  color: var(--ossie-gray-500);
+  margin-left: 0.25rem;
+}
+
+.ossie-pitch-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.ossie-pitch-list__item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  margin-bottom: 0.75rem;
+  font-size: 0.78rem;
+  color: var(--ossie-gray-700);
+}
+
+.ossie-pitch-list__item strong {
+  display: block;
+  font-size: 0.78rem;
+  color: var(--ossie-gray-900);
+}
+
+.ossie-pitch-list__desc {
+  color: var(--ossie-gray-500);
+  font-size: 0.72rem;
+}
+
+.ossie-pitch-list__icon {
+  flex-shrink: 0;
+  width: 1.1rem;
+  height: 1.1rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.6rem;
+  font-weight: 700;
+  margin-top: 0.1rem;
+}
+
+.ossie-pitch-list__icon--problem {
+  background: #FEE2E2;
+  color: #EF4444;
+}
+
+.ossie-pitch-list__icon--solution {
+  background: var(--ossie-light-green);
+  color: var(--ossie-accent-green);
+}
+
+
+/* ==========================================================================
+   Core Classes Cards
+   ========================================================================== */
+
+.ossie-class-card {
+  background: var(--ossie-white);
+  border: 1px solid var(--ossie-gray-200);
+  border-radius: 0.5rem;
+  padding: 1rem 1.25rem;
+  transition: all 0.2s ease;
+}
+
+.ossie-class-card:hover {
+  border-color: rgba(0, 147, 199, 0.3);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.ossie-class-card__name {
+  font-size: 0.8rem;
+  color: var(--ossie-gray-900);
+}
+
+.ossie-class-card__desc {
+  font-size: 0.72rem;
+  color: var(--ossie-gray-500);
+  margin: 0.25rem 0 0;
+  line-height: 1.5;
+}
+
+
+/* ==========================================================================
+   Members Section (Logo Wall)
+   ========================================================================== */
+
+.ossie-members-section {
+  background: var(--ossie-gray-50);
+  border-top: 1px solid var(--ossie-gray-100);
+  border-bottom: 1px solid var(--ossie-gray-100);
+  position: relative;
+}
+
+.ossie-members-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(circle at 1px 1px, var(--ossie-gray-200) 1px, transparent 0);
+  background-size: 28px 28px;
+  opacity: 0.4;
+  pointer-events: none;
+}
+
+.ossie-member-card {
+  border: 1px solid var(--ossie-gray-200) !important;
+  border-radius: 0.75rem;
+  transition: all 0.3s ease;
+  min-height: 120px;
+  background: var(--ossie-white) !important;
+}
+
+.ossie-member-card__logo {
+  max-width: 120px;
+  max-height: 60px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  transition: all 0.3s ease;
+}
+
+.ossie-member-card:hover {
+  border-color: rgba(0, 147, 199, 0.4) !important;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(0, 147, 199, 0.1);
+}
+
+.ossie-member-card:hover .ossie-member-card__logo {
+  transform: scale(1.05);
+}
+
+.ossie-member-card__name {
+  font-size: 0.7rem;
+  color: var(--ossie-gray-600);
+}
+
+
+/* ==========================================================================
+   Working Group Cards
+   ========================================================================== */
+
+.ossie-wg-card {
+  background: var(--ossie-white);
+  border: 1px solid var(--ossie-gray-200);
+  border-radius: 0.5rem;
+  padding: 1rem 1.25rem;
+  transition: all 0.2s ease;
+  height: 100%;
+}
+
+.ossie-wg-card:hover {
+  border-color: rgba(0, 147, 199, 0.3);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.ossie-wg-card__name {
+  font-size: 0.78rem;
+  color: var(--ossie-gray-900);
+  display: block;
+  margin-bottom: 0.2rem;
+}
+
+.ossie-wg-card__focus {
+  font-size: 0.72rem;
+  color: var(--ossie-gray-500);
+  margin: 0;
+  line-height: 1.5;
+}
+
+
+/* ==========================================================================
+   Community Bar (Get Involved)
+   ========================================================================== */
+
+.ossie-community-bar {
+  background: var(--ossie-white);
+  border: 1px solid var(--ossie-gray-200);
+  border-radius: 0.75rem;
+  padding: 1.5rem 2rem;
+}
+
+.ossie-community-bar__heading {
+  font-size: 0.95rem !important;
+  font-weight: 700;
+  color: var(--ossie-gray-900);
+  margin-bottom: 0.3rem !important;
+}
+
+.ossie-community-bar__desc {
+  font-size: 0.75rem;
+  color: var(--ossie-gray-500);
+  margin: 0;
+  line-height: 1.5;
+}
+
+.ossie-community-link {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  background: var(--ossie-gray-50);
+  border: 1px solid var(--ossie-gray-200);
+  border-radius: 0.5rem;
+  padding: 0.75rem 1.25rem;
+  flex: 1;
+  min-width: 200px;
+  transition: all 0.2s ease;
+  text-decoration: none !important;
+}
+
+.ossie-community-link:hover {
+  border-color: var(--ossie-primary-blue);
+  background: var(--ossie-light-blue);
+  transform: translateY(-1px);
+}
+
+.ossie-community-link strong {
+  font-size: 0.78rem;
+  color: var(--ossie-primary-blue);
+}
+
+.ossie-community-link span {
+  font-size: 0.7rem;
+  color: var(--ossie-gray-500);
+}
+
+
+/* ==========================================================================
+   Updates Section
+   ========================================================================== */
+
+.ossie-updates-section {
+  background: var(--ossie-white);
+  border-bottom: 1px solid var(--ossie-gray-100);
+}
+
+.ossie-update-card {
+  background-color: var(--ossie-white) !important;
+  border: 1px solid var(--ossie-gray-200) !important;
+  border-left: 4px solid var(--ossie-primary-blue) !important;
+  border-radius: 0.75rem;
+  transition: all 0.3s ease;
+}
+
+.ossie-update-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+.ossie-update-card .card-body {
+  padding: 0.75rem 1rem;
+}
+
+.ossie-update-card__date {
+  display: block;
+  font-size: 0.68rem;
+  color: var(--ossie-gray-400);
+  margin-bottom: 0.2rem;
+  font-weight: 500;
+}
+
+.ossie-update-card h4 {
+  font-size: 0.82rem;
+  margin-bottom: 0.25rem;
+}
+
+.ossie-update-card p {
+  line-height: 1.4;
+  font-size: 0.72rem;
+  color: var(--ossie-gray-600);
+  margin-bottom: 0;
+}
+
+.ossie-update-card__title {
+  color: var(--ossie-gray-900);
+  font-weight: 600;
+  transition: color 0.15s ease;
+}
+
+.ossie-update-card__title:hover {
+  color: var(--ossie-primary-blue);
+}
+
+.ossie-update-card--all {
+  background-color: var(--ossie-light-blue) !important;
+  border-left: 4px solid var(--ossie-primary-blue) !important;
+  border-color: transparent !important;
+  border-left-color: var(--ossie-primary-blue) !important;
+}
+
+.ossie-update-card--all:hover {
+  background-color: var(--ossie-light-blue) !important;
+}
+
+.ossie-update-card__all-label {
+  color: var(--ossie-primary-blue);
+  font-size: 0.85rem;
+  font-weight: 600;
+  transition: color 0.15s ease;
+}
+
+
+/* ==========================================================================
+   Get Involved Section (CTA)
+   ========================================================================== */
+
+.ossie-get-involved {
+  background: linear-gradient(135deg, var(--ossie-dark-blue) 0%, #1E3A5F 50%, #0E2A4A 100%);
+  color: var(--ossie-white);
+  position: relative;
+  overflow: hidden;
+}
+
+.ossie-get-involved::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(circle at 1px 1px, rgba(255, 255, 255, 0.04) 1px, transparent 0);
+  background-size: 24px 24px;
+  pointer-events: none;
+}
+
+.ossie-get-involved h2 {
+  color: var(--ossie-white);
+}
+
+.ossie-get-involved h3 {
+  color: var(--ossie-white);
+}
+
+.ossie-involvement-card {
+  background-color: rgba(255, 255, 255, 0.08) !important;
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+  border-radius: 1rem;
+  backdrop-filter: blur(4px);
+  transition: all 0.3s ease;
+}
+
+.ossie-involvement-card:hover {
+  background-color: rgba(255, 255, 255, 0.12) !important;
+  border-color: rgba(255, 255, 255, 0.2) !important;
+  transform: translateY(-2px);
+}
+
+.ossie-involvement-card p {
+  font-size: 0.78rem;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.ossie-get-involved a {
+  color: #60A5FA;
+  font-weight: 600;
+  transition: color 0.15s ease;
+}
+
+.ossie-get-involved a:hover {
+  color: #93C5FD;
+}
+
+.ossie-get-involved .ossie-involvement-card a {
+  color: #60A5FA;
+  border-bottom: none;
+}
+
+.ossie-get-involved .ossie-involvement-card a:hover {
+  color: #93C5FD;
+}
+
+.ossie-join-btn {
+  display: inline-block;
+  background: var(--ossie-white);
+  color: var(--ossie-dark-blue);
+  padding: 0.5rem 1.5rem;
+  border-radius: 0.5rem;
+  font-size: 0.8rem;
+  font-weight: 700;
+  transition: all 0.2s ease;
+}
+
+.ossie-join-btn:hover {
+  background: var(--ossie-gray-100);
+  color: var(--ossie-dark-blue);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+
+/* ==========================================================================
+   Section heading styles
+   ========================================================================== */
+
+.ossie-section-heading {
+  font-size: clamp(1rem, 2vw, 1.15rem);
+  font-weight: 700;
+  color: var(--ossie-gray-900);
+  letter-spacing: -0.02em;
+}
+
+.ossie-section-subtitle {
+  color: var(--ossie-gray-500);
+  font-size: 0.8rem;
+  line-height: 1.6;
+}
