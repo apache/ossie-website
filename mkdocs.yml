@@ -152,7 +152,8 @@ hooks:
 nav:
   - Home: index.md
   - About: "/index.html#about"
-  - Community: "/index.html#get-involved"
+  - Community: community.md
+  - Ecosystem: ecosystem.md
   - Updates: updates/
   - GitHub: https://github.com/apache/ossie
 

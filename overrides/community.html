@@ -1,0 +1,114 @@
+{#
+  Licensed to the Apache Software Foundation (ASF) under one
+  or more contributor license agreements.  See the NOTICE file
+  distributed with this work for additional information
+  regarding copyright ownership.  The ASF licenses this file
+  to you under the Apache License, Version 2.0 (the
+  "License"); you may not use this file except in compliance
+  with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing,
+  software distributed under the License is distributed on an
+  "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+  KIND, either express or implied.  See the License for the
+  specific language governing permissions and limitations
+  under the License.
+
+  community.html — Community page template.
+
+  Renders the Get Involved bar and Working Groups sections.
+  Content is data-driven via data/community.yml.
+#}
+{% extends "main.html" %}
+
+{% block tabs %}
+  {{ super() }}
+  <link rel="stylesheet" href="{{ 'assets/stylesheets/home.css' | url }}">
+
+  <style>
+    .md-content { display: none; }
+    @media screen and (min-width: 60em)   { .md-sidebar--secondary { display: none; } }
+    @media screen and (min-width: 76.25em) { .md-sidebar--primary   { display: none; } }
+  </style>
+
+
+  <!-- =====================================================================
+       PAGE TITLE
+       ===================================================================== -->
+  <section class="ossie-about-section py-5 pb-0">
+    <div class="container">
+      <h1 class="ossie-section-heading text-center mb-2">Community</h1>
+      <p class="ossie-section-subtitle text-center mx-auto" style="max-width:700px">
+        Apache Ossie is built by a community of individuals. Everyone is welcome
+        to participate — whether you're contributing to the spec, building
+        converters, or just following along.
+      </p>
+    </div>
+  </section>
+
+
+  <!-- =====================================================================
+       GET INVOLVED SECTION
+       ===================================================================== -->
+  <section id="get-involved" class="ossie-members-section py-5">
+    <div class="container">
+      <div class="ossie-community-bar">
+        <div class="row align-items-center">
+          <div class="col-lg-5 mb-3 mb-lg-0">
+            <h3 class="ossie-community-bar__heading">{{ community_page.get_involved.heading }}</h3>
+            <p class="ossie-community-bar__desc">{{ community_page.get_involved.description }}</p>
+          </div>
+          <div class="col-lg-7">
+            <div class="d-flex flex-wrap gap-3">
+              {% for link in community_page.get_involved.links %}
+                <a href="{{ link.url }}" target="_blank" rel="noopener" class="ossie-community-link">
+                  <strong>{{ link.label }}</strong>
+                  <span>{{ link.description }}</span>
+                </a>
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- =====================================================================
+       WORKING GROUPS SECTION
+       ===================================================================== -->
+  <section class="ossie-members-section py-5">
+    <div class="container">
+      <div class="text-center mb-4">
+        <h2 class="ossie-section-heading">{{ community_page.working_groups.heading }}</h2>
+        <p class="ossie-section-subtitle">{{ community_page.working_groups.description }}</p>
+      </div>
+      <div class="row g-3">
+        {% for wg in community_page.working_groups.groups %}
+          <div class="col-md-6 col-lg-4">
+            <div class="ossie-wg-card">
+              <strong class="ossie-wg-card__name">
+                {% if wg.slack_url %}
+                  <a href="{{ wg.slack_url }}" target="_blank" rel="noopener" style="text-decoration:none; color:inherit; display:inline-flex; align-items:center; gap:0.35em">
+                    {{ wg.name }}
+                    <span style="width:1em; height:1em; display:inline-flex; opacity:0.7">{% include ".icons/fontawesome/brands/slack.svg" %}</span>
+                  </a>
+                {% else %}
+                  {{ wg.name }}
+                {% endif %}
+              </strong>
+              <p class="ossie-wg-card__focus">{{ wg.focus }}</p>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+
+{% endblock %}
+
+{% block content %}
+  {{ super() }}
+{% endblock %}

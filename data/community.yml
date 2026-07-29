@@ -1,0 +1,70 @@
+# Licensed to the Apache Software Foundation (ASF) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The ASF licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#   http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing,
+# software distributed under the License is distributed on an
+# "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+# KIND, either express or implied.  See the License for the
+# specific language governing permissions and limitations
+# under the License.
+
+# =============================================================================
+# Community Page Content
+# =============================================================================
+# Drives the Community page (docs/community.md).
+# Edit this file to update get-involved links and working groups.
+# =============================================================================
+
+community_page:
+  get_involved:
+    heading: "Get Involved"
+    description: >-
+      Join our open-source community on GitHub, the mailing lists, or Slack.
+      Help shape the future of semantic interchange.
+    links:
+      - label: "View Repository"
+        url: "https://github.com/apache/ossie"
+        description: "Browse the spec, raise PRs, and contribute code."
+      - label: "Start a Discussion"
+        url: "https://github.com/apache/ossie/discussions"
+        description: "Share ideas, propose features, and ask questions."
+      - label: "Join Slack"
+        url: "https://join.slack.com/t/apache-ossie/shared_invite/zt-42zw4rflt-Gpve8_NFJq7AsdAQTY~SCg"
+        description: "Chat directly with contributors on Slack."
+      - label: "Subscribe to dev@"
+        url: "mailto:dev-subscribe@ossie.apache.org"
+        description: "Main development and community discussion list."
+      - label: "Subscribe to commits@"
+        url: "mailto:commits-subscribe@ossie.apache.org"
+        description: "Automated notifications for commits and pull requests."
+      - label: "Subscribe to issues@"
+        url: "mailto:issues-subscribe@ossie.apache.org"
+        description: "Automated notifications for GitHub issues."
+      - label: "Google Calendar"
+        url: "https://calendar.google.com/calendar/u/0?cid=YTM0ZjAxM2U4ZDhmOWNkYTQxOWM2NmFmODlhYjQ3NDg4NjQ0ZDczNWZkZmUzYjBjYjJjZWQ5MGE4ODBhMmE5NUBncm91cC5jYWxlbmRhci5nb29nbGUuY29t"
+        description: "Subscribe to community meetings and events."
+
+  working_groups:
+    heading: "Working Groups"
+    description: "The initiative is organized into focused groups, each tackling a specific area of the specification."
+    groups:
+      - name: "Advanced Metrics & Expression Language"
+        focus: "Complex metric calculations and a portable expression syntax"
+        slack_url: "https://apache-ossie.slack.com/archives/C0ADR49SBEK"
+      - name: "Composability"
+        focus: "Enabling semantic models to reference and extend one another"
+      - name: "Catalog Integration"
+        focus: "Bridging Apache Ossie models with data catalog and governance platforms"
+        slack_url: "https://apache-ossie.slack.com/archives/C0B8N5VQG1Y"
+      - name: "Ontology Representation"
+        focus: "Mapping Apache Ossie concepts to formal ontology standards"
+        slack_url: "https://apache-ossie.slack.com/archives/C0ACQJVFVRN"
+      - name: "Model Converters & Developer Tools"
+        focus: "Tooling for importing, exporting, and validating Apache Ossie models"

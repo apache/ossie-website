@@ -1,0 +1,129 @@
+# Licensed to the Apache Software Foundation (ASF) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The ASF licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#   http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing,
+# software distributed under the License is distributed on an
+# "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+# KIND, either express or implied.  See the License for the
+# specific language governing permissions and limitations
+# under the License.
+
+# =============================================================================
+# Ecosystem / Vendor Logos
+# =============================================================================
+# This file drives the vendor logo grid on the Community page.
+# To add a vendor: place the logo in docs/assets/images/logos/ and add a
+# name + logo entry under ecosystem.vendors below.
+# =============================================================================
+
+ecosystem:
+  vendors:
+    - name: "Alation"
+      logo: "alation-logo.png"
+    - name: "Ataccama"
+      logo: "ataccama-logo.png"
+    - name: "Anomalo"
+      logo: "anomalo-logo.svg"
+    - name: "Atlan"
+      logo: "atlan-logo.png"
+    - name: "AtScale"
+      logo: "atscale-logo.png"
+    - name: "Bigeye"
+      logo: "bigeye-logo.png"
+    - name: "BlackRock"
+      logo: "blackrock-logo.png"
+    - name: "Blue Yonder"
+      logo: "blueyonder-logo.png"
+    - name: "CARTO"
+      logo: "carto-logo.png"
+    - name: "Cloudera"
+      logo: "cloudera-logo.png"
+    - name: "Coalesce"
+      logo: "coalesce-logo.png"
+    - name: "Collate"
+      logo: "collate-logo.png"
+    - name: "Collibra"
+      logo: "collibra-logo.png"
+    - name: "Cogniti"
+      logo: "cogniti-logo.png"
+    - name: "Count"
+      logo: "count-logo.png"
+    - name: "Credible"
+      logo: "credible-logo.png"
+    - name: "Cube"
+      logo: "cube-logo.png"
+    - name: "Dataiku"
+      logo: "dataiku-logo.png"
+    - name: "Databricks"
+      logo: "databricks-logo.png"
+    - name: "DataHub"
+      logo: "datahub-logo.png"
+    - name: "Denodo"
+      logo: "denodo-logo.png"
+    - name: "dbt Labs"
+      logo: "dbt-labs-logo.png"
+    - name: "Dremio"
+      logo: "dremio-logo.png"
+    - name: "Domo"
+      logo: "domo-logo.png"
+    - name: "Elementum AI"
+      logo: "elementum-logo.png"
+    - name: "Entropy Data"
+      logo: "entropy-data-logo.svg"
+    - name: "Firebolt"
+      logo: "firebolt-logo.png"
+    - name: "GoodData"
+      logo: "gooddata-logo.svg"
+    - name: "Hex"
+      logo: "hex-logo.png"
+    - name: "Honeydew"
+      logo: "honeydew-logo.png"
+    - name: "Informatica"
+      logo: "informatica-logo.png"
+    - name: "Instacart"
+      logo: "instacart-logo.png"
+    - name: "JetBrains"
+      logo: "jetbrains-logo.png"
+    - name: "Lightdash"
+      logo: "lightdash-logo.png"
+    - name: "Metabase"
+      logo: "metabase-logo.png"
+    - name: "Mistral AI"
+      logo: "mistral-ai-logo.png"
+    - name: "Omni"
+      logo: "omni-logo.png"
+    - name: "Oracle"
+      logo: "oracle-logo.png"
+    - name: "Preset"
+      logo: "preset-logo.png"
+    - name: "Qlik"
+      logo: "qlik-logo.png"
+    - name: "RelationalAI"
+      logo: "relationalai-logo.png"
+    - name: "Salesforce"
+      logo: "salesforce-logo.png"
+    - name: "Select Star"
+      logo: "selectstar-logo.png"
+    - name: "ServiceNow"
+      logo: "servicenow-logo.png"
+    - name: "Sigma"
+      logo: "sigma-logo.png"
+    - name: "Snowflake"
+      logo: "snowflake-logo.png"
+    - name: "Starburst Data"
+      logo: "starburst-logo.png"
+    - name: "Strategy"
+      logo: "strategy-logo.png"
+    - name: "Sundial"
+      logo: "sundial-logo.png"
+    - name: "ThoughtSpot"
+      logo: "thoughtspot-logo.png"
+    - name: "Zeta Global"
+      logo: "zeta-global-logo.png"
