@@ -91,6 +91,8 @@ ecosystem:
       logo: "instacart-logo.png"
     - name: "JetBrains"
       logo: "jetbrains-logo.png"
+    - name: "Kyvos"
+      logo: "kyvos-logo.svg"
     - name: "Lightdash"
       logo: "lightdash-logo.png"
     - name: "Metabase"
