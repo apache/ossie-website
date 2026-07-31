@@ -103,6 +103,8 @@ ecosystem:
       logo: "oracle-logo.png"
     - name: "Preset"
       logo: "preset-logo.png"
+    - name: "PuppyGraph"
+      logo: "puppygraph-logo.png"
     - name: "Qlik"
       logo: "qlik-logo.png"
     - name: "RelationalAI"
