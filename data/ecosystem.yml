@@ -129,5 +129,7 @@ ecosystem:
       logo: "sundial-logo.png"
     - name: "ThoughtSpot"
       logo: "thoughtspot-logo.png"
+    - name: "XSOLCORP KOREA"
+      logo: "xsolcorp-korea-logo.png"
     - name: "Zeta Global"
       logo: "zeta-global-logo.png"
