@@ -81,6 +81,8 @@ ecosystem:
       logo: "firebolt-logo.png"
     - name: "GoodData"
       logo: "gooddata-logo.svg"
+    - name: "Gravity"
+      logo: "gravity-logo.svg"
     - name: "Hex"
       logo: "hex-logo.png"
     - name: "Honeydew"
