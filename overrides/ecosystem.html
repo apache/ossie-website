@@ -51,9 +51,40 @@
                      loading="lazy"
                      class="ossie-member-card__logo">
                 <span class="ossie-member-card__name mt-2">{{ vendor.name }}</span>
+                {% if vendor.details %}
+                  <button class="ossie-details-link" data-vendor="{{ vendor.name | e }}">See Details</button>
+                {% endif %}
               </div>
             </div>
           </div>
+          {% if vendor.details %}
+          <dialog class="ossie-vendor-modal" id="modal-{{ vendor.name | lower | replace(' ', '-') }}">
+            <div class="ossie-vendor-modal__content">
+              <div class="ossie-vendor-modal__header">
+                <img src="{{ ('assets/images/logos/' ~ vendor.logo) | url }}"
+                     alt="{{ vendor.name }}"
+                     class="ossie-vendor-modal__logo">
+                <button class="ossie-vendor-modal__close" aria-label="Close">&times;</button>
+              </div>
+              {% if vendor.details.description %}
+                <p class="ossie-vendor-modal__desc">{{ vendor.details.description }}</p>
+              {% endif %}
+              {% if vendor.details.features %}
+                <ul class="ossie-vendor-modal__features">
+                  {% for feature in vendor.details.features %}
+                    <li>
+                      <strong>{{ feature.title }}</strong>
+                      <span>{{ feature.description }}</span>
+                      {% if feature.url %}
+                        <a href="{{ feature.url }}" target="_blank" rel="noopener">{{ feature.url_label | default("Learn more") }} &rarr;</a>
+                      {% endif %}
+                    </li>
+                  {% endfor %}
+                </ul>
+              {% endif %}
+            </div>
+          </dialog>
+          {% endif %}
         {% endfor %}
       </div>
 
@@ -70,4 +101,9 @@
 
 {% block content %}
   {{ super() }}
+{% endblock %}
+
+{% block scripts %}
+  {{ super() }}
+  <script src="{{ 'assets/javascripts/ecosystem.js' | url }}"></script>
 {% endblock %}
