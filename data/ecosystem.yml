@@ -85,6 +85,13 @@ ecosystem:
       logo: "hex-logo.png"
     - name: "Honeydew"
       logo: "honeydew-logo.png"
+      details:
+        description: "Honeydew is a founding partner of Apache Ossie. Its semantic layer is YAML-based and git-native, and converts bidirectionally with Ossie so metrics, attributes and relationships stay portable across BI tools, AI agents and warehouses."
+        features:
+          - title: "Honeydew Converter"
+            description: "The bidirectional Ossie converter, maintained in the Ossie repository."
+            url: "https://github.com/apache/ossie/tree/main/converters/honeydew"
+            url_label: "View on GitHub"
     - name: "Informatica"
       logo: "informatica-logo.png"
     - name: "Instacart"
