@@ -111,6 +111,8 @@ ecosystem:
       logo: "qlik-logo.png"
     - name: "RelationalAI"
       logo: "relationalai-logo.png"
+    - name: "SAAL"
+      logo: "saal-logo.png"
     - name: "Salesforce"
       logo: "salesforce-logo.png"
     - name: "Select Star"
