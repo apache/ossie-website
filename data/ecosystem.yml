@@ -111,6 +111,8 @@ ecosystem:
       logo: "qlik-logo.png"
     - name: "RelationalAI"
       logo: "relationalai-logo.png"
+    - name: "SAAL"
+      logo: "saal-logo.png"
     - name: "Saiku"
       logo: "saiku-logo.svg"
       details:
