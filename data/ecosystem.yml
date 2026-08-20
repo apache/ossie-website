@@ -172,6 +172,17 @@ ecosystem:
       logo: "sundial-logo.png"
     - name: "ThoughtSpot"
       logo: "thoughtspot-logo.png"
+    - name: "Veezoo"
+      logo: "veezoo-logo.svg"
+      details:
+        description: "Veezoo is an agentic analytics solution engineered for trust. At its core is a knowledge graph semantic layer, and Veezoo supports Apache Ossie (Incubating) natively as a source for it."
+        features:
+          - title: "Native Ossie import"
+            description: "Ossie documents import directly into the knowledge graph: a class per entity with its dimensions, the joins between entities, and a measure per metric."
+          - title: "Veezoo & Apache Ossie"
+            description: "How Veezoo imports Ossie semantic models into its Knowledge Graph and keeps them in sync."
+            url: "https://www.veezoo.com/apache-ossie"
+            url_label: "Learn more"
     - name: "XSOLCORP KOREA"
       logo: "xsolcorp-korea-logo.png"
     - name: "WingArc1st"
