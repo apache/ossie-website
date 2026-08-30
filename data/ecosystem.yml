@@ -168,6 +168,17 @@ ecosystem:
       logo: "starburst-logo.png"
     - name: "Strategy"
       logo: "strategy-logo.png"
+      details:
+        description: "Strategy's Mosaic semantic layer imports and exports Apache Ossie (Incubating) YAML, keeping semantic models portable across Ossie-compatible tools."
+        features:
+          - title: "Import from Ossie"
+            description: "Build a Mosaic semantic model from an Ossie YAML file, mapping data sources, namespaces, datasets, attributes and metrics automatically."
+            url: "https://www2.strategy.com/producthelp/Current/Mosaic/en-us/Content/mosaic_osi_import.htm"
+            url_label: "Documentation"
+          - title: "Export to Ossie"
+            description: "Export an existing Mosaic model back to an Ossie YAML file for use in other Ossie-compatible tools."
+            url: "https://www2.strategy.com/producthelp/Current/Mosaic/en-us/Content/mosaic_osi_import.htm"
+            url_label: "Documentation"
     - name: "Sundial"
       logo: "sundial-logo.png"
     - name: "ThoughtSpot"
