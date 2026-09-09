@@ -106,6 +106,8 @@ ecosystem:
       logo: "lightdash-logo.png"
     - name: "Metabase"
       logo: "metabase-logo.png"
+    - name: "Microsoft"
+      logo: "microsoft-logo.png"
     - name: "Mistral AI"
       logo: "mistral-ai-logo.png"
     - name: "Omni"
