@@ -232,6 +232,8 @@ ecosystem:
             url_label: "Learn more"
     - name: "WingArc1st"
       logo: "wingarc1st-logo.svg"
+    - name: "WisdomAI"
+      logo: "wisdomai-logo.png"
     - name: "Witboost"
       logo: "witboost-logo.png"
       details:
