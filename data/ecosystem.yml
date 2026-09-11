@@ -98,10 +98,10 @@ ecosystem:
       logo: "informatica-logo.png"
     - name: "Instacart"
       logo: "instacart-logo.png"
-    - name: "iqea"
+    - name: "Iqea Technologies Inc."
       logo: "iqea-logo.svg"
       details:
-        description: "iqea builds the Apache Ossie (Incubating) reference implementation for DuckDB. It reads Ossie semantic models in YAML or JSON and answers semantic queries directly against tables in DuckDB, planning the joins and deriving the grain from declared keys before emitting SQL that DuckDB executes, rather than converting models into another vendor's format."
+        description: "Iqea builds the Apache Ossie (Incubating) reference implementation for DuckDB. It reads Ossie semantic models in YAML or JSON and answers semantic queries directly against tables in DuckDB, planning the joins and deriving the grain from declared keys before emitting SQL that DuckDB executes, rather than converting models into another vendor's format."
         features:
           - title: "duckdb-ossie"
             description: "A DuckDB community extension that executes Ossie semantic models."
