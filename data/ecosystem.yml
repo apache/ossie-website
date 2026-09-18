@@ -127,6 +127,8 @@ ecosystem:
       logo: "microsoft-logo.png"
     - name: "Mistral AI"
       logo: "mistral-ai-logo.png"
+    - name: "NVIDIA"
+      logo: "nvidia-logo.png"
     - name: "Omni"
       logo: "omni-logo.png"
     - name: "Oracle"
