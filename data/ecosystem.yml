@@ -221,6 +221,8 @@ ecosystem:
             url_label: "Documentation"
     - name: "Sundial"
       logo: "sundial-logo.png"
+    - name: "Tabular Editor"
+      logo: "tabular-editor-logo.png"
     - name: "ThoughtSpot"
       logo: "thoughtspot-logo.png"
     - name: "Veezoo"
