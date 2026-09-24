@@ -121,6 +121,8 @@ ecosystem:
       logo: "kyvos-logo.svg"
     - name: "Lightdash"
       logo: "lightdash-logo.png"
+    - name: "Meta Analysis"
+      logo: "metaanalysis-logo.png"
     - name: "Metabase"
       logo: "metabase-logo.png"
     - name: "Microsoft"
