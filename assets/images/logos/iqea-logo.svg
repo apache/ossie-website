@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="16 20 197 84" width="197" height="84"
+     role="img" aria-label="iqea">
+  <title>iqea</title>
+
+  <!-- Mark: iqea-mark.svg, unmodified, scaled from its native 64x64 box.
+       No background element anywhere, so the file is transparent. -->
+  <g transform="translate(16 24) scale(1.28)">
+    <g fill="none" stroke="#00B894" stroke-width="9" stroke-linecap="round">
+      <path d="M 36.8 50.9 A 22 22 0 1 1 50.9 36.8"/>
+      <path d="M 40.5 40.5 L 52 52"/>
+    </g>
+    <circle cx="30" cy="30" r="7.5" fill="#00B894"/>
+  </g>
+
+  <!-- Brand wordmark, black. The viewBox is cropped to the ink bounds of the mark and this text,
+       with a 10-unit gap between them: the ecosystem tile constrains width, so a narrower box
+       renders taller and scales the lockup up instead of padding it with empty space. -->
+  <text x="98" y="80"
+        font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif"
+        font-size="58" font-weight="700" letter-spacing="-2" fill="#000000">iqea</text>
+</svg>
