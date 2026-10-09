@@ -117,6 +117,15 @@ ecosystem:
       logo: "gravity-logo.svg"
     - name: "Hex"
       logo: "hex-logo.png"
+    - name: "Holistics"
+      logo: "holistics-logo.svg"
+      details:
+        description: "Holistics supports Apache Ossie (Incubating) and its vendor-neutral specification. Its semantic layer is written as code in AML, covering datasets, models, dimensions, measures and relationships, and converts both ways with Ossie so a model can move between the two. Anything the other side cannot hold is reported as a structured issue rather than dropped silently."
+        features:
+          - title: "Holistics AML converter"
+            description: "The bidirectional Ossie converter, maintained in the Ossie repository."
+            url: "https://github.com/apache/ossie/tree/main/converters/holistics"
+            url_label: "View on GitHub"
     - name: "Honeydew"
       logo: "honeydew-logo.png"
       details:
