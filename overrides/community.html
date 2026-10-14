@@ -18,7 +18,7 @@
 
   community.html — Community page template.
 
-  Renders the Get Involved bar and Working Groups sections.
+  Renders the Get Involved bar and the Meetings & Working Groups section.
   Content is data-driven via data/community.yml.
 #}
 {% extends "main.html" %}
@@ -77,29 +77,48 @@
 
 
   <!-- =====================================================================
-       WORKING GROUPS SECTION
+       MEETINGS & WORKING GROUPS
        ===================================================================== -->
   <section class="ossie-members-section py-5">
     <div class="container">
-      <div class="text-center mb-4">
-        <h2 class="ossie-section-heading">{{ community_page.working_groups.heading }}</h2>
-        <p class="ossie-section-subtitle">{{ community_page.working_groups.description }}</p>
+      <div class="text-center mb-3">
+        <h2 class="ossie-section-heading">{{ community_page.meetings.heading }}</h2>
       </div>
+
+      <div class="ossie-wg-notes mx-auto mb-4">
+        <p class="ossie-wg-note">
+          All meetings are open to everyone, and times live on the
+          <a href="{{ community_page.calendar_url }}" target="_blank" rel="noopener">community Google Calendar</a>.
+          Working groups are for discussion, not decisions — those happen in the open on the
+          <a href="mailto:dev-subscribe@ossie.apache.org">dev@ mailing list</a>, per the Apache Way.
+        </p>
+      </div>
+
       <div class="row g-3">
-        {% for wg in community_page.working_groups.groups %}
+        {% for item in community_page.meetings.entries %}
           <div class="col-md-6 col-lg-4">
             <div class="ossie-wg-card">
-              <strong class="ossie-wg-card__name">
-                {% if wg.slack_url %}
-                  <a href="{{ wg.slack_url }}" target="_blank" rel="noopener" style="text-decoration:none; color:inherit; display:inline-flex; align-items:center; gap:0.35em">
-                    {{ wg.name }}
-                    <span style="width:1em; height:1em; display:inline-flex; opacity:0.7">{% include ".icons/fontawesome/brands/slack.svg" %}</span>
-                  </a>
-                {% else %}
-                  {{ wg.name }}
+              <strong class="ossie-wg-card__name">{{ item.name }}{% if item.type == 'working_group' %} Working Group{% endif %}</strong>
+              <p class="ossie-wg-card__focus">{{ item.focus }}</p>
+
+              <div class="ossie-wg-card__meta">
+                {% if item.schedule %}
+                  <a class="ossie-wg-card__schedule" href="{{ community_page.calendar_url }}" target="_blank" rel="noopener">{{ item.schedule }}</a>
                 {% endif %}
-              </strong>
-              <p class="ossie-wg-card__focus">{{ wg.focus }}</p>
+                {% if item.vc_url or item.notes_url or item.slack_url %}
+                  <div class="ossie-wg-card__links">
+                    {% if item.vc_url %}
+                      <a href="{{ item.vc_url }}" target="_blank" rel="noopener" class="ossie-wg-card__link">Join call</a>
+                    {% endif %}
+                    {% if item.notes_url %}
+                      <a href="{{ item.notes_url }}" target="_blank" rel="noopener" class="ossie-wg-card__link">Notes</a>
+                    {% endif %}
+                    {% if item.slack_url %}
+                      <a href="{{ item.slack_url }}" target="_blank" rel="noopener" class="ossie-wg-card__link">Slack</a>
+                    {% endif %}
+                  </div>
+                {% endif %}
+              </div>
             </div>
           </div>
         {% endfor %}
