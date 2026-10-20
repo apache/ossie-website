@@ -25,6 +25,15 @@
 
 ecosystem:
   vendors:
+    - name: "Actian"
+      logo: "actian-logo.png"
+      details:
+        description: "The Actian Data Intelligence Platform supports Apache Ossie (Incubating), importing and exporting Ossie semantic models so teams can reuse governed dimensions, measures, metrics, and relationships across analytics and AI platforms."
+        features:
+          - title: "Actian AI Analyst: Semantic Model Import and Export"
+            description: "Import Ossie semantic models into Actian AI Analyst or export governed semantic models in the Ossie format to reuse dimensions, measures, metrics, and relationships across compatible analytics and AI tools."
+            url: "https://docs.actian.com/ai-analyst/governance/export-semantic-layer-and-agents/open-semantic-interchange-format.html"
+            url_label: "Documentation"
     - name: "Alation"
       logo: "alation-logo.png"
     - name: "Anomalo"
