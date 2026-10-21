@@ -140,7 +140,7 @@ don't have to tackle semantic interoperability alone.
   raise PRs, and contribute code
 - **[Start a Discussion](https://github.com/apache/ossie/discussions)** —
   Share ideas, propose features, and ask questions
-- **[Join Slack](https://join.slack.com/t/apache-ossie/shared_invite/zt-42zw4rflt-Gpve8_NFJq7AsdAQTY~SCg)** —
+- **[Join Slack](https://join.slack.com/t/apache-ossie/shared_invite/zt-4drnzih1v-T0tcnaZZoLlddLh_plY~bw)** —
   Chat directly with contributors
 - **[Subscribe to dev@](mailto:dev-subscribe@ossie.apache.org)** — Main
   development and community discussion list
