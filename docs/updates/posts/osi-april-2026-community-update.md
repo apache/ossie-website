@@ -117,7 +117,7 @@ are a few ways to get started:
   open issues, and submit pull requests
 - **[GitHub Discussions](https://github.com/apache/ossie/discussions)**
   — Ask questions, propose ideas, and share feedback
-- **[Ecosystem Contributions](https://github.com/apache/ossie/tree/main/converters)**
+- **[Ecosystem Contributions](https://github.com/apache/ossie-converters)**
   — Build or contribute converters into or from OSI
 
 All contributions are reviewed by the working group, and the project follows an
