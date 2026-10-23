@@ -67,7 +67,7 @@
           {% for btn in hero.buttons %}
             {% set is_external = btn.link.startswith("http") %}
             <a href="{{ btn.link if is_external else btn.link | url }}"
-               class="btn {% if btn.style == 'primary' %}btn-primary{% else %}btn-outline-secondary{% endif %}"
+               class="btn {% if btn.style == 'primary' %}btn-primary{% elif btn.style == 'converters' %}btn-converters{% else %}btn-outline-secondary{% endif %}"
                {% if is_external %}target="_blank" rel="noopener"{% endif %}>
               {% if btn.icon == 'github' %}
                 <svg class="ossie-btn-icon" width="20" height="20" viewBox="0 0 16 16" fill="currentColor">

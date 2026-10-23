@@ -506,6 +506,30 @@ h6, .h6, .md-typeset h6 {
   box-shadow: 0 4px 12px rgba(0, 147, 199, 0.3);
 }
 
+/* Secondary call-to-action: a blue-outlined sibling of .btn-primary. It ties
+   the two GitHub links together through the shared blue, while the outline
+   (versus the primary's solid fill) marks it as the secondary action. The
+   dark-blue label stays AA-readable on white; hover fills to the brand blue
+   like .btn-primary. */
+.btn-converters {
+  --bs-btn-color: var(--ossie-dark-blue);
+  --bs-btn-bg: transparent;
+  --bs-btn-border-color: var(--ossie-primary-blue);
+  --bs-btn-hover-bg: var(--ossie-primary-blue);
+  --bs-btn-hover-border-color: var(--ossie-primary-blue);
+  --bs-btn-hover-color: #fff;
+  --bs-btn-active-bg: var(--ossie-dark-blue);
+  --bs-btn-active-border-color: var(--ossie-dark-blue);
+  --bs-btn-active-color: #fff;
+  font-weight: 600;
+  border-radius: 0.5rem;
+}
+
+.btn-converters:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 147, 199, 0.25);
+}
+
 .btn-outline-secondary {
   --bs-btn-color: var(--ossie-gray-700);
   --bs-btn-border-color: var(--ossie-gray-300);
