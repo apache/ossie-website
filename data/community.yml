@@ -91,3 +91,8 @@ community_page:
         vc_url: "https://relationalai.zoom.us/j/98467672408?pwd=UoVS6GHfSssQHtNUvdBQEPdZFt4Sut.1"
         notes_url: "https://docs.google.com/document/d/1u4DYy6_0U-YwRHLgHi-cOCUfvCp1RMB7iZNN_HZP0YE/edit?tab=t.0#heading=h.vgq6gsk6el5e"
         slack_url: "https://apache-ossie.slack.com/archives/C0ACQJVFVRN"
+      - name: "Financial Services"
+        type: "working_group"
+        focus: "Establishing conceptual interoperability for financial services"
+        vc_url: "https://meet.google.com/ufr-qsnn-ouq"
+        slack_url: "https://apache-ossie.slack.com/archives/C0CAXQM3B1S"
