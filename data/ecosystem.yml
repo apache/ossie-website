@@ -294,7 +294,7 @@ ecosystem:
     - name: "SqlDBM"
       logo: "sqldbm-logo.svg"
       details:
-        description: "Data modeling with a built in Semantic layer and native support for Ossie, Snowflake, Databricks, and more."
+        description: "Data modeling with a built-in Semantic layer and native support for Ossie, Snowflake, Databricks, and more."
         features:
           - title: "Reverse engineer Ossie YAML"
             description: "Import a Semantic Model from Ossie YAML into a physical or logical project."
