@@ -305,7 +305,7 @@ ecosystem:
             url: "https://support.sqldbm.com/hc/en-us/articles/46213087826573-Working-with-Semantic-Models"
             url_label: "Documentation"
           - title: "Relational model sync and native database model support for Snowflake and Databricks"
-            description: "Maintain Ossie semantics alongside Snowflake, Databricks, and other properties, in sync with your relational model. Your semantic models always sync with underlying physical objects and allow overloading and drift highlighting."
+            description: "Maintain Ossie semantics alongside Snowflake, Databricks, and other project properties. Your semantic models always sync with underlying physical objects and allow overloading and drift highlighting."
             url: "https://support.sqldbm.com/hc/en-us/articles/46213087826573-Working-with-Semantic-Models"
             url_label: "Documentation"
     - name: "Starburst Data"
