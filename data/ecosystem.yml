@@ -300,7 +300,7 @@ ecosystem:
             description: "Import a Semantic Model from Ossie YAML into a physical or logical project."
             url: "https://support.sqldbm.com/hc/en-us/articles/46213087826573-Working-with-Semantic-Models"
             url_label: "Documentation"
-          - title: "Forward Engineer Ossie YAML"
+          - title: "Forward engineer Ossie YAML"
             description: "Generate Ossie YAML from a Semantic Model in any project."
             url: "https://support.sqldbm.com/hc/en-us/articles/46213087826573-Working-with-Semantic-Models"
             url_label: "Documentation"
