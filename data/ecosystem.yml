@@ -310,6 +310,8 @@ ecosystem:
       logo: "sundial-logo.png"
     - name: "Tabular Editor"
       logo: "tabular-editor-logo.png"
+    - name: "Telmai"
+      logo: "telmai-logo.svg"
     - name: "ThoughtSpot"
       logo: "thoughtspot-logo.png"
     - name: "Veezoo"
