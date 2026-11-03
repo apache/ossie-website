@@ -1,0 +1,41 @@
+# Licensed to the Apache Software Foundation (ASF) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The ASF licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#   http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing,
+# software distributed under the License is distributed on an
+# "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+# KIND, either express or implied.  See the License for the
+# specific language governing permissions and limitations
+# under the License.
+
+# =============================================================================
+# Downloads Page Content
+# =============================================================================
+# Drives the Downloads page (docs/downloads.md).
+# When a release is published, add an entry under `releases`. Until there is
+# at least one release, the page shows `empty_message`.
+# =============================================================================
+
+downloads_page:
+  heading: "Downloads"
+  empty_message: "No release yet."
+
+  # KEYS file used to verify release signatures.
+  keys_url: "https://downloads.apache.org/incubator/ossie/KEYS"
+
+  # Releases, newest first. Example entry:
+  #
+  #   - version: "0.1.0-incubating"
+  #     date: "2027-01-15"
+  #     source: "https://www.apache.org/dyn/closer.lua/incubator/ossie/0.1.0-incubating/apache-ossie-0.1.0-incubating-src.tar.gz"
+  #     signature: "https://downloads.apache.org/incubator/ossie/0.1.0-incubating/apache-ossie-0.1.0-incubating-src.tar.gz.asc"
+  #     checksum: "https://downloads.apache.org/incubator/ossie/0.1.0-incubating/apache-ossie-0.1.0-incubating-src.tar.gz.sha512"
+  #     notes_url: "https://github.com/apache/ossie/releases/tag/v0.1.0-incubating"
+  releases: []
