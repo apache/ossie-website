@@ -66,27 +66,30 @@ spec_showcase:
     tool and agent in your stack works from the same source of truth.
   code_filename: "sales_analytics.ossie.yaml"
   code: |
-    <span class="ossie-yaml-key">semantic_model:</span>
-      - <span class="ossie-yaml-prop">name:</span> <span class="ossie-yaml-val">ecommerce_analytics</span>
-        <span class="ossie-yaml-prop">description:</span> <span class="ossie-yaml-comment">Sales and customer analytics</span>
-        <span class="ossie-yaml-key">ai_context:</span>
-          <span class="ossie-yaml-prop">instructions:</span> <span class="ossie-yaml-comment">"Use for sales analysis"</span>
+    <span class="ossie-yaml-prop">name:</span> <span class="ossie-yaml-val">sales_analytics</span>
+    <span class="ossie-yaml-prop">description:</span> <span class="ossie-yaml-comment">Sales and customer analytics</span>
+    <span class="ossie-yaml-key">ai_context:</span>
+      <span class="ossie-yaml-prop">instructions:</span> <span class="ossie-yaml-comment">"Use for sales analysis"</span>
 
-        <span class="ossie-yaml-key">datasets:</span>
-          - <span class="ossie-yaml-prop">name:</span> <span class="ossie-yaml-val">orders</span>
-            <span class="ossie-yaml-prop">source:</span> <span class="ossie-yaml-val">sales.public.orders</span>
-            <span class="ossie-yaml-prop">primary_key:</span> <span class="ossie-yaml-val">[order_id]</span>
-            <span class="ossie-yaml-key">fields:</span>
-              - <span class="ossie-yaml-prop">name:</span> <span class="ossie-yaml-val">order_date</span>
-                <span class="ossie-yaml-key">dimension:</span>
-                  <span class="ossie-yaml-prop">is_time:</span> <span class="ossie-yaml-val">true</span>
+    <span class="ossie-yaml-key">datasets:</span>
+      - <span class="ossie-yaml-prop">name:</span> <span class="ossie-yaml-val">orders</span>
+        <span class="ossie-yaml-prop">source:</span> <span class="ossie-yaml-val">sales.public.orders</span>
+        <span class="ossie-yaml-key">fields:</span>
+          - <span class="ossie-yaml-prop">name:</span> <span class="ossie-yaml-val">order_date</span>
+            <span class="ossie-yaml-key">expression:</span>
+              <span class="ossie-yaml-prop">sql:</span> <span class="ossie-yaml-val">date</span>
+            <span class="ossie-yaml-key">dimension:</span>
+              <span class="ossie-yaml-prop">is_time:</span> <span class="ossie-yaml-val">true</span>
 
         <span class="ossie-yaml-key">metrics:</span>
-          - <span class="ossie-yaml-prop">name:</span> <span class="ossie-yaml-val">total_revenue</span>
+          - <span class="ossie-yaml-prop">name:</span> <span class="ossie-yaml-val">order_revenue</span>
             <span class="ossie-yaml-key">expression:</span>
-              <span class="ossie-yaml-key">dialects:</span>
-                - <span class="ossie-yaml-prop">dialect:</span> <span class="ossie-yaml-val">ANSI_SQL</span>
-                  <span class="ossie-yaml-prop">expression:</span> <span class="ossie-yaml-val">SUM(orders.amount)</span>
+              <span class="ossie-yaml-prop">sql:</span> <span class="ossie-yaml-val">SUM(source.amount)</span>
+            <span class="ossie-yaml-prop">datatype:</span> <span class="ossie-yaml-val">Decimal</span>
+          - <span class="ossie-yaml-prop">name:</span> <span class="ossie-yaml-val">completed_orders</span>
+            <span class="ossie-yaml-key">expression:</span>
+              <span class="ossie-yaml-prop">sql:</span> <span class="ossie-yaml-val">COUNT(*) FILTER (WHERE source.status = 'completed')</span>
+            <span class="ossie-yaml-prop">datatype:</span> <span class="ossie-yaml-val">Integer</span>
   features:
     - title: "Consistent Definitions"
       description: "Ensure Marketing, Finance, and Sales all see the same numbers — no more metric drift."
