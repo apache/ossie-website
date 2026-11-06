@@ -36,6 +36,10 @@ ecosystem:
             url_label: "Documentation"
     - name: "Alation"
       logo: "alation-logo.png"
+    - name: "Alteryx"
+      logo: "alteryx-logo.png"
+      details:
+        description: "Alteryx, the business logic layer for enterprise AI, supports Apache Ossie (Incubating) and its goal of open, vendor-neutral business semantics. Shared semantics, paired with governed business logic, help organizations get trusted answers from their analytics and AI agents."
     - name: "Anomalo"
       logo: "anomalo-logo.svg"
     - name: "App Orchid"
