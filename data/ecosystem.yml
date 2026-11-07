@@ -58,6 +58,8 @@ ecosystem:
       logo: "blueyonder-logo.png"
     - name: "CARTO"
       logo: "carto-logo.png"
+    - name: "Celonis"
+      logo: "celonis-logo.png"
     - name: "Cloudera"
       logo: "cloudera-logo.png"
     - name: "Coalesce"
