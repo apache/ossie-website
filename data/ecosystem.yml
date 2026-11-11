@@ -355,7 +355,7 @@ ecosystem:
     - name: "ThoughtSpot"
       logo: "thoughtspot-logo.png"
     - name: "Upsolve AI"
-      logo: "upsolve-ai-logo.png"
+      logo: "upsolve-ai-logo.svg"
     - name: "Veezoo"
       logo: "veezoo-logo.svg"
       details:
