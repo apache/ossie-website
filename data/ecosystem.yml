@@ -354,6 +354,8 @@ ecosystem:
       logo: "telmai-logo.svg"
     - name: "ThoughtSpot"
       logo: "thoughtspot-logo.png"
+    - name: "Upsolve AI"
+      logo: "upsolve-ai-logo.png"
     - name: "Veezoo"
       logo: "veezoo-logo.svg"
       details:
