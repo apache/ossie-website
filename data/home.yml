@@ -98,6 +98,8 @@ spec_showcase:
       description: "Give LLMs the semantic context they need to answer business questions accurately."
     - title: "No Lock-In"
       description: "Move your business logic between platforms freely. Your metrics belong to you."
+    - title: "Verified Semantics"
+      description: "Compliance tests verify consistent query results, not just matching model structure."
 
 # --- About Section -----------------------------------------------------------
 about:
