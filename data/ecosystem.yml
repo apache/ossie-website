@@ -354,6 +354,19 @@ ecosystem:
       logo: "telmai-logo.svg"
     - name: "ThoughtSpot"
       logo: "thoughtspot-logo.png"
+    - name: "Upsolve AI"
+      logo: "upsolve-ai-logo.svg"
+      details:
+        description: "Upsolve AI builds AI analytics agents that answer business questions from company data. Upsolve reads a team's semantic layer straight from its git repository, so agents answer with the metrics and definitions the data team already maintains. Upsolve supports Apache Ossie alongside dbt MetricFlow, so semantic models from Ossie-compatible tools can power Upsolve agents through one open, vendor-neutral format."
+        features:
+          - title: "Git-synced semantic layer"
+            description: "Connect an Apache Ossie or dbt MetricFlow repository through Upsolve's GitHub App. Upsolve syncs its semantic model and metrics on every commit, and its agents answer with those governed metrics instead of writing their own SQL."
+            url: "https://upsolve.ai"
+            url_label: "Learn more"
+          - title: "Changes back as pull requests"
+            description: "When a builder improves an agent's metrics, rules or definitions in Upsolve, the change goes back to the Ossie repository as a pull request for the data team to review."
+            url: "https://upsolve.ai"
+            url_label: "Learn more"
     - name: "Veezoo"
       logo: "veezoo-logo.svg"
       details:
