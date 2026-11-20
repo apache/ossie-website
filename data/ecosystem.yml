@@ -229,7 +229,7 @@ ecosystem:
     - name: "NNumbers"
       logo: "nnumbers-logo.svg"
       details:
-        description: "NNumbers builds Infinite Data, a governed data platform. Infinite Data reads Apache Ossie (Incubating) semantic models and answers questions about metrics and dimensions by generating SQL from the model and running it under the identity of whoever asks, so access rules are enforced outside the model. This is an experimental integration that tracks the 0.3.0.dev0 draft."
+        description: "NNumbers builds Infinite Data, a governed data platform. Infinite Data reads Apache Ossie (Incubating) semantic models and answers questions about metrics and dimensions by generating SQL from the model and running it under the identity of whoever asks, so access rules are enforced outside the model. Infinite Data supports specification 0.3.0.dev0 and is updated as new versions are released."
         features:
           - title: "Consume Ossie models"
             description: "Datasets, fields, many-to-one relationships and metrics declared in an Ossie YAML file become SQL for a question made of metrics, dimensions and a filter. Questions that would double count are refused."
