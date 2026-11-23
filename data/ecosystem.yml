@@ -126,6 +126,17 @@ ecosystem:
       logo: "elementum-logo.png"
     - name: "Entropy Data"
       logo: "entropy-data-logo.svg"
+      details:
+        description: "Entropy Data is a data product marketplace, with data contracts and semantics managed in one place. It stores ontologies and semantic models as Apache Ossie (Incubating) documents and links them to data products. Entropy Data contributes to the Ossie Ontology working group."
+        features:
+          - title: "Ontology Editor"
+            description: "Visual editor with branching and diff view for ontologies in native Apache Ossie Ontology format. Auto-sync to data platform's native context layers."
+            url: "https://docs.entropy-data.com/concepts/semantics"
+            url_label: "Documentation"
+          - title: "Semantic Model Editor"
+            description: "Create and edit Ossie semantic models in a visual editor or as YAML. Datasets, fields, relationships and metrics can each link to a concept in the ontology."
+            url: "https://docs.entropy-data.com/concepts/semantic-models"
+            url_label: "Documentation"
     - name: "Exmergo"
       logo: "exmergo-logo.png"
       details:
