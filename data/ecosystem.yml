@@ -209,6 +209,8 @@ ecosystem:
       logo: "microsoft-logo.png"
     - name: "Mistral AI"
       logo: "mistral-ai-logo.png"
+    - name: "Motley"
+      logo: "motley-logo.svg"
     - name: "NeverBlink"
       logo: "neverblink-logo.svg"
       details:
