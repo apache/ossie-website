@@ -210,7 +210,7 @@ ecosystem:
     - name: "Mistral AI"
       logo: "mistral-ai-logo.png"
     - name: "Motley"
-      logo: "motley-logo.svg"
+      logo: "motley-logo.png"
       details:
         description: "Motley builds SLayer, an open-source semantic layer for AI agents. SLayer stores Apache Ossie (Incubating) semantic models natively and answers Ossie wide-table queries with Ossie's results. It publishes a layer-by-layer statement of its Ossie compliance, with each claim backed by the tests that check it."
         features:
