@@ -60,6 +60,13 @@ ecosystem:
       logo: "carto-logo.png"
     - name: "Celonis"
       logo: "celonis-logo.png"
+      details:
+        description: "Celonis contributed a file converter for exchanging business objects, event sources, and their relationships with Apache Ossie (Incubating)."
+        features:
+          - title: "Celonis ↔ Apache Ossie converter"
+            description: "Convert Celonis JSON to Ossie core, ontology, and mapping files, or convert those files back to Celonis JSON."
+            url: "https://github.com/apache/ossie-converters/tree/main/celonis"
+            url_label: "View on GitHub"
     - name: "Cloudera"
       logo: "cloudera-logo.png"
     - name: "Coalesce"
