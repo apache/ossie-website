@@ -370,6 +370,13 @@ ecosystem:
             url_label: "Documentation"
     - name: "Starburst Data"
       logo: "starburst-logo.png"
+      details:
+        description: "Starburst is a data platform built on Trino that lets teams query databases and data lakes together with SQL. Context Studio gives AI agents shared business definitions, metrics, rules, and join keys to use when querying that data."
+        features:
+          - title: "Starburst Context Studio"
+            description: "Context Studio brings together context from data products, query history, and code repositories. It makes governed context available to AI agents through the Model Context Protocol (MCP). Context Studio is in private preview."
+            url: "https://docs.starburst.io/starburst-galaxy/context-studio/index.html"
+            url_label: "Documentation"
     - name: "Strategy"
       logo: "strategy-logo.png"
       details:
