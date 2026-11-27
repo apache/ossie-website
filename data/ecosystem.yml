@@ -114,6 +114,15 @@ ecosystem:
             description: "An open-source data engineering agent that builds Apache Ossie YAML from your existing SQL, dashboards, ETL pipelines and natural language."
             url: "https://github.com/Datus-ai/Datus-agent/"
             url_label: "View on GitHub"
+    - name: "Dawiso"
+      logo: "dawiso-logo.svg"
+      details:
+        description: "Dawiso is a data governance and context platform with a business glossary, data catalog and lineage. It exports data products as Apache Ossie (incubating) semantic models, so governed business definitions can be reused in Snowflake and other Ossie-compatible tools."
+        features:
+          - title: "Export a data product as Ossie YAML"
+            description: "Export a data product's semantic model, with its tables, columns and relationships, as an Ossie YAML file and create a Snowflake semantic view from it."
+            url: "https://help.dawiso.com/actual/data-product-osi-export/"
+            url_label: "Documentation"
     - name: "Denodo"
       logo: "denodo-logo.png"
     - name: "dbt Labs"
