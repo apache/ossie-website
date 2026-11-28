@@ -168,6 +168,23 @@ ecosystem:
             url_label: "See Details"
     - name: "Firebolt"
       logo: "firebolt-logo.png"
+    - name: "GASP Standard"
+      logo: "gasp-standard-logo.svg"
+      details:
+        description: "The GASP Standard (Generally Accepted SaaS Principles) is an open standard for SaaS metrics such as MRR and net revenue retention. It defines more than 300 metrics and gives nearly every one a formula in a single grammar. The formulas are exported as Apache Ossie (Incubating) files and checked with the Ossie validator."
+        features:
+          - title: "The standard as Ossie files"
+            description: "Download the ontology of a SaaS business, the reference semantic model that holds each formula as a metric and the mapping between the two, under CC BY 4.0. A coverage file records how each metric was exported and the reason for every one staged through a dataset."
+            url: "https://gaspwiki.com/downloads/ossie/"
+            url_label: "Downloads"
+          - title: "Map a company's data to the standard"
+            description: "The gasp-standard-mcp server (open source, Apache-2.0) checks a mapping from a company's tables to the GASP datasets and returns the company's own Ossie semantic model with every metric the mapping covers compiled in. It also scores how far the company's existing metric definitions drift from the standard's."
+            url: "https://gaspwiki.com/v1/tools/"
+            url_label: "Documentation"
+          - title: "Vendor validator"
+            description: "GASP is listed in the Ossie vendor extensions catalog. The gasp-ossie-validator package checks the GASP entries of a semantic model or a mapping when the Ossie validator runs with --vendor GASP."
+            url: "https://pypi.org/project/gasp-ossie-validator/"
+            url_label: "PyPI"
     - name: "Golden Analytics"
       logo: "golden-analytics-logo.png"
       details:
